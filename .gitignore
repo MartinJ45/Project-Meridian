@@ -14,4 +14,11 @@ frontend/dist/
 data/meridian.db
 data/meridian.db-*
 
-# Committed on purpose: data/extracted/, data/recon_specs/, data/models/, data/corrections.jsonl
+# local correction journal (reviewed corrections made while using the app; replayed on rebuild)
+data/corrections.jsonl
+
+# local chat history (personal; not part of the knowledge base)
+data/chats.db
+data/chats.db-*
+
+# Committed on purpose: data/extracted/, data/recon_specs/, data/models/

@@ -46,6 +46,20 @@ export const SendIcon = (p) => (
 
 
 
+export const HistoryIcon = (p) => (
+  <svg {...base} {...p}>
+    <path d="M3.5 12a8.5 8.5 0 1 0 2.5-6" />
+    <path d="M3.5 4v4h4" />
+    <path d="M12 8v4.5l3 2" />
+  </svg>
+)
+
+export const TrashIcon = (p) => (
+  <svg {...base} width={18} height={18} {...p}>
+    <path d="M4 7h16M10 11v6M14 11v6M6 7l1 12a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2l1-12M9 7V4h6v3" />
+  </svg>
+)
+
 export const CopyIcon = (p) => (
   <svg {...base} width={18} height={18} {...p}>
     <rect x="8" y="8" width="12" height="12" rx="2" />

@@ -37,20 +37,48 @@ function Avatar() {
   )
 }
 
-export default function ChatView({ online, onOpenInDrawings }) {
+// The panel to show for an answer: its first drawing, on the 3D tab when a reconstruction exists.
+function panelFor(attachments = []) {
+  const first = attachments.find((a) => a.type === 'drawing')
+  if (!first) return null
+  const has3d = attachments.some((a) => a.type === 'model3d' && a.document_id === first.document_id)
+  return { document_id: first.document_id, tab: has3d ? '3d' : '2d' }
+}
+
+// chatId: the stored chat to show (null = new chat). Mounted fresh for each chat (keyed in App).
+export default function ChatView({ chatId, online, onChatCreated, onChatMissing, onOpenInDrawings }) {
   const [messages, setMessages] = useState([])
   const [input, setInput] = useState('')
   const [busy, setBusy] = useState(false)
+  const [loading, setLoading] = useState(!!chatId)
   const [progress, setProgress] = useState('')
   const [active, setActive] = useState(null) // { document_id, tab }
   const endRef = useRef(null)
+  const chatIdRef = useRef(chatId)
+
+  // Reopen a stored chat (after a refresh or from Past chats), including its last drawing panel.
+  useEffect(() => {
+    if (!chatId) return
+    let cancelled = false
+    api.getChat(chatId)
+      .then((chat) => {
+        if (cancelled) return
+        setMessages(chat.messages.map((m) => ({ role: m.role, content: m.content, meta: m.meta })))
+        const lastWithDrawing = [...chat.messages].reverse().find((m) => panelFor(m.meta?.attachments))
+        if (lastWithDrawing) setActive(panelFor(lastWithDrawing.meta.attachments))
+      })
+      .catch(() => { if (!cancelled) onChatMissing?.() }) // deleted or unknown id: start fresh
+      .finally(() => { if (!cancelled) setLoading(false) })
+    return () => { cancelled = true }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
 
   // Braces matter: newer browsers return a Promise from scrollIntoView, which React would treat as a cleanup.
   useEffect(() => { endRef.current?.scrollIntoView({ behavior: 'smooth' }) }, [messages, progress])
 
   async function send(text) {
     const q = (text ?? input).trim()
-    if (!q || busy) return
+    if (!q || busy || loading) return
     const next = [...messages, { role: 'user', content: q }]
     setMessages(next)
     setInput('')
@@ -63,14 +91,16 @@ export default function ChatView({ online, onOpenInDrawings }) {
       setProgress(steps[i])
     }, 2500)
     try {
-      const res = await api.chat(next.map(({ role, content }) => ({ role, content })))
+      // The server keeps the history; we send only the new message and the chat id.
+      const res = await api.chat(q, chatIdRef.current)
+      if (!chatIdRef.current) {
+        chatIdRef.current = res.chat_id
+        onChatCreated?.(res.chat_id)
+      }
       setMessages([...next, { role: 'assistant', content: res.reply, meta: res }])
       // Chat drives the visual: open the first attached drawing, preferring 3D when present.
-      const first = res.attachments.find((a) => a.type === 'drawing')
-      if (first) {
-        const has3d = res.attachments.some((a) => a.type === 'model3d' && a.document_id === first.document_id)
-        setActive({ document_id: first.document_id, tab: has3d ? '3d' : '2d' })
-      }
+      const panel = panelFor(res.attachments)
+      if (panel) setActive(panel)
     } catch (e) {
       setMessages([...next, { role: 'assistant', content: `Something went wrong: ${e.message}`, error: true }])
     } finally {
@@ -85,7 +115,8 @@ export default function ChatView({ online, onOpenInDrawings }) {
       <section className="chat">
         <div className="messages">
           <div className="column">
-            {messages.length === 0 && (
+            {loading && <div className="empty muted">Loading chat…</div>}
+            {!loading && messages.length === 0 && (
               <div className="empty">
                 <img className="empty-logo" src={logo} alt="" />
                 <h2>Ask about the OpenLPBF v2 design evidence</h2>

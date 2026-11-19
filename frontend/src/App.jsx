@@ -1,21 +1,28 @@
-import { useEffect, useState } from 'react'
+import { useCallback, useEffect, useRef, useState } from 'react'
 import { api } from './api.js'
 import ChatView from './components/ChatView.jsx'
 import DocumentsView from './components/DocumentsView.jsx'
+import HistoryView from './components/HistoryView.jsx'
 import ReviewView from './components/ReviewView.jsx'
-import { ChatIcon, DocumentIcon, PlusIcon, ReviewIcon, UserIcon } from './components/Icons.jsx'
+import { ChatIcon, DocumentIcon, HistoryIcon, PlusIcon, ReviewIcon, UserIcon } from './components/Icons.jsx'
 
 const VIEWS = [
   { id: 'chat', label: 'Chat', Icon: ChatIcon },
+  { id: 'history', label: 'Past chats', Icon: HistoryIcon },
   { id: 'documents', label: 'Drawings', Icon: DocumentIcon },
   { id: 'review', label: 'Review corrections', Icon: ReviewIcon },
 ]
+
+// The open chat lives in the URL (#/chat/<id>) so a page refresh reopens it.
+const chatIdFromHash = () => window.location.hash.match(/^#\/chat\/([\w-]+)$/)?.[1] ?? null
 
 export default function App() {
   const [view, setView] = useState('chat')
   const [health, setHealth] = useState(null)
   const [error, setError] = useState(null)
-  const [chatKey, setChatKey] = useState(0) // bump to start a new chat
+  const [chatId, setChatId] = useState(chatIdFromHash)
+  const chatIdRef = useRef(chatId)
+  const [chatKey, setChatKey] = useState(0) // bump to remount ChatView (new or different chat)
   // Shared so a drawing opened from chat can also be opened in the Drawings view.
   const [selectedDoc, setSelectedDoc] = useState(null)
 
@@ -43,13 +50,41 @@ export default function App() {
 
   const online = browserOnline && serverReachable
 
+  const switchChat = useCallback((id) => {
+    chatIdRef.current = id
+    setChatId(id)
+    setChatKey((k) => k + 1)
+    setView('chat')
+  }, [])
+
+  // Back/forward buttons and manually edited URLs.
+  useEffect(() => {
+    const onHash = () => {
+      const id = chatIdFromHash()
+      if (id !== chatIdRef.current) switchChat(id)
+    }
+    window.addEventListener('hashchange', onHash)
+    return () => window.removeEventListener('hashchange', onHash)
+  }, [switchChat])
+
+  const openChat = (id) => {
+    if (id === chatIdRef.current) { setView('chat'); return }
+    window.location.hash = `#/chat/${id}` // hashchange -> switchChat
+  }
+  const newChat = () => {
+    window.history.pushState(null, '', window.location.pathname + window.location.search)
+    switchChat(null)
+  }
+  // The first message of a new chat created it on the server: record the id without remounting.
+  const onChatCreated = (id) => {
+    chatIdRef.current = id
+    setChatId(id)
+    window.history.replaceState(null, '', `#/chat/${id}`)
+  }
+
   const openInDrawings = (docId) => {
     setSelectedDoc(docId)
     setView('documents')
-  }
-  const newChat = () => {
-    setChatKey((k) => k + 1)
-    setView('chat')
   }
 
   return (
@@ -81,8 +116,20 @@ export default function App() {
         {error && <div className="banner error">Backend error: {error}</div>}
         {/* Chat stays mounted (just hidden) so switching views keeps the conversation. */}
         <div className="view" hidden={view !== 'chat'}>
-          <ChatView key={chatKey} online={online} onOpenInDrawings={openInDrawings} />
+          <ChatView
+            key={chatKey}
+            chatId={chatId}
+            online={online}
+            onChatCreated={onChatCreated}
+            onChatMissing={newChat}
+            onOpenInDrawings={openInDrawings}
+          />
         </div>
+        {view === 'history' && (
+          <div className="view">
+            <HistoryView currentId={chatId} onOpen={openChat} onDeletedCurrent={newChat} onNew={newChat} />
+          </div>
+        )}
         {view === 'documents' && <div className="view"><DocumentsView selected={selectedDoc} onSelect={setSelectedDoc} /></div>}
         {view === 'review' && <div className="view"><ReviewView /></div>}
       </main>

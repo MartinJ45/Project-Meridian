@@ -13,6 +13,7 @@ BOM_CSV = DATASET / "context" / "openlpbf-bom.csv"
 
 DATA = ROOT / "data"
 DB_PATH = DATA / "meridian.db"          # generated, gitignored; rebuilt by ingest
+CHATS_DB_PATH = DATA / "chats.db"       # chat history; separate so ingest rebuilds never erase it
 EXTRACTED = DATA / "extracted"          # committed: per-drawing extraction output
 RECON_SPECS = DATA / "recon_specs"      # committed: hand/LLM-read dimensions per part
 MODELS_DIR = DATA / "models"            # committed: generated .glb reconstructions

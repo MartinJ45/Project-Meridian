@@ -11,7 +11,7 @@ from fastapi.responses import FileResponse
 from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel
 
-from . import config
+from . import chats, config
 from . import knowledge as kb
 from .chat.agent import run_turn
 from .db import connect
@@ -63,15 +63,54 @@ def bom_row(row_index: int, con=Depends(get_con)):
     return kb.get_bom_row(con, row_index) or _404(row_index)
 
 
+def get_chats_con():
+    con = chats.open_db()
+    try:
+        yield con
+    finally:
+        con.close()
+
+
 class ChatRequest(BaseModel):
-    messages: list[dict]  # [{role: "user"|"assistant", content: str}]
+    message: str
+    chat_id: str | None = None  # omit to start a new chat
 
 
 @app.post("/api/chat")
-def chat(req: ChatRequest, con=Depends(get_con)):
-    if not req.messages:
-        raise HTTPException(400, "messages is empty")
-    return run_turn(con, req.messages)
+def chat(req: ChatRequest, con=Depends(get_con), ccon=Depends(get_chats_con)):
+    """One chat turn. History comes from the stored chat, and both sides of the turn are saved."""
+    message = req.message.strip()
+    if not message:
+        raise HTTPException(400, "message is empty")
+    if req.chat_id:
+        if not chats.get_chat(ccon, req.chat_id):
+            _404(req.chat_id)
+        chat_id = req.chat_id
+    else:
+        chat_id = chats.create_chat(ccon, message)["id"]
+    msgs = chats.history(ccon, chat_id) + [{"role": "user", "content": message}]
+    chats.add_message(ccon, chat_id, "user", message)  # saved first, so a failed turn still shows the question
+    result = run_turn(con, msgs)
+    chats.add_message(ccon, chat_id, "assistant", result["reply"],
+                      {k: result[k] for k in ("attachments", "trace", "mode", "latency_ms")})
+    return {"chat_id": chat_id, **result}
+
+
+@app.get("/api/chats")
+def chat_list(ccon=Depends(get_chats_con)):
+    return chats.list_chats(ccon)
+
+
+@app.get("/api/chats/{chat_id}")
+def chat_get(chat_id: str, ccon=Depends(get_chats_con)):
+    return chats.get_chat(ccon, chat_id) or _404(chat_id)
+
+
+@app.delete("/api/chats/{chat_id}")
+def chat_delete(chat_id: str, ccon=Depends(get_chats_con)):
+    if not chats.delete_chat(ccon, chat_id):
+        _404(chat_id)
+    return {"deleted": chat_id}
 
 
 class Review(BaseModel):
