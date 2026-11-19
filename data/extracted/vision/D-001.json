@@ -1,0 +1,268 @@
+{
+ "document_id": "D-001",
+ "distribution": "degraded-only",
+ "extractor": {
+  "model": "gemini-3.8-flash",
+  "prompt_version": "drawing-fields-v1",
+  "dpi": 200,
+  "verification": "repeat read at 150 dpi",
+  "extracted_at": "2026-11-19T19:54:44+00:00",
+  "seconds": 45.9,
+  "usage": {
+   "prompt_tokens": 2898,
+   "output_tokens": 2639,
+   "thinking_tokens": 2290
+  }
+ },
+ "pages": [
+  {
+   "page": 1,
+   "sheet_legibility": "clear",
+   "legibility_issues": "",
+   "title_block": {
+    "title": {
+     "value": null,
+     "legibility": "clear",
+     "box_2d": [
+      837,
+      815,
+      917,
+      893
+     ],
+     "check": "repeat_read_agrees"
+    },
+    "material": {
+     "value": null,
+     "legibility": "clear",
+     "box_2d": [
+      916,
+      620,
+      938,
+      738
+     ],
+     "check": "repeat_read_agrees"
+    },
+    "weight_g": {
+     "value": null,
+     "legibility": "clear",
+     "box_2d": [
+      915,
+      740,
+      937,
+      814
+     ],
+     "check": "repeat_read_agrees"
+    },
+    "scale": {
+     "value": "1:5",
+     "legibility": "clear",
+     "box_2d": [
+      954,
+      916,
+      963,
+      932
+     ],
+     "check": "repeat_read_agrees"
+    },
+    "sheet": {
+     "value": "1 OF 1",
+     "legibility": "clear",
+     "box_2d": [
+      954,
+      950,
+      963,
+      971
+     ],
+     "check": "repeat_read_agrees"
+    },
+    "date": {
+     "value": "21/12/2023",
+     "legibility": "clear",
+     "box_2d": [
+      953,
+      779,
+      963,
+      808
+     ],
+     "check": "repeat_read_agrees"
+    },
+    "company": {
+     "value": "DTU MPP",
+     "legibility": "clear",
+     "box_2d": [
+      798,
+      819,
+      812,
+      861
+     ],
+     "check": "repeat_read_agrees"
+    },
+    "finish": {
+     "value": null,
+     "legibility": "clear",
+     "box_2d": [
+      938,
+      620,
+      962,
+      739
+     ],
+     "check": "repeat_read_agrees"
+    },
+    "general_tolerance": {
+     "value": "DIN ISO 2768-1 m",
+     "legibility": "clear",
+     "box_2d": [
+      938,
+      853,
+      948,
+      895
+     ],
+     "check": "repeat_read_agrees"
+    },
+    "paper_size": {
+     "value": "A3",
+     "legibility": "clear",
+     "box_2d": [
+      927,
+      959,
+      943,
+      972
+     ],
+     "check": "repeat_read_agrees"
+    },
+    "note": {
+     "value": "Door - x2\n3mm aluminium",
+     "legibility": "clear",
+     "box_2d": [
+      784,
+      626,
+      837,
+      716
+     ],
+     "check": "repeat_read_agrees"
+    }
+   },
+   "views": [
+    "front view",
+    "side view"
+   ],
+   "dimensions": [
+    {
+     "text": "3,00",
+     "feature": "sheet thickness",
+     "view": "side view",
+     "legibility": "clear",
+     "box_2d": [
+      212,
+      198,
+      226,
+      221
+     ],
+     "check": "repeat_read_agrees"
+    },
+    {
+     "text": "492,00",
+     "feature": "overall width",
+     "view": "front view",
+     "legibility": "clear",
+     "box_2d": [
+      213,
+      535,
+      226,
+      570
+     ],
+     "check": "repeat_read_agrees"
+    },
+    {
+     "text": "515",
+     "feature": "overall height",
+     "view": "front view",
+     "legibility": "clear",
+     "box_2d": [
+      424,
+      683,
+      449,
+      696
+     ],
+     "check": "repeat_read_agrees"
+    },
+    {
+     "text": "287,00",
+     "feature": "cutout width",
+     "view": "front view",
+     "legibility": "clear",
+     "box_2d": [
+      454,
+      510,
+      469,
+      546
+     ],
+     "check": "repeat_read_agrees"
+    },
+    {
+     "text": "200,00",
+     "feature": "cutout height",
+     "view": "front view",
+     "legibility": "clear",
+     "box_2d": [
+      396,
+      581,
+      444,
+      595
+     ],
+     "check": "repeat_read_agrees"
+    }
+   ],
+   "callouts": [
+    {
+     "text": "2 x ⌀ 4,50 THRU ALL",
+     "legibility": "clear",
+     "box_2d": [
+      276,
+      474,
+      292,
+      582
+     ],
+     "check": "repeat_read_agrees"
+    },
+    {
+     "text": "3 x ⌀ 6,60 THRU ALL",
+     "legibility": "clear",
+     "box_2d": [
+      376,
+      310,
+      390,
+      418
+     ],
+     "check": "repeat_read_agrees"
+    },
+    {
+     "text": "20 x ⌀ 4,50 THRU ALL",
+     "legibility": "clear",
+     "box_2d": [
+      538,
+      490,
+      552,
+      604
+     ],
+     "check": "repeat_read_agrees"
+    },
+    {
+     "text": "6 x ⌀ 6,60 THRU ALL",
+     "legibility": "clear",
+     "box_2d": [
+      454,
+      731,
+      470,
+      838
+     ],
+     "check": "repeat_read_agrees"
+    }
+   ],
+   "repeat_read": {
+    "dpi": 150,
+    "sheet_legibility": "clear"
+   }
+  }
+ ]
+}

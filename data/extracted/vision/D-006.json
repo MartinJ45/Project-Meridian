@@ -1,0 +1,308 @@
+{
+ "document_id": "D-006",
+ "distribution": "clean",
+ "extractor": {
+  "model": "gemini-3.8-flash",
+  "prompt_version": "drawing-fields-v1",
+  "dpi": 200,
+  "verification": "embedded text layer",
+  "extracted_at": "2026-11-19T19:54:43+00:00",
+  "seconds": 20.6,
+  "usage": {
+   "prompt_tokens": 1910,
+   "output_tokens": 1605,
+   "thinking_tokens": 949
+  }
+ },
+ "pages": [
+  {
+   "page": 1,
+   "sheet_legibility": "clear",
+   "legibility_issues": "",
+   "title_block": {
+    "title": {
+     "value": null,
+     "legibility": "clear",
+     "box_2d": [
+      834,
+      814,
+      919,
+      898
+     ],
+     "check": "empty"
+    },
+    "material": {
+     "value": null,
+     "legibility": "clear",
+     "box_2d": [
+      913,
+      621,
+      938,
+      737
+     ],
+     "check": "empty"
+    },
+    "weight_g": {
+     "value": null,
+     "legibility": "clear",
+     "box_2d": [
+      912,
+      735,
+      937,
+      814
+     ],
+     "check": "empty"
+    },
+    "scale": {
+     "value": "1:5",
+     "legibility": "clear",
+     "box_2d": [
+      953,
+      907,
+      963,
+      933
+     ],
+     "check": "text_layer_match"
+    },
+    "sheet": {
+     "value": "1 OF 1",
+     "legibility": "clear",
+     "box_2d": [
+      954,
+      942,
+      963,
+      972
+     ],
+     "check": "text_layer_match"
+    },
+    "date": {
+     "value": "23/12/2023",
+     "legibility": "clear",
+     "box_2d": [
+      953,
+      781,
+      963,
+      808
+     ],
+     "check": "text_layer_match"
+    },
+    "company": {
+     "value": "DTU MPP",
+     "legibility": "clear",
+     "box_2d": [
+      799,
+      818,
+      812,
+      861
+     ],
+     "check": "text_layer_match"
+    },
+    "finish": {
+     "value": null,
+     "legibility": "clear",
+     "box_2d": [
+      938,
+      621,
+      965,
+      743
+     ],
+     "check": "empty"
+    },
+    "general_tolerance": {
+     "value": "DIN ISO 2768-1 m",
+     "legibility": "clear",
+     "box_2d": [
+      939,
+      851,
+      949,
+      894
+     ],
+     "check": "text_layer_match"
+    },
+    "paper_size": {
+     "value": "A3",
+     "legibility": "clear",
+     "box_2d": [
+      929,
+      958,
+      942,
+      972
+     ],
+     "check": "text_layer_match"
+    },
+    "note": {
+     "value": "Canister Wall\nLeft and right side, one of each.\nNon-magnetic stainless\n3mm (or thicker)",
+     "legibility": "clear",
+     "box_2d": [
+      797,
+      629,
+      881,
+      804
+     ],
+     "check": "text_layer_match"
+    }
+   },
+   "views": [
+    "top view",
+    "front view",
+    "left view",
+    "isometric right side",
+    "isometric left side"
+   ],
+   "dimensions": [
+    {
+     "text": "50,00",
+     "feature": "flange height",
+     "view": "top view",
+     "legibility": "clear",
+     "box_2d": [
+      78,
+      477,
+      117,
+      490
+     ],
+     "check": "text_layer_match"
+    },
+    {
+     "text": "3,00",
+     "feature": "sheet thickness",
+     "view": "top view",
+     "legibility": "clear",
+     "box_2d": [
+      109,
+      426,
+      126,
+      450
+     ],
+     "check": "text_layer_match"
+    },
+    {
+     "text": "24,25",
+     "feature": "flange width",
+     "view": "top view",
+     "legibility": "clear",
+     "box_2d": [
+      116,
+      384,
+      155,
+      395
+     ],
+     "check": "text_layer_match"
+    },
+    {
+     "text": "36,50",
+     "feature": "unknown",
+     "view": "top view",
+     "legibility": "clear",
+     "box_2d": [
+      220,
+      299,
+      260,
+      311
+     ],
+     "check": "text_layer_match"
+    },
+    {
+     "text": "30,00",
+     "feature": "hole pitch",
+     "view": "top view",
+     "legibility": "clear",
+     "box_2d": [
+      219,
+      314,
+      260,
+      326
+     ],
+     "check": "text_layer_match"
+    },
+    {
+     "text": "243,50",
+     "feature": "overall width",
+     "view": "front view",
+     "legibility": "clear",
+     "box_2d": [
+      308,
+      389,
+      323,
+      426
+     ],
+     "check": "text_layer_match"
+    },
+    {
+     "text": "420,00",
+     "feature": "overall height",
+     "view": "front view",
+     "legibility": "clear",
+     "box_2d": [
+      475,
+      299,
+      524,
+      311
+     ],
+     "check": "text_layer_match"
+    },
+    {
+     "text": "357,00",
+     "feature": "unknown",
+     "view": "front view",
+     "legibility": "clear",
+     "box_2d": [
+      495,
+      314,
+      545,
+      326
+     ],
+     "check": "text_layer_match"
+    },
+    {
+     "text": "27,00",
+     "feature": "hole distance from edge",
+     "view": "front view",
+     "legibility": "clear",
+     "box_2d": [
+      413,
+      374,
+      430,
+      404
+     ],
+     "check": "text_layer_match"
+    }
+   ],
+   "callouts": [
+    {
+     "text": "2 x ⌀ 12,00 THRU ALL",
+     "legibility": "clear",
+     "box_2d": [
+      227,
+      401,
+      243,
+      516
+     ],
+     "check": "text_layer_match"
+    },
+    {
+     "text": "3 x ⌀ 10,50 THRU ALL\nfor M8 weld nut\nOn inside of flange",
+     "legibility": "clear",
+     "box_2d": [
+      340,
+      175,
+      396,
+      291
+     ],
+     "check": "text_layer_match"
+    },
+    {
+     "text": "4 x ⌀ 10,00 THRU ALL",
+     "legibility": "clear",
+     "box_2d": [
+      340,
+      477,
+      356,
+      592
+     ],
+     "check": "text_layer_match"
+    }
+   ]
+  }
+ ]
+}

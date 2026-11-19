@@ -1,0 +1,278 @@
+{
+ "document_id": "D-012",
+ "distribution": "clean",
+ "extractor": {
+  "model": "gemini-3.8-flash",
+  "prompt_version": "drawing-fields-v1",
+  "dpi": 200,
+  "verification": "embedded text layer",
+  "extracted_at": "2026-11-19T19:55:52+00:00",
+  "seconds": 19.5,
+  "usage": {
+   "prompt_tokens": 1984,
+   "output_tokens": 1123,
+   "thinking_tokens": 1182
+  }
+ },
+ "pages": [
+  {
+   "page": 1,
+   "sheet_legibility": "clear",
+   "legibility_issues": "",
+   "title_block": {
+    "title": {
+     "value": "Recoater Mount Block",
+     "legibility": "clear",
+     "box_2d": [
+      863,
+      822,
+      878,
+      951
+     ],
+     "check": "text_layer_match"
+    },
+    "material": {
+     "value": "3.3315 (EN-AW 5005)",
+     "legibility": "clear",
+     "box_2d": [
+      918,
+      661,
+      929,
+      730
+     ],
+     "check": "text_layer_match"
+    },
+    "weight_g": {
+     "value": "117.3",
+     "legibility": "clear",
+     "box_2d": [
+      918,
+      782,
+      928,
+      800
+     ],
+     "check": "text_layer_match"
+    },
+    "scale": {
+     "value": "1:1",
+     "legibility": "clear",
+     "box_2d": [
+      955,
+      921,
+      963,
+      932
+     ],
+     "check": "text_layer_match"
+    },
+    "sheet": {
+     "value": "1 OF 1",
+     "legibility": "clear",
+     "box_2d": [
+      955,
+      957,
+      963,
+      972
+     ],
+     "check": "text_layer_match"
+    },
+    "date": {
+     "value": "24/11/2021",
+     "legibility": "clear",
+     "box_2d": [
+      955,
+      784,
+      963,
+      808
+     ],
+     "check": "text_layer_match"
+    },
+    "company": {
+     "value": "DTU MPP",
+     "legibility": "clear",
+     "box_2d": [
+      801,
+      833,
+      814,
+      876
+     ],
+     "check": "text_layer_match"
+    },
+    "finish": {
+     "value": null,
+     "legibility": "clear",
+     "box_2d": [
+      938,
+      622,
+      965,
+      747
+     ],
+     "check": "empty"
+    },
+    "general_tolerance": {
+     "value": "DIN ISO 2768-1 m",
+     "legibility": "clear",
+     "box_2d": [
+      940,
+      853,
+      948,
+      895
+     ],
+     "check": "text_layer_match"
+    },
+    "paper_size": {
+     "value": "A3",
+     "legibility": "clear",
+     "box_2d": [
+      929,
+      958,
+      943,
+      972
+     ],
+     "check": "text_layer_match"
+    },
+    "note": {
+     "value": "Alu. Montage klods til linæer føring",
+     "legibility": "clear",
+     "box_2d": [
+      803,
+      625,
+      850,
+      792
+     ],
+     "check": "text_layer_match"
+    }
+   },
+   "views": [
+    "side view",
+    "front view",
+    "isometric"
+   ],
+   "dimensions": [
+    {
+     "text": "15,0 ±1,0",
+     "feature": "thickness",
+     "view": "side view",
+     "legibility": "clear",
+     "box_2d": [
+      201,
+      209,
+      216,
+      255
+     ],
+     "check": "text_layer_match"
+    },
+    {
+     "text": "25,0 +0,1/-0,5",
+     "feature": "width",
+     "view": "front view",
+     "legibility": "clear",
+     "box_2d": [
+      166,
+      444,
+      196,
+      493
+     ],
+     "check": "text_layer_match"
+    },
+    {
+     "text": "120,0",
+     "feature": "overall height",
+     "view": "front view",
+     "legibility": "clear",
+     "box_2d": [
+      415,
+      347,
+      455,
+      359
+     ],
+     "check": "text_layer_match"
+    },
+    {
+     "text": "12,5 ±0,1",
+     "feature": "hole position",
+     "view": "front view",
+     "legibility": "clear",
+     "box_2d": [
+      301,
+      378,
+      316,
+      425
+     ],
+     "check": "text_layer_match"
+    },
+    {
+     "text": "40,0",
+     "feature": "distance between slot and hole",
+     "view": "front view",
+     "legibility": "clear",
+     "box_2d": [
+      369,
+      511,
+      401,
+      523
+     ],
+     "check": "text_layer_match"
+    },
+    {
+     "text": "30,0",
+     "feature": "distance between slot and hole",
+     "view": "side view",
+     "legibility": "clear",
+     "box_2d": [
+      386,
+      261,
+      419,
+      272
+     ],
+     "check": "text_layer_match"
+    }
+   ],
+   "callouts": [
+    {
+     "text": "2 x ⌀ 5,0 THRU ALL M6 - 6H THRU ALL",
+     "legibility": "clear",
+     "box_2d": [
+      243,
+      578,
+      277,
+      680
+     ],
+     "check": "text_layer_match"
+    },
+    {
+     "text": "2 x ⌀ 5,0 THRU ALL M6 - 6H THRU ALL",
+     "legibility": "clear",
+     "box_2d": [
+      564,
+      71,
+      600,
+      173
+     ],
+     "check": "text_layer_match"
+    },
+    {
+     "text": "⟂ A",
+     "legibility": "clear",
+     "box_2d": [
+      350,
+      144,
+      376,
+      180
+     ],
+     "check": "text_layer_match"
+    },
+    {
+     "text": "A",
+     "legibility": "clear",
+     "box_2d": [
+      373,
+      391,
+      397,
+      411
+     ],
+     "check": "text_layer_match"
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,369 @@
+{
+ "document_id": "D-005",
+ "distribution": "clean",
+ "extractor": {
+  "model": "gemini-3.8-flash",
+  "prompt_version": "drawing-fields-v1",
+  "dpi": 200,
+  "verification": "embedded text layer",
+  "extracted_at": "2026-11-19T19:54:47+00:00",
+  "seconds": 24.9,
+  "usage": {
+   "prompt_tokens": 1996,
+   "output_tokens": 1959,
+   "thinking_tokens": 1144
+  }
+ },
+ "pages": [
+  {
+   "page": 1,
+   "sheet_legibility": "clear",
+   "legibility_issues": "",
+   "title_block": {
+    "title": {
+     "value": "Window Clamp Frame",
+     "legibility": "clear",
+     "box_2d": [
+      862,
+      824,
+      881,
+      951
+     ],
+     "check": "text_layer_match"
+    },
+    "material": {
+     "value": "6061 Alloy",
+     "legibility": "clear",
+     "box_2d": [
+      919,
+      663,
+      929,
+      694
+     ],
+     "check": "text_layer_match"
+    },
+    "weight_g": {
+     "value": "315.0",
+     "legibility": "clear",
+     "box_2d": [
+      919,
+      781,
+      928,
+      799
+     ],
+     "check": "text_layer_match"
+    },
+    "scale": {
+     "value": "1:3",
+     "legibility": "clear",
+     "box_2d": [
+      955,
+      922,
+      962,
+      931
+     ],
+     "check": "text_layer_match"
+    },
+    "sheet": {
+     "value": "1 OF 1",
+     "legibility": "clear",
+     "box_2d": [
+      955,
+      957,
+      962,
+      971
+     ],
+     "check": "text_layer_match"
+    },
+    "date": {
+     "value": "17/11/2022",
+     "legibility": "clear",
+     "box_2d": [
+      955,
+      785,
+      962,
+      807
+     ],
+     "check": "text_layer_match"
+    },
+    "company": {
+     "value": "DTU MPP",
+     "legibility": "clear",
+     "box_2d": [
+      800,
+      818,
+      812,
+      861
+     ],
+     "check": "text_layer_match"
+    },
+    "finish": {
+     "value": null,
+     "legibility": "clear",
+     "box_2d": [
+      946,
+      625,
+      956,
+      646
+     ],
+     "check": "empty"
+    },
+    "general_tolerance": {
+     "value": "DIN ISO 2768-1 m",
+     "legibility": "clear",
+     "box_2d": [
+      941,
+      853,
+      948,
+      894
+     ],
+     "check": "text_layer_match"
+    },
+    "paper_size": {
+     "value": "A3",
+     "legibility": "clear",
+     "box_2d": [
+      930,
+      958,
+      943,
+      972
+     ],
+     "check": "text_layer_match"
+    },
+    "note": {
+     "value": "Laser Window frame with\n2 o-ring grooves and 20 M4\nthreaded holes\nAluminium",
+     "legibility": "clear",
+     "box_2d": [
+      804,
+      630,
+      881,
+      778
+     ],
+     "check": "text_layer_match"
+    }
+   },
+   "views": [
+    "front view",
+    "side view",
+    "SECTION A-A",
+    "DETAIL B",
+    "isometric"
+   ],
+   "dimensions": [
+    {
+     "text": "8,2",
+     "feature": "thickness",
+     "view": "side view",
+     "legibility": "clear",
+     "box_2d": [
+      316,
+      170,
+      329,
+      186
+     ],
+     "check": "text_layer_match"
+    },
+    {
+     "text": "3,0 X 45°",
+     "feature": "chamfer",
+     "view": "side view",
+     "legibility": "clear",
+     "box_2d": [
+      617,
+      219,
+      647,
+      266
+     ],
+     "check": "text_layer_match"
+    },
+    {
+     "text": "297,2",
+     "feature": "window pocket length",
+     "view": "front view",
+     "legibility": "clear",
+     "box_2d": [
+      412,
+      374,
+      424,
+      401
+     ],
+     "check": "text_layer_match"
+    },
+    {
+     "text": "210,2",
+     "feature": "window pocket width",
+     "view": "front view",
+     "legibility": "clear",
+     "box_2d": [
+      448,
+      351,
+      488,
+      362
+     ],
+     "check": "text_layer_match"
+    },
+    {
+     "text": "286,7",
+     "feature": "inner cutout length",
+     "view": "front view",
+     "legibility": "clear",
+     "box_2d": [
+      527,
+      495,
+      539,
+      523
+     ],
+     "check": "text_layer_match"
+    },
+    {
+     "text": "199,7",
+     "feature": "inner cutout width",
+     "view": "front view",
+     "legibility": "clear",
+     "box_2d": [
+      479,
+      525,
+      520,
+      536
+     ],
+     "check": "text_layer_match"
+    },
+    {
+     "text": "323,0",
+     "feature": "overall length",
+     "view": "front view",
+     "legibility": "clear",
+     "box_2d": [
+      688,
+      436,
+      700,
+      465
+     ],
+     "check": "text_layer_match"
+    },
+    {
+     "text": "236,0",
+     "feature": "overall width",
+     "view": "front view",
+     "legibility": "clear",
+     "box_2d": [
+      476,
+      589,
+      517,
+      599
+     ],
+     "check": "text_layer_match"
+    },
+    {
+     "text": "2,0",
+     "feature": "groove depth",
+     "view": "DETAIL B",
+     "legibility": "clear",
+     "box_2d": [
+      79,
+      456,
+      93,
+      472
+     ],
+     "check": "text_layer_match"
+    },
+    {
+     "text": "3,3",
+     "feature": "groove width",
+     "view": "DETAIL B",
+     "legibility": "clear",
+     "box_2d": [
+      106,
+      455,
+      129,
+      466
+     ],
+     "check": "text_layer_match"
+    },
+    {
+     "text": "3,3",
+     "feature": "groove width",
+     "view": "DETAIL B",
+     "legibility": "clear",
+     "box_2d": [
+      132,
+      516,
+      154,
+      526
+     ],
+     "check": "text_layer_match"
+    },
+    {
+     "text": "2,0",
+     "feature": "groove depth",
+     "view": "DETAIL B",
+     "legibility": "clear",
+     "box_2d": [
+      211,
+      520,
+      224,
+      535
+     ],
+     "check": "text_layer_match"
+    }
+   ],
+   "callouts": [
+    {
+     "text": "20 x ⌀ 3,3 ↧ 6,0\nM4 - 6H ↧ 4,0",
+     "legibility": "clear",
+     "box_2d": [
+      289,
+      267,
+      324,
+      356
+     ],
+     "check": "text_layer_match"
+    },
+    {
+     "text": "Holds 210x297mm\nlaser window",
+     "legibility": "clear",
+     "box_2d": [
+      458,
+      397,
+      490,
+      492
+     ],
+     "check": "text_layer_match"
+    },
+    {
+     "text": "Machining relief\nto fit sharp corner\nof window. Resize\nas needed",
+     "legibility": "clear",
+     "box_2d": [
+      665,
+      164,
+      727,
+      260
+     ],
+     "check": "text_layer_match"
+    },
+    {
+     "text": "Bottom internal corner radii\nmaximum 0.5mm",
+     "legibility": "clear",
+     "box_2d": [
+      76,
+      525,
+      107,
+      672
+     ],
+     "check": "text_layer_match"
+    },
+    {
+     "text": "Grooves for\no-ring coord",
+     "legibility": "clear",
+     "box_2d": [
+      199,
+      369,
+      231,
+      437
+     ],
+     "check": "text_layer_match"
+    }
+   ]
+  }
+ ]
+}

@@ -8,9 +8,11 @@ const PAD = 32 + 2 // .pdf-scroll padding (16px each side) + 1px slack per side 
 
 // Opens at "Fit" (whole sheet width visible) and stays fitted as the pane resizes,
 // until the user zooms manually. All scrolling happens inside .pdf-scroll.
-export default function PdfViewer({ url }) {
+// highlight: { box_2d: [ymin, xmin, ymax, xmax] on a 0-1000 grid, page, label } from the Evidence tab.
+export default function PdfViewer({ url, highlight, onClearHighlight }) {
   const canvasRef = useRef(null)
   const scrollRef = useRef(null)
+  const markRef = useRef(null)
   const [pdf, setPdf] = useState(null)
   const [page, setPage] = useState(1)
   const [pageSize, setPageSize] = useState(null) // page size at scale 1
@@ -72,6 +74,19 @@ export default function PdfViewer({ url }) {
 
   const zoom = (f) => { setFit(false); setScale((s) => Math.min(6, Math.max(0.1, s * f))) }
 
+  // Jump to the highlighted page and bring the box into view (zooming in a little if fitted).
+  useEffect(() => {
+    if (!highlight) return
+    if (highlight.page && highlight.page !== page) setPage(highlight.page)
+    if (fit) { setFit(false); setScale((s) => Math.max(s, 0.9)) }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [highlight])
+  useEffect(() => {
+    if (highlight && markRef.current) markRef.current.scrollIntoView({ block: 'center', inline: 'center' })
+  }, [highlight, scale, pageSize])
+
+  const box = highlight?.box_2d && (!highlight.page || highlight.page === page) ? highlight.box_2d : null
+
   if (error) return <div className="muted">Could not load drawing: {error}</div>
   return (
     <div className="pdf">
@@ -87,9 +102,29 @@ export default function PdfViewer({ url }) {
             <button disabled={page >= pdf.numPages} onClick={() => setPage(page + 1)}>›</button>
           </>
         )}
+        {highlight && (
+          <span className="hl-chip" title={highlight.label}>
+            Highlighting: {String(highlight.label || '').slice(0, 30)}
+            <button onClick={onClearHighlight} aria-label="Clear highlight">✕</button>
+          </span>
+        )}
         <a href={url} target="_blank" rel="noreferrer">Open PDF</a>
       </div>
-      <div className="pdf-scroll" ref={scrollRef}><canvas ref={canvasRef} /></div>
+      <div className="pdf-scroll" ref={scrollRef}>
+        <div className="sheet">
+          <canvas ref={canvasRef} />
+          {box && (
+            <div
+              ref={markRef}
+              className="hl-box"
+              style={{
+                top: `${box[0] / 10}%`, left: `${box[1] / 10}%`,
+                height: `${(box[2] - box[0]) / 10}%`, width: `${(box[3] - box[1]) / 10}%`,
+              }}
+            />
+          )}
+        </div>
+      </div>
     </div>
   )
 }

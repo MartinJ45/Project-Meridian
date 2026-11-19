@@ -1,0 +1,307 @@
+{
+ "document_id": "D-022",
+ "distribution": "degraded-only",
+ "extractor": {
+  "model": "gemini-3.8-flash",
+  "prompt_version": "drawing-fields-v1",
+  "dpi": 200,
+  "verification": "repeat read at 150 dpi",
+  "extracted_at": "2026-11-19T19:57:24+00:00",
+  "seconds": 47.0,
+  "usage": {
+   "prompt_tokens": 2898,
+   "output_tokens": 3096,
+   "thinking_tokens": 2705
+  }
+ },
+ "pages": [
+  {
+   "page": 1,
+   "sheet_legibility": "clear",
+   "legibility_issues": "",
+   "title_block": {
+    "title": {
+     "value": null,
+     "legibility": "clear",
+     "box_2d": [
+      842,
+      818,
+      915,
+      981
+     ],
+     "check": "repeat_read_agrees"
+    },
+    "material": {
+     "value": null,
+     "legibility": "clear",
+     "box_2d": [
+      916,
+      621,
+      940,
+      747
+     ],
+     "check": "repeat_read_agrees"
+    },
+    "weight_g": {
+     "value": null,
+     "legibility": "clear",
+     "box_2d": [
+      916,
+      746,
+      938,
+      819
+     ],
+     "check": "repeat_read_agrees"
+    },
+    "scale": {
+     "value": "1:2",
+     "legibility": "clear",
+     "box_2d": [
+      954,
+      924,
+      963,
+      941
+     ],
+     "check": "repeat_read_agrees"
+    },
+    "sheet": {
+     "value": "1 OF 1",
+     "legibility": "clear",
+     "box_2d": [
+      954,
+      959,
+      963,
+      977
+     ],
+     "check": "repeat_read_agrees"
+    },
+    "date": {
+     "value": "20/12/2023",
+     "legibility": "clear",
+     "box_2d": [
+      955,
+      788,
+      964,
+      812
+     ],
+     "check": "repeat_read_agrees"
+    },
+    "company": {
+     "value": "DTU MPP",
+     "legibility": "clear",
+     "box_2d": [
+      798,
+      822,
+      811,
+      864
+     ],
+     "check": "repeat_read_agrees"
+    },
+    "finish": {
+     "value": null,
+     "legibility": "clear",
+     "box_2d": [
+      941,
+      621,
+      968,
+      747
+     ],
+     "check": "repeat_read_agrees"
+    },
+    "general_tolerance": {
+     "value": "DIN ISO 2768-1 m",
+     "legibility": "clear",
+     "box_2d": [
+      938,
+      856,
+      949,
+      893
+     ],
+     "check": "repeat_read_agrees"
+    },
+    "paper_size": {
+     "value": "A3",
+     "legibility": "clear",
+     "box_2d": [
+      927,
+      963,
+      942,
+      977
+     ],
+     "check": "repeat_read_agrees"
+    },
+    "note": {
+     "value": "Inlet Box\nFour corner joints should be\nwelded.\nStainless\nFree choice of thickness\n(as thin as possible)",
+     "legibility": "clear",
+     "box_2d": [
+      799,
+      629,
+      897,
+      781
+     ],
+     "check": "repeat_read_agrees"
+    }
+   },
+   "views": [
+    "front view",
+    "top view",
+    "left view",
+    "isometric view"
+   ],
+   "dimensions": [
+    {
+     "text": "162,00",
+     "feature": "width",
+     "view": "top view",
+     "legibility": "clear",
+     "box_2d": [
+      172,
+      461,
+      188,
+      495
+     ],
+     "check": "repeat_read_agrees"
+    },
+    {
+     "text": "200,00",
+     "feature": "overall width",
+     "view": "front view",
+     "legibility": "clear",
+     "box_2d": [
+      406,
+      461,
+      420,
+      496
+     ],
+     "check": "repeat_read_agrees"
+    },
+    {
+     "text": "184,00",
+     "feature": "mounting hole center distance",
+     "view": "front view",
+     "legibility": "clear",
+     "box_2d": [
+      718,
+      463,
+      733,
+      497
+     ],
+     "check": "repeat_read_agrees"
+    },
+    {
+     "text": "105",
+     "feature": "mounting hole center distance",
+     "view": "front view",
+     "legibility": "clear",
+     "box_2d": [
+      542,
+      609,
+      569,
+      621
+     ],
+     "check": "repeat_read_agrees"
+    },
+    {
+     "text": "120",
+     "feature": "overall height",
+     "view": "front view",
+     "legibility": "clear",
+     "box_2d": [
+      541,
+      624,
+      570,
+      636
+     ],
+     "check": "repeat_read_agrees"
+    },
+    {
+     "text": "62,50",
+     "feature": "depth",
+     "view": "left view",
+     "legibility": "clear",
+     "box_2d": [
+      741,
+      188,
+      756,
+      218
+     ],
+     "check": "repeat_read_agrees"
+    },
+    {
+     "text": "100°",
+     "feature": "angle",
+     "view": "left view",
+     "legibility": "clear",
+     "box_2d": [
+      672,
+      179,
+      706,
+      200
+     ],
+     "check": "repeat_read_agrees"
+    }
+   ],
+   "callouts": [
+    {
+     "text": "Ø 3,00 THRU",
+     "legibility": "clear",
+     "box_2d": [
+      360,
+      272,
+      377,
+      334
+     ],
+     "check": "repeat_read_agrees"
+    },
+    {
+     "text": "Ø 3,00 THRU",
+     "legibility": "clear",
+     "box_2d": [
+      433,
+      273,
+      449,
+      335
+     ],
+     "check": "repeat_read_agrees"
+    },
+    {
+     "text": "Weld nuts",
+     "legibility": "clear",
+     "box_2d": [
+      451,
+      142,
+      466,
+      196
+     ],
+     "check": "repeat_read_agrees"
+    },
+    {
+     "text": "Four corners to be welded",
+     "legibility": "clear",
+     "box_2d": [
+      397,
+      657,
+      412,
+      799
+     ],
+     "check": "repeat_read_agrees"
+    },
+    {
+     "text": "10 x Ø 7,00 THRU ALL\nfor M5 weld nut on side shown",
+     "legibility": "clear",
+     "box_2d": [
+      788,
+      196,
+      824,
+      359
+     ],
+     "check": "repeat_read_agrees"
+    }
+   ],
+   "repeat_read": {
+    "dpi": 150,
+    "sheet_legibility": "clear"
+   }
+  }
+ ]
+}

@@ -1,0 +1,228 @@
+{
+ "document_id": "D-026",
+ "distribution": "clean",
+ "extractor": {
+  "model": "gemini-3.8-flash",
+  "prompt_version": "drawing-fields-v1",
+  "dpi": 200,
+  "verification": "embedded text layer",
+  "extracted_at": "2026-11-19T19:58:01+00:00",
+  "seconds": 21.3,
+  "usage": {
+   "prompt_tokens": 1925,
+   "output_tokens": 758,
+   "thinking_tokens": 1791
+  }
+ },
+ "pages": [
+  {
+   "page": 1,
+   "sheet_legibility": "clear",
+   "legibility_issues": "Minor text overlap between MATERIAL and WEIGHT [g] fields in the title block.",
+   "title_block": {
+    "title": {
+     "value": "Build Plate",
+     "legibility": "clear",
+     "box_2d": [
+      864,
+      822,
+      878,
+      882
+     ],
+     "check": "text_layer_match"
+    },
+    "material": {
+     "value": "AISI 316 Stainless Steel Sheet (SS)",
+     "legibility": "clear",
+     "box_2d": [
+      918,
+      663,
+      928,
+      777
+     ],
+     "check": "text_layer_match"
+    },
+    "weight_g": {
+     "value": "7822.5",
+     "legibility": "clear",
+     "box_2d": [
+      918,
+      781,
+      928,
+      804
+     ],
+     "check": "text_layer_match"
+    },
+    "scale": {
+     "value": "1:3",
+     "legibility": "clear",
+     "box_2d": [
+      955,
+      920,
+      963,
+      932
+     ],
+     "check": "text_layer_match"
+    },
+    "sheet": {
+     "value": "1 OF 1",
+     "legibility": "clear",
+     "box_2d": [
+      955,
+      955,
+      963,
+      971
+     ],
+     "check": "text_layer_match"
+    },
+    "date": {
+     "value": "13-09-2023",
+     "legibility": "clear",
+     "box_2d": [
+      954,
+      784,
+      963,
+      808
+     ],
+     "check": "text_layer_match"
+    },
+    "company": {
+     "value": "DTU MPP",
+     "legibility": "clear",
+     "box_2d": [
+      801,
+      834,
+      814,
+      876
+     ],
+     "check": "text_layer_match"
+    },
+    "finish": {
+     "value": null,
+     "legibility": "clear",
+     "box_2d": [
+      947,
+      624,
+      957,
+      646
+     ],
+     "check": "empty"
+    },
+    "general_tolerance": {
+     "value": "DIN ISO 2768-1 m",
+     "legibility": "clear",
+     "box_2d": [
+      941,
+      856,
+      949,
+      893
+     ],
+     "check": "text_layer_match"
+    },
+    "paper_size": {
+     "value": "A3",
+     "legibility": "clear",
+     "box_2d": [
+      930,
+      958,
+      942,
+      971
+     ],
+     "check": "text_layer_match"
+    },
+    "note": {
+     "value": "Byggeplade, rustfri og alu.\n1-3 stk af hver.",
+     "legibility": "clear",
+     "box_2d": [
+      799,
+      624,
+      846,
+      767
+     ],
+     "check": "text_layer_match"
+    }
+   },
+   "views": [
+    "side view",
+    "front view",
+    "isometric"
+   ],
+   "dimensions": [
+    {
+     "text": "25,0\n15,0",
+     "feature": "plate thickness",
+     "view": "side view",
+     "legibility": "clear",
+     "box_2d": [
+      250,
+      188,
+      279,
+      211
+     ],
+     "check": "text_layer_match"
+    },
+    {
+     "text": "⌀ 250,0",
+     "feature": "outer diameter",
+     "view": "front view",
+     "legibility": "clear",
+     "box_2d": [
+      251,
+      378,
+      298,
+      413
+     ],
+     "check": "text_layer_match"
+    },
+    {
+     "text": "R105,0",
+     "feature": "bolt circle radius",
+     "view": "front view",
+     "legibility": "clear",
+     "box_2d": [
+      327,
+      376,
+      364,
+      411
+     ],
+     "check": "text_layer_match"
+    }
+   ],
+   "callouts": [
+    {
+     "text": "A",
+     "legibility": "clear",
+     "box_2d": [
+      372,
+      271,
+      396,
+      289
+     ],
+     "check": "text_layer_match"
+    },
+    {
+     "text": "// A",
+     "legibility": "clear",
+     "box_2d": [
+      452,
+      146,
+      477,
+      181
+     ],
+     "check": "text_layer_match"
+    },
+    {
+     "text": "3 x ⌀ 5,3 THRU ALL\n⌴ ⌀ 10,0 ↧ 15,4",
+     "legibility": "clear",
+     "box_2d": [
+      657,
+      395,
+      693,
+      497
+     ],
+     "check": "text_layer_match"
+    }
+   ]
+  }
+ ]
+}

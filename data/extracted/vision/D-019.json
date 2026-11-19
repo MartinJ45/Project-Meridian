@@ -1,0 +1,206 @@
+{
+ "document_id": "D-019",
+ "distribution": "clean",
+ "extractor": {
+  "model": "gemini-3.8-flash",
+  "prompt_version": "drawing-fields-v1",
+  "dpi": 200,
+  "verification": "embedded text layer",
+  "extracted_at": "2026-11-19T19:56:50+00:00",
+  "seconds": 24.6,
+  "usage": {
+   "prompt_tokens": 1860,
+   "output_tokens": 992,
+   "thinking_tokens": 1879
+  }
+ },
+ "pages": [
+  {
+   "page": 1,
+   "sheet_legibility": "clear",
+   "legibility_issues": "",
+   "title_block": {
+    "title": {
+     "value": "Description",
+     "legibility": "clear",
+     "box_2d": [
+      860,
+      823,
+      881,
+      887
+     ],
+     "check": "text_layer_match"
+    },
+    "material": {
+     "value": "Silicon Rubber",
+     "legibility": "clear",
+     "box_2d": [
+      919,
+      662,
+      928,
+      707
+     ],
+     "check": "text_layer_match"
+    },
+    "weight_g": {
+     "value": "5.7",
+     "legibility": "clear",
+     "box_2d": [
+      919,
+      782,
+      926,
+      792
+     ],
+     "check": "text_layer_match"
+    },
+    "scale": {
+     "value": "1:2",
+     "legibility": "clear",
+     "box_2d": [
+      956,
+      923,
+      962,
+      934
+     ],
+     "check": "text_layer_match"
+    },
+    "sheet": {
+     "value": "1 OF 1",
+     "legibility": "clear",
+     "box_2d": [
+      956,
+      959,
+      962,
+      971
+     ],
+     "check": "text_layer_match"
+    },
+    "date": {
+     "value": "06/01/2022",
+     "legibility": "clear",
+     "box_2d": [
+      955,
+      786,
+      962,
+      810
+     ],
+     "check": "text_layer_match"
+    },
+    "company": {
+     "value": "DTU MPP",
+     "legibility": "clear",
+     "box_2d": [
+      802,
+      833,
+      814,
+      876
+     ],
+     "check": "text_layer_match"
+    },
+    "finish": {
+     "value": null,
+     "legibility": "clear",
+     "box_2d": [
+      948,
+      621,
+      965,
+      739
+     ],
+     "check": "empty"
+    },
+    "general_tolerance": {
+     "value": "DIN ISO 2768-1 m",
+     "legibility": "clear",
+     "box_2d": [
+      941,
+      856,
+      947,
+      895
+     ],
+     "check": "text_layer_match"
+    },
+    "paper_size": {
+     "value": "A3",
+     "legibility": "clear",
+     "box_2d": [
+      930,
+      959,
+      942,
+      972
+     ],
+     "check": "text_layer_match"
+    },
+    "note": {
+     "value": "1mm silicone pakning",
+     "legibility": "clear",
+     "box_2d": [
+      807,
+      627,
+      826,
+      742
+     ],
+     "check": "text_layer_match"
+    }
+   },
+   "views": [
+    "front view",
+    "side view",
+    "isometric view"
+   ],
+   "dimensions": [
+    {
+     "text": "1,0",
+     "feature": "thickness",
+     "view": "side view",
+     "legibility": "clear",
+     "box_2d": [
+      291,
+      272,
+      305,
+      288
+     ],
+     "check": "text_layer_match"
+    },
+    {
+     "text": "⌀118,0",
+     "feature": "pitch circle diameter",
+     "view": "front view",
+     "legibility": "clear",
+     "box_2d": [
+      275,
+      563,
+      330,
+      591
+     ],
+     "check": "text_layer_match"
+    },
+    {
+     "text": "⌀141,0",
+     "feature": "outer diameter",
+     "view": "front view",
+     "legibility": "clear",
+     "box_2d": [
+      275,
+      608,
+      329,
+      644
+     ],
+     "check": "text_layer_match"
+    }
+   ],
+   "callouts": [
+    {
+     "text": "6 x ⌀ 4,5 THRU ALL",
+     "legibility": "clear",
+     "box_2d": [
+      278,
+      377,
+      296,
+      479
+     ],
+     "check": "text_layer_match"
+    }
+   ]
+  }
+ ]
+}

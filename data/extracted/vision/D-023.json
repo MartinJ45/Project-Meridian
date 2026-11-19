@@ -1,0 +1,362 @@
+{
+ "document_id": "D-023",
+ "distribution": "degraded-only",
+ "extractor": {
+  "model": "gemini-3.8-flash",
+  "prompt_version": "drawing-fields-v1",
+  "dpi": 200,
+  "verification": "repeat read at 150 dpi",
+  "extracted_at": "2026-11-19T19:57:39+00:00",
+  "seconds": 49.8,
+  "usage": {
+   "prompt_tokens": 2898,
+   "output_tokens": 4024,
+   "thinking_tokens": 2323
+  }
+ },
+ "pages": [
+  {
+   "page": 1,
+   "sheet_legibility": "clear",
+   "legibility_issues": "",
+   "title_block": {
+    "title": {
+     "value": "ByggeCylinder",
+     "legibility": "clear",
+     "box_2d": [
+      862,
+      822,
+      882,
+      908
+     ],
+     "check": "repeat_read_agrees"
+    },
+    "material": {
+     "value": "EN AW-6082",
+     "legibility": "clear",
+     "box_2d": [
+      918,
+      661,
+      928,
+      702
+     ],
+     "check": "repeat_read_agrees"
+    },
+    "weight_g": {
+     "value": "3195.5",
+     "legibility": "clear",
+     "box_2d": [
+      917,
+      781,
+      928,
+      804
+     ],
+     "check": "repeat_read_agrees"
+    },
+    "scale": {
+     "value": "1:5",
+     "legibility": "clear",
+     "box_2d": [
+      954,
+      918,
+      963,
+      932
+     ],
+     "check": "repeat_read_agrees"
+    },
+    "sheet": {
+     "value": "1 OF 1",
+     "legibility": "clear",
+     "box_2d": [
+      954,
+      956,
+      963,
+      971
+     ],
+     "check": "repeat_read_agrees"
+    },
+    "date": {
+     "value": "13-09-2023",
+     "legibility": "clear",
+     "box_2d": [
+      953,
+      783,
+      963,
+      808
+     ],
+     "check": "repeat_read_agrees"
+    },
+    "company": {
+     "value": "DTU MPP",
+     "legibility": "clear",
+     "box_2d": [
+      800,
+      832,
+      812,
+      876
+     ],
+     "check": "repeat_read_agrees"
+    },
+    "finish": {
+     "value": null,
+     "legibility": "clear",
+     "box_2d": [
+      946,
+      646,
+      959,
+      705
+     ],
+     "check": "repeat_read_agrees"
+    },
+    "general_tolerance": {
+     "value": "DIN ISO 2768-1 m",
+     "legibility": "clear",
+     "box_2d": [
+      938,
+      853,
+      948,
+      894
+     ],
+     "check": "repeat_read_agrees"
+    },
+    "paper_size": {
+     "value": "A3",
+     "legibility": "clear",
+     "box_2d": [
+      929,
+      957,
+      942,
+      972
+     ],
+     "check": "repeat_read_agrees"
+    },
+    "note": {
+     "value": "Baseret på Ø280mm, t=15mm\nEN AW-6082 T6 rør fra Alumeco.\nIndre flade [B] skal slutte tæt med\nen dynamisk keramisk pakning.\n55 mm længere ift. version 1",
+     "legibility": "clear",
+     "box_2d": [
+      788,
+      621,
+      887,
+      805
+     ],
+     "check": "repeat_read_agrees"
+    }
+   },
+   "views": [
+    "front view",
+    "section A-A",
+    "isometric view"
+   ],
+   "dimensions": [
+    {
+     "text": "280,0",
+     "feature": "overall length",
+     "view": "front view",
+     "legibility": "clear",
+     "box_2d": [
+      243,
+      296,
+      259,
+      327
+     ],
+     "check": "repeat_read_agrees"
+    },
+    {
+     "text": "36,0",
+     "feature": "step length",
+     "view": "front view",
+     "legibility": "clear",
+     "box_2d": [
+      264,
+      204,
+      280,
+      227
+     ],
+     "check": "repeat_read_agrees"
+    },
+    {
+     "text": "21,0",
+     "feature": "step length",
+     "view": "front view",
+     "legibility": "clear",
+     "box_2d": [
+      284,
+      203,
+      300,
+      228
+     ],
+     "check": "repeat_read_agrees"
+    },
+    {
+     "text": "12,0",
+     "feature": "flange thickness",
+     "view": "front view",
+     "legibility": "clear",
+     "box_2d": [
+      325,
+      204,
+      340,
+      227
+     ],
+     "check": "repeat_read_agrees"
+    },
+    {
+     "text": "⌀ 280,0",
+     "feature": "outer diameter",
+     "view": "front view",
+     "legibility": "clear",
+     "box_2d": [
+      430,
+      166,
+      484,
+      177
+     ],
+     "check": "repeat_read_agrees"
+    },
+    {
+     "text": "⌀ 262,0 j7 +0,026/-0,026",
+     "feature": "diameter",
+     "view": "front view",
+     "legibility": "clear",
+     "box_2d": [
+      406,
+      192,
+      532,
+      215
+     ],
+     "check": "repeat_read_agrees"
+    },
+    {
+     "text": "⌀ 264,0 j7 +0,026/-0,026",
+     "feature": "diameter",
+     "view": "front view",
+     "legibility": "clear",
+     "box_2d": [
+      593,
+      235,
+      719,
+      258
+     ],
+     "check": "repeat_read_agrees"
+    },
+    {
+     "text": "⌀ 262,0 0,0/-0,2",
+     "feature": "diameter",
+     "view": "front view",
+     "legibility": "partial",
+     "box_2d": [
+      413,
+      289,
+      500,
+      311
+     ],
+     "check": "repeat_read_disagrees"
+    },
+    {
+     "text": "10° ±2,0°",
+     "feature": "chamfer angle",
+     "view": "section A-A",
+     "legibility": "clear",
+     "box_2d": [
+      353,
+      591,
+      417,
+      603
+     ],
+     "check": "repeat_read_agrees"
+    },
+    {
+     "text": "20,0 ±1,0",
+     "feature": "chamfer length",
+     "view": "section A-A",
+     "legibility": "clear",
+     "box_2d": [
+      558,
+      588,
+      574,
+      636
+     ],
+     "check": "repeat_read_agrees"
+    },
+    {
+     "text": "⌀ 252,0",
+     "feature": "inner diameter",
+     "view": "section A-A",
+     "legibility": "clear",
+     "box_2d": [
+      466,
+      686,
+      481,
+      725
+     ],
+     "check": "repeat_read_agrees"
+    },
+    {
+     "text": "N8 -0,005/-0,086",
+     "feature": "fit tolerance",
+     "view": "section A-A",
+     "legibility": "clear",
+     "box_2d": [
+      450,
+      743,
+      481,
+      779
+     ],
+     "check": "repeat_read_agrees"
+    },
+    {
+     "text": "14,0",
+     "feature": "wall thickness",
+     "view": "section A-A",
+     "legibility": "clear",
+     "box_2d": [
+      578,
+      795,
+      617,
+      807
+     ],
+     "check": "repeat_read_agrees"
+    }
+   ],
+   "callouts": [
+    {
+     "text": "Ikke funktionelle overflader",
+     "legibility": "clear",
+     "box_2d": [
+      283,
+      554,
+      299,
+      700
+     ],
+     "check": "repeat_read_agrees"
+    },
+    {
+     "text": "Glat indre flade.\nRa 0.8-0.4",
+     "legibility": "clear",
+     "box_2d": [
+      465,
+      794,
+      497,
+      884
+     ],
+     "check": "repeat_read_agrees"
+    },
+    {
+     "text": "B",
+     "legibility": "clear",
+     "box_2d": [
+      525,
+      839,
+      550,
+      858
+     ],
+     "check": "repeat_read_agrees"
+    }
+   ],
+   "repeat_read": {
+    "dpi": 150,
+    "sheet_legibility": "clear"
+   }
+  }
+ ]
+}

@@ -9,6 +9,7 @@ turn costs one round trip. The package has:
   4. recent corrections                          - audit / before-after questions
 Everything comes from the knowledge store, so accepted corrections are reflected.
 """
+import json
 import re
 
 from .. import knowledge as kb
@@ -20,11 +21,20 @@ DRAWING_TEXT_CHARS = 1200
 
 
 def _drawing_index(con) -> str:
-    lines = ["id | title | subsystem | quality | text layer | 3D reconstruction"]
+    tb = {}
+    for r in con.execute("""SELECT subject_id, predicate, value, evidence FROM facts
+                            WHERE subject_type='document' AND source_type='drawing' AND status='active'
+                              AND predicate IN ('title','material','weight_g')"""):
+        ev = json.loads(r["evidence"] or "{}")
+        v = r["value"] or ("(empty)" if ev.get("empty_on_sheet") else "(illegible)")
+        tb.setdefault(r["subject_id"], {})[r["predicate"]] = v.replace("\n", " / ")
+    lines = ["id | file name | subsystem | quality | 3D | title-block TITLE | title-block MATERIAL | WEIGHT [g]"]
     for d in kb.list_documents(con):
+        t = tb.get(d["id"], {})
         lines.append(f"{d['id']} | {d['title']} | {d['subsystem']} | "
                      f"{'DEGRADED scan' if d['distribution'] == 'degraded-only' else 'clean'} | "
-                     f"{'yes' if d['has_text_layer'] else 'no'} | {'yes' if d['has_model'] else 'no'}")
+                     f"{'yes' if d['has_model'] else 'no'} | {t.get('title', '-')} | {t.get('material', '-')} | "
+                     f"{t.get('weight_g', '-')}")
     return "\n".join(lines)
 
 
@@ -48,10 +58,30 @@ def _bom_index(con) -> str:
     return "\n".join(lines)
 
 
+CHECK_LABEL = {"text_layer_match": "confirmed by PDF text layer", "repeat_read_agrees": "two readings agree",
+               "repeat_read_disagrees": "two readings DISAGREE", "not_in_text_layer": "NOT found in text layer"}
+
+
 def _facts_block(facts: list[dict]) -> str:
     out = []
     for f in facts:
-        line = f"  - {f['predicate']}: {f['value']}  [{f['source_ref']}]"
+        ev = f.get("evidence") or {}
+        if f["value"] is None and ev.get("empty_on_sheet"):
+            value = "(box present but EMPTY on the sheet)"
+        elif f["value"] is None:
+            value = "(ILLEGIBLE on the sheet)"
+        else:
+            value = f["value"].replace("\n", " / ")
+        line = f"  - {f['predicate']}: {value}  [{f['source_ref']}]"
+        notes = []
+        if ev.get("legibility") and ev["legibility"] != "clear":
+            notes.append(f"legibility {ev['legibility']}")
+        if ev.get("check") in CHECK_LABEL:
+            notes.append(CHECK_LABEL[ev["check"]])
+        if ev.get("alternative_reading") is not None:
+            notes.append(f"other reading: {ev['alternative_reading']!r}")
+        if notes:
+            line += "  (" + "; ".join(notes) + ")"
         if f["status"] == "superseded":
             line += f"  (SUPERSEDED by fact {f['superseded_by']}; original evidence kept)"
         out.append(line)
@@ -65,16 +95,29 @@ def _doc_focus(con, doc_id: str) -> str:
              f"; 3D reconstruction: {'yes' if d['model'] else 'no'}; upstream path: {d['source_path']}"]
     if d["derivation"]:
         parts.append(f"degradation notice: {d['derivation'].get('modification_notice')}")
+    for q in d["quality"]:
+        parts.append(f"sheet legibility p{q['page']} (vision read): {q['legibility']}"
+                     + (f" - {q['issues']}" if q["issues"] else ""))
     links = d["bom_links"]
     parts.append("candidate BOM rows (filename fuzzy match, not confirmed): " + (
         "; ".join(f"row {l['row_index']} {l['name']} (score {round(l['score'])})" for l in links) or "none found"))
-    parts.append("facts extracted from the drawing:\n" + _facts_block(d["facts"]))
-    for p in d["pages_text"]:
-        if p["has_text_layer"] and p["text"]:
-            txt = re.sub(r"\s+", " ", p["text"])[:DRAWING_TEXT_CHARS]
-            parts.append(f"extracted text layer, page {p['page']} (raw, unordered): {txt}")
-        else:
-            parts.append(f"page {p['page']}: no text layer (raster scan); contents not machine-read yet")
+    parts.append("title-block fields read from the drawing:\n" + _facts_block(d["facts"]))
+    if d["annotations"]:
+        for kind in ("dimension", "callout"):
+            items = [a for a in d["annotations"] if a["kind"] == kind]
+            if items:
+                parts.append(f"{kind}s as written on the sheet [cite as {d['id']} p<page>]:\n" + "\n".join(
+                    f"  - p{a['page']} {a['text'].replace(chr(10), ' / ')}"
+                    + (f"  ({a['feature']})" if a.get("feature") and a["feature"] != "unknown" else "")
+                    + (f"  [legibility {a['legibility']}]" if a["legibility"] != "clear" else "")
+                    for a in items))
+    else:  # no vision extraction yet: fall back to the raw text layer
+        for p in d["pages_text"]:
+            if p["has_text_layer"] and p["text"]:
+                txt = re.sub(r"\s+", " ", p["text"])[:DRAWING_TEXT_CHARS]
+                parts.append(f"extracted text layer, page {p['page']} (raw, unordered): {txt}")
+            else:
+                parts.append(f"page {p['page']}: no text layer (raster scan); contents not machine-read yet")
     return "\n".join(parts)
 
 

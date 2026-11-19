@@ -1,0 +1,727 @@
+{
+ "document_id": "D-003",
+ "distribution": "degraded-only",
+ "extractor": {
+  "model": "gemini-3.8-flash",
+  "prompt_version": "drawing-fields-v1",
+  "dpi": 200,
+  "verification": "repeat read at 150 dpi",
+  "extracted_at": "2026-11-19T19:56:16+00:00",
+  "seconds": 137.8,
+  "usage": {
+   "prompt_tokens": 8694,
+   "output_tokens": 7909,
+   "thinking_tokens": 7322
+  }
+ },
+ "pages": [
+  {
+   "page": 1,
+   "sheet_legibility": "clear",
+   "legibility_issues": "",
+   "title_block": {
+    "title": {
+     "value": null,
+     "legibility": "clear",
+     "box_2d": [
+      848,
+      814,
+      924,
+      893
+     ],
+     "check": "repeat_read_agrees"
+    },
+    "material": {
+     "value": null,
+     "legibility": "clear",
+     "box_2d": [
+      923,
+      622,
+      946,
+      735
+     ],
+     "check": "repeat_read_agrees"
+    },
+    "weight_g": {
+     "value": null,
+     "legibility": "clear",
+     "box_2d": [
+      923,
+      736,
+      946,
+      814
+     ],
+     "check": "repeat_read_agrees"
+    },
+    "scale": {
+     "value": "1:10",
+     "legibility": "clear",
+     "box_2d": [
+      964,
+      915,
+      971,
+      936
+     ],
+     "check": "repeat_read_agrees"
+    },
+    "sheet": {
+     "value": "1 OF 3",
+     "legibility": "clear",
+     "box_2d": [
+      964,
+      947,
+      971,
+      972
+     ],
+     "check": "repeat_read_agrees"
+    },
+    "date": {
+     "value": "26/10/2023",
+     "legibility": "clear",
+     "box_2d": [
+      964,
+      781,
+      970,
+      812
+     ],
+     "check": "repeat_read_agrees"
+    },
+    "company": {
+     "value": "DTU MPP",
+     "legibility": "clear",
+     "box_2d": [
+      805,
+      819,
+      818,
+      865
+     ],
+     "check": "repeat_read_agrees"
+    },
+    "finish": {
+     "value": null,
+     "legibility": "clear",
+     "box_2d": [
+      946,
+      622,
+      970,
+      743
+     ],
+     "check": "repeat_read_agrees"
+    },
+    "general_tolerance": {
+     "value": "DIN ISO 2768-1 m",
+     "legibility": "clear",
+     "box_2d": [
+      947,
+      856,
+      955,
+      898
+     ],
+     "check": "repeat_read_agrees"
+    },
+    "paper_size": {
+     "value": "A3",
+     "legibility": "clear",
+     "box_2d": [
+      938,
+      959,
+      951,
+      973
+     ],
+     "check": "repeat_read_agrees"
+    },
+    "note": {
+     "value": "Note: All threaded holes are blind.\n20mm thick aluminium plate.",
+     "legibility": "clear",
+     "box_2d": [
+      798,
+      624,
+      852,
+      810
+     ],
+     "check": "repeat_read_agrees"
+    }
+   },
+   "views": [
+    "front view",
+    "SECTION A-A",
+    "DETAIL C",
+    "isometric view"
+   ],
+   "dimensions": [
+    {
+     "text": "775,0",
+     "feature": "overall height",
+     "view": "front view",
+     "legibility": "clear",
+     "box_2d": [
+      426,
+      318,
+      465,
+      328
+     ],
+     "check": "repeat_read_agrees"
+    },
+    {
+     "text": "600,0",
+     "feature": "overall width",
+     "view": "front view",
+     "legibility": "clear",
+     "box_2d": [
+      641,
+      453,
+      654,
+      482
+     ],
+     "check": "repeat_read_agrees"
+    },
+    {
+     "text": "270,0",
+     "feature": "slot length",
+     "view": "front view",
+     "legibility": "clear",
+     "box_2d": [
+      323,
+      407,
+      335,
+      436
+     ],
+     "check": "repeat_read_agrees"
+    },
+    {
+     "text": "270,0",
+     "feature": "slot length",
+     "view": "front view",
+     "legibility": "clear",
+     "box_2d": [
+      614,
+      452,
+      626,
+      483
+     ],
+     "check": "repeat_read_agrees"
+    },
+    {
+     "text": "40,0",
+     "feature": "slot height",
+     "view": "front view",
+     "legibility": "clear",
+     "box_2d": [
+      297,
+      553,
+      328,
+      564
+     ],
+     "check": "repeat_read_agrees"
+    },
+    {
+     "text": "40,0",
+     "feature": "slot height",
+     "view": "front view",
+     "legibility": "clear",
+     "box_2d": [
+      566,
+      552,
+      597,
+      562
+     ],
+     "check": "repeat_read_agrees"
+    },
+    {
+     "text": "255,5",
+     "feature": "center to slot distance",
+     "view": "front view",
+     "legibility": "clear",
+     "box_2d": [
+      392,
+      568,
+      423,
+      577
+     ],
+     "check": "repeat_read_agrees"
+    },
+    {
+     "text": "250,0",
+     "feature": "center to slot distance",
+     "view": "front view",
+     "legibility": "clear",
+     "box_2d": [
+      471,
+      581,
+      511,
+      592
+     ],
+     "check": "repeat_read_agrees"
+    },
+    {
+     "text": "R3,0",
+     "feature": "slot corner radius",
+     "view": "front view",
+     "legibility": "clear",
+     "box_2d": [
+      257,
+      549,
+      290,
+      575
+     ],
+     "check": "repeat_read_agrees"
+    },
+    {
+     "text": "60°",
+     "feature": "hole pattern angle",
+     "view": "front view",
+     "legibility": "clear",
+     "box_2d": [
+      507,
+      369,
+      532,
+      386
+     ],
+     "check": "repeat_read_agrees"
+    },
+    {
+     "text": "20,0",
+     "feature": "plate thickness",
+     "view": "SECTION A-A",
+     "legibility": "clear",
+     "box_2d": [
+      267,
+      646,
+      280,
+      668
+     ],
+     "check": "repeat_read_agrees"
+    },
+    {
+     "text": "10,0 +0,05/0,00",
+     "feature": "counterbore depth",
+     "view": "SECTION A-A",
+     "legibility": "partial",
+     "box_2d": [
+      363,
+      719,
+      392,
+      775
+     ],
+     "check": "repeat_read_disagrees"
+    },
+    {
+     "text": "3,0 X 45°",
+     "feature": "edge chamfer",
+     "view": "DETAIL C",
+     "legibility": "clear",
+     "box_2d": [
+      709,
+      286,
+      738,
+      333
+     ],
+     "check": "repeat_read_agrees"
+    }
+   ],
+   "callouts": [
+    {
+     "text": "∅ 297,0",
+     "legibility": "clear",
+     "box_2d": [
+      323,
+      340,
+      335,
+      379
+     ],
+     "check": "repeat_read_agrees"
+    },
+    {
+     "text": "∅ 252,0",
+     "legibility": "clear",
+     "box_2d": [
+      426,
+      650,
+      476,
+      660
+     ],
+     "check": "repeat_read_agrees"
+    },
+    {
+     "text": "∅ 262,0 H8 +0,081/0,000",
+     "legibility": "partial",
+     "box_2d": [
+      437,
+      715,
+      467,
+      805
+     ],
+     "check": "repeat_read_disagrees"
+    }
+   ],
+   "repeat_read": {
+    "dpi": 150,
+    "sheet_legibility": "clear"
+   }
+  },
+  {
+   "page": 2,
+   "sheet_legibility": "clear",
+   "legibility_issues": "",
+   "title_block": {
+    "title": {
+     "value": null,
+     "legibility": "clear",
+     "box_2d": [
+      829,
+      822,
+      915,
+      901
+     ],
+     "check": "repeat_read_agrees"
+    },
+    "material": {
+     "value": null,
+     "legibility": "clear",
+     "box_2d": [
+      915,
+      624,
+      937,
+      747
+     ],
+     "check": "repeat_read_agrees"
+    },
+    "weight_g": {
+     "value": null,
+     "legibility": "clear",
+     "box_2d": [
+      914,
+      746,
+      934,
+      821
+     ],
+     "check": "repeat_read_agrees"
+    },
+    "scale": {
+     "value": "1:5",
+     "legibility": "clear",
+     "box_2d": [
+      947,
+      917,
+      958,
+      945
+     ],
+     "check": "repeat_read_agrees"
+    },
+    "sheet": {
+     "value": "2 OF 3",
+     "legibility": "clear",
+     "box_2d": [
+      947,
+      951,
+      957,
+      982
+     ],
+     "check": "repeat_read_agrees"
+    },
+    "date": {
+     "value": "26/10/2023",
+     "legibility": "clear",
+     "box_2d": [
+      951,
+      786,
+      959,
+      816
+     ],
+     "check": "repeat_read_agrees"
+    },
+    "company": {
+     "value": "DTU MPP",
+     "legibility": "clear",
+     "box_2d": [
+      792,
+      823,
+      808,
+      868
+     ],
+     "check": "repeat_read_agrees"
+    },
+    "finish": {
+     "value": null,
+     "legibility": "clear",
+     "box_2d": [
+      938,
+      624,
+      965,
+      747
+     ],
+     "check": "repeat_read_agrees"
+    },
+    "general_tolerance": {
+     "value": "DIN ISO 2768-1 m",
+     "legibility": "clear",
+     "box_2d": [
+      936,
+      857,
+      944,
+      896
+     ],
+     "check": "repeat_read_agrees"
+    },
+    "paper_size": {
+     "value": "A3",
+     "legibility": "clear",
+     "box_2d": [
+      922,
+      967,
+      934,
+      980
+     ],
+     "check": "repeat_read_agrees"
+    },
+    "note": {
+     "value": "Threaded holes bottom side",
+     "legibility": "clear",
+     "box_2d": [
+      799,
+      631,
+      818,
+      783
+     ],
+     "check": "repeat_read_agrees"
+    }
+   },
+   "views": [
+    "front view"
+   ],
+   "dimensions": [],
+   "callouts": [
+    {
+     "text": "∅ 6,8 ↧ 15,0\nM8 - 6H ↧ 12,0",
+     "legibility": "clear",
+     "box_2d": [
+      80,
+      186,
+      111,
+      266
+     ],
+     "check": "repeat_read_agrees"
+    },
+    {
+     "text": "∅ 5,0 ↧ 15,0\nM6 - 6H ↧ 12,0",
+     "legibility": "clear",
+     "box_2d": [
+      118,
+      185,
+      149,
+      266
+     ],
+     "check": "repeat_read_agrees"
+    },
+    {
+     "text": "∅ 8,3 ↧ 17,2\nTAP FOR M8x1.25 HELICOIL Insert = 1.5 * Dia.",
+     "legibility": "clear",
+     "box_2d": [
+      156,
+      110,
+      190,
+      342
+     ],
+     "check": "repeat_read_agrees"
+    },
+    {
+     "text": "∅ 4,2 ↧ 12,4\nM5 - 6H ↧ 10,0",
+     "legibility": "clear",
+     "box_2d": [
+      197,
+      186,
+      227,
+      267
+     ],
+     "check": "repeat_read_agrees"
+    }
+   ],
+   "repeat_read": {
+    "dpi": 150,
+    "sheet_legibility": "clear"
+   }
+  },
+  {
+   "page": 3,
+   "sheet_legibility": "clear",
+   "legibility_issues": "",
+   "title_block": {
+    "title": {
+     "value": null,
+     "legibility": "clear",
+     "box_2d": [
+      846,
+      818,
+      917,
+      905
+     ],
+     "check": "repeat_read_agrees"
+    },
+    "material": {
+     "value": null,
+     "legibility": "clear",
+     "box_2d": [
+      916,
+      621,
+      942,
+      747
+     ],
+     "check": "repeat_read_agrees"
+    },
+    "weight_g": {
+     "value": null,
+     "legibility": "clear",
+     "box_2d": [
+      916,
+      743,
+      941,
+      817
+     ],
+     "check": "repeat_read_agrees"
+    },
+    "scale": {
+     "value": "1:5",
+     "legibility": "clear",
+     "box_2d": [
+      957,
+      928,
+      966,
+      941
+     ],
+     "check": "repeat_read_agrees"
+    },
+    "sheet": {
+     "value": "3 OF 3",
+     "legibility": "clear",
+     "box_2d": [
+      958,
+      959,
+      966,
+      977
+     ],
+     "check": "repeat_read_agrees"
+    },
+    "date": {
+     "value": "26/10/2023",
+     "legibility": "clear",
+     "box_2d": [
+      958,
+      783,
+      966,
+      811
+     ],
+     "check": "repeat_read_agrees"
+    },
+    "company": {
+     "value": "DTU MPP",
+     "legibility": "clear",
+     "box_2d": [
+      801,
+      820,
+      815,
+      864
+     ],
+     "check": "repeat_read_agrees"
+    },
+    "finish": {
+     "value": null,
+     "legibility": "clear",
+     "box_2d": [
+      941,
+      622,
+      969,
+      746
+     ],
+     "check": "repeat_read_agrees"
+    },
+    "general_tolerance": {
+     "value": "DIN ISO 2768-1 m",
+     "legibility": "clear",
+     "box_2d": [
+      943,
+      856,
+      950,
+      897
+     ],
+     "check": "repeat_read_agrees"
+    },
+    "paper_size": {
+     "value": "A3",
+     "legibility": "clear",
+     "box_2d": [
+      932,
+      962,
+      946,
+      976
+     ],
+     "check": "repeat_read_agrees"
+    },
+    "note": {
+     "value": "Threaded holes top side",
+     "legibility": "clear",
+     "box_2d": [
+      818,
+      641,
+      835,
+      773
+     ],
+     "check": "repeat_read_agrees"
+    }
+   },
+   "views": [
+    "top view"
+   ],
+   "dimensions": [],
+   "callouts": [
+    {
+     "text": "⌀ 4,2 ↧ 12,4\nM5 - 6H ↧ 10,0",
+     "legibility": "clear",
+     "box_2d": [
+      98,
+      206,
+      126,
+      287
+     ],
+     "check": "repeat_read_agrees"
+    },
+    {
+     "text": "⌀ 10,5 ↧ 19,0\nTAP FOR M10x1.5 HELICOIL Insert = 1.0 * Dia.",
+     "legibility": "clear",
+     "box_2d": [
+      135,
+      131,
+      165,
+      362
+     ],
+     "check": "repeat_read_agrees"
+    },
+    {
+     "text": "⌀ 8,3 ↧ 19,5\nTAP FOR M8x1.25 HELICOIL Insert = 1.0 * Dia.",
+     "legibility": "clear",
+     "box_2d": [
+      172,
+      132,
+      204,
+      362
+     ],
+     "check": "repeat_read_agrees"
+    },
+    {
+     "text": "⌀ 8,3 ↧ 13,0\nTAP FOR M8x1.25 HELICOIL Insert = 1.0 * Dia.",
+     "legibility": "clear",
+     "box_2d": [
+      212,
+      131,
+      243,
+      361
+     ],
+     "check": "repeat_read_agrees"
+    }
+   ],
+   "repeat_read": {
+    "dpi": 150,
+    "sheet_legibility": "clear"
+   }
+  }
+ ]
+}

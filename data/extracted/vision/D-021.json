@@ -1,0 +1,541 @@
+{
+ "document_id": "D-021",
+ "distribution": "clean",
+ "extractor": {
+  "model": "gemini-3.8-flash",
+  "prompt_version": "drawing-fields-v1",
+  "dpi": 200,
+  "verification": "embedded text layer",
+  "extracted_at": "2026-11-19T19:57:31+00:00",
+  "seconds": 56.3,
+  "usage": {
+   "prompt_tokens": 3785,
+   "output_tokens": 2845,
+   "thinking_tokens": 4353
+  }
+ },
+ "pages": [
+  {
+   "page": 1,
+   "sheet_legibility": "clear",
+   "legibility_issues": "",
+   "title_block": {
+    "title": {
+     "value": null,
+     "legibility": "clear",
+     "box_2d": [
+      842,
+      817,
+      915,
+      899
+     ],
+     "check": "empty"
+    },
+    "material": {
+     "value": null,
+     "legibility": "clear",
+     "box_2d": [
+      917,
+      623,
+      940,
+      742
+     ],
+     "check": "empty"
+    },
+    "weight_g": {
+     "value": null,
+     "legibility": "clear",
+     "box_2d": [
+      917,
+      742,
+      938,
+      816
+     ],
+     "check": "empty"
+    },
+    "scale": {
+     "value": "1:3",
+     "legibility": "clear",
+     "box_2d": [
+      952,
+      908,
+      964,
+      936
+     ],
+     "check": "text_layer_match"
+    },
+    "sheet": {
+     "value": "1 OF 2",
+     "legibility": "clear",
+     "box_2d": [
+      952,
+      943,
+      964,
+      974
+     ],
+     "check": "text_layer_match"
+    },
+    "date": {
+     "value": "21-12-2023",
+     "legibility": "clear",
+     "box_2d": [
+      953,
+      786,
+      964,
+      808
+     ],
+     "check": "text_layer_match"
+    },
+    "company": {
+     "value": "DTU MPP",
+     "legibility": "clear",
+     "box_2d": [
+      797,
+      818,
+      814,
+      862
+     ],
+     "check": "text_layer_match"
+    },
+    "finish": {
+     "value": null,
+     "legibility": "clear",
+     "box_2d": [
+      940,
+      622,
+      964,
+      742
+     ],
+     "check": "empty"
+    },
+    "general_tolerance": {
+     "value": "DIN ISO 2768-1 m",
+     "legibility": "clear",
+     "box_2d": [
+      939,
+      852,
+      950,
+      895
+     ],
+     "check": "text_layer_match"
+    },
+    "paper_size": {
+     "value": "A3",
+     "legibility": "clear",
+     "box_2d": [
+      929,
+      958,
+      943,
+      972
+     ],
+     "check": "text_layer_match"
+    },
+    "note": {
+     "value": "Blower Outlet\nNon-magnetic stainless\nSheet thickness is free, as thin\nas practical\nAll joints should be welded",
+     "legibility": "clear",
+     "box_2d": [
+      795,
+      626,
+      873,
+      786
+     ],
+     "check": "text_layer_match"
+    }
+   },
+   "views": [
+    "front view",
+    "top view",
+    "left view",
+    "right view",
+    "isometric view"
+   ],
+   "dimensions": [
+    {
+     "text": "80,50",
+     "feature": "hole spacing",
+     "view": "top view",
+     "legibility": "clear",
+     "box_2d": [
+      233,
+      401,
+      251,
+      431
+     ],
+     "check": "text_layer_match"
+    },
+    {
+     "text": "80,50",
+     "feature": "hole spacing",
+     "view": "top view",
+     "legibility": "clear",
+     "box_2d": [
+      254,
+      465,
+      270,
+      495
+     ],
+     "check": "text_layer_match"
+    },
+    {
+     "text": "12,00",
+     "feature": "edge distance",
+     "view": "top view",
+     "legibility": "clear",
+     "box_2d": [
+      252,
+      529,
+      290,
+      541
+     ],
+     "check": "text_layer_match"
+    },
+    {
+     "text": "46,00",
+     "feature": "hole spacing",
+     "view": "top view",
+     "legibility": "clear",
+     "box_2d": [
+      370,
+      484,
+      412,
+      497
+     ],
+     "check": "text_layer_match"
+    },
+    {
+     "text": "64,50",
+     "feature": "hole spacing",
+     "view": "top view",
+     "legibility": "clear",
+     "box_2d": [
+      451,
+      471,
+      467,
+      502
+     ],
+     "check": "text_layer_match"
+    },
+    {
+     "text": "32,00 +2,00/-2,00",
+     "feature": "opening width",
+     "view": "left view",
+     "legibility": "clear",
+     "box_2d": [
+      240,
+      219,
+      327,
+      243
+     ],
+     "check": "text_layer_match"
+    },
+    {
+     "text": "60,00 +1,00/-5,00",
+     "feature": "height to flange",
+     "view": "front view",
+     "legibility": "clear",
+     "box_2d": [
+      548,
+      215,
+      636,
+      239
+     ],
+     "check": "text_layer_match"
+    },
+    {
+     "text": "282,00 +2,00/-3,00",
+     "feature": "outlet length",
+     "view": "front view",
+     "legibility": "clear",
+     "box_2d": [
+      504,
+      479,
+      536,
+      549
+     ],
+     "check": "text_layer_match"
+    },
+    {
+     "text": "50,00",
+     "feature": "nipple length",
+     "view": "front view",
+     "legibility": "clear",
+     "box_2d": [
+      786,
+      276,
+      802,
+      307
+     ],
+     "check": "text_layer_match"
+    }
+   ],
+   "callouts": [
+    {
+     "text": "7 x ⌀ 7,00 THRU ALL",
+     "legibility": "clear",
+     "box_2d": [
+      213,
+      610,
+      229,
+      719
+     ],
+     "check": "text_layer_match"
+    },
+    {
+     "text": "2 x ⌀ 10,00 THRU ALL",
+     "legibility": "clear",
+     "box_2d": [
+      468,
+      614,
+      485,
+      730
+     ],
+     "check": "text_layer_match"
+    },
+    {
+     "text": "Gasket face",
+     "legibility": "clear",
+     "box_2d": [
+      423,
+      206,
+      439,
+      274
+     ],
+     "check": "text_layer_match"
+    },
+    {
+     "text": "G2 weld nipple.\nAdjust hole as\nneeded",
+     "legibility": "clear",
+     "box_2d": [
+      409,
+      854,
+      455,
+      941
+     ],
+     "check": "text_layer_match"
+    },
+    {
+     "text": "Will go through a plate",
+     "legibility": "clear",
+     "box_2d": [
+      537,
+      698,
+      555,
+      822
+     ],
+     "check": "text_layer_match"
+    },
+    {
+     "text": "Weld nut side",
+     "legibility": "clear",
+     "box_2d": [
+      681,
+      661,
+      697,
+      736
+     ],
+     "check": "text_layer_match"
+    },
+    {
+     "text": "Weld nipple e.g.\n1000843 sanistaal",
+     "legibility": "clear",
+     "box_2d": [
+      746,
+      92,
+      779,
+      188
+     ],
+     "check": "text_layer_match"
+    }
+   ]
+  },
+  {
+   "page": 2,
+   "sheet_legibility": "clear",
+   "legibility_issues": "",
+   "title_block": {
+    "title": {
+     "value": null,
+     "legibility": "clear",
+     "box_2d": [
+      843,
+      817,
+      918,
+      900
+     ],
+     "check": "empty"
+    },
+    "material": {
+     "value": null,
+     "legibility": "clear",
+     "box_2d": [
+      916,
+      620,
+      938,
+      742
+     ],
+     "check": "empty"
+    },
+    "weight_g": {
+     "value": null,
+     "legibility": "clear",
+     "box_2d": [
+      916,
+      740,
+      938,
+      815
+     ],
+     "check": "empty"
+    },
+    "scale": {
+     "value": "1:3",
+     "legibility": "clear",
+     "box_2d": [
+      954,
+      908,
+      963,
+      936
+     ],
+     "check": "text_layer_match"
+    },
+    "sheet": {
+     "value": "2 OF 2",
+     "legibility": "clear",
+     "box_2d": [
+      954,
+      942,
+      963,
+      974
+     ],
+     "check": "text_layer_match"
+    },
+    "date": {
+     "value": "21-12-2023",
+     "legibility": "clear",
+     "box_2d": [
+      954,
+      781,
+      963,
+      808
+     ],
+     "check": "text_layer_match"
+    },
+    "company": {
+     "value": "DTU MPP",
+     "legibility": "clear",
+     "box_2d": [
+      799,
+      818,
+      812,
+      861
+     ],
+     "check": "text_layer_match"
+    },
+    "finish": {
+     "value": null,
+     "legibility": "clear",
+     "box_2d": [
+      938,
+      620,
+      965,
+      742
+     ],
+     "check": "empty"
+    },
+    "general_tolerance": {
+     "value": "DIN ISO 2768-1 m",
+     "legibility": "clear",
+     "box_2d": [
+      939,
+      853,
+      949,
+      893
+     ],
+     "check": "text_layer_match"
+    },
+    "paper_size": {
+     "value": "A3",
+     "legibility": "clear",
+     "box_2d": [
+      929,
+      958,
+      943,
+      972
+     ],
+     "check": "text_layer_match"
+    },
+    "note": {
+     "value": "Gas outlet box\nPlease adjust design if necessary/\nbenificial",
+     "legibility": "clear",
+     "box_2d": [
+      799,
+      625,
+      861,
+      808
+     ],
+     "check": "text_layer_match"
+    }
+   },
+   "views": [
+    "exploded isometric view"
+   ],
+   "dimensions": [],
+   "callouts": [
+    {
+     "text": "Flange for machine wall",
+     "legibility": "clear",
+     "box_2d": [
+      197,
+      665,
+      212,
+      796
+     ],
+     "check": "text_layer_match"
+    },
+    {
+     "text": "Curved inside with hole for nipple",
+     "legibility": "clear",
+     "box_2d": [
+      296,
+      656,
+      312,
+      835
+     ],
+     "check": "text_layer_match"
+    },
+    {
+     "text": "G2 threaded weld nipple\n50mm long (e.g. 1000843 from sanistaal)",
+     "legibility": "clear",
+     "box_2d": [
+      336,
+      715,
+      369,
+      931
+     ],
+     "check": "text_layer_match"
+    },
+    {
+     "text": "Curved back",
+     "legibility": "clear",
+     "box_2d": [
+      352,
+      358,
+      367,
+      430
+     ],
+     "check": "text_layer_match"
+    },
+    {
+     "text": "Top and bottom",
+     "legibility": "clear",
+     "box_2d": [
+      325,
+      134,
+      341,
+      224
+     ],
+     "check": "text_layer_match"
+    }
+   ]
+  }
+ ]
+}

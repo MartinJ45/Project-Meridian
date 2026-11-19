@@ -1,0 +1,351 @@
+{
+ "document_id": "D-011",
+ "distribution": "degraded-only",
+ "extractor": {
+  "model": "gemini-3.8-flash",
+  "prompt_version": "drawing-fields-v1",
+  "dpi": 200,
+  "verification": "repeat read at 150 dpi",
+  "extracted_at": "2026-11-19T19:56:15+00:00",
+  "seconds": 66.7,
+  "usage": {
+   "prompt_tokens": 2898,
+   "output_tokens": 3603,
+   "thinking_tokens": 5262
+  }
+ },
+ "pages": [
+  {
+   "page": 1,
+   "sheet_legibility": "clear",
+   "legibility_issues": "",
+   "title_block": {
+    "title": {
+     "value": "Recoater Arm",
+     "legibility": "clear",
+     "box_2d": [
+      862,
+      822,
+      878,
+      903
+     ],
+     "check": "repeat_read_agrees"
+    },
+    "material": {
+     "value": "7075-T6, Plate (SS)",
+     "legibility": "clear",
+     "box_2d": [
+      917,
+      663,
+      928,
+      717
+     ],
+     "check": "repeat_read_agrees"
+    },
+    "weight_g": {
+     "value": "415.3",
+     "legibility": "clear",
+     "box_2d": [
+      917,
+      782,
+      928,
+      799
+     ],
+     "check": "repeat_read_agrees"
+    },
+    "scale": {
+     "value": "1:2",
+     "legibility": "clear",
+     "box_2d": [
+      954,
+      908,
+      963,
+      927
+     ],
+     "check": "repeat_read_agrees"
+    },
+    "sheet": {
+     "value": "1 OF 1",
+     "legibility": "clear",
+     "box_2d": [
+      954,
+      943,
+      963,
+      971
+     ],
+     "check": "repeat_read_agrees"
+    },
+    "date": {
+     "value": "24/11/2021",
+     "legibility": "clear",
+     "box_2d": [
+      953,
+      779,
+      964,
+      807
+     ],
+     "check": "repeat_read_agrees"
+    },
+    "company": {
+     "value": "DTU MPP",
+     "legibility": "clear",
+     "box_2d": [
+      801,
+      833,
+      813,
+      876
+     ],
+     "check": "repeat_read_agrees"
+    },
+    "finish": {
+     "value": null,
+     "legibility": "clear",
+     "box_2d": [
+      946,
+      646,
+      962,
+      715
+     ],
+     "check": "repeat_read_agrees"
+    },
+    "general_tolerance": {
+     "value": "DIN ISO 2768-1 m",
+     "legibility": "clear",
+     "box_2d": [
+      938,
+      854,
+      947,
+      892
+     ],
+     "check": "repeat_read_agrees"
+    },
+    "paper_size": {
+     "value": "A3",
+     "legibility": "clear",
+     "box_2d": [
+      930,
+      958,
+      941,
+      971
+     ],
+     "check": "repeat_read_agrees"
+    },
+    "note": {
+     "value": "Alu.\nArm til linær føring",
+     "legibility": "clear",
+     "box_2d": [
+      798,
+      626,
+      846,
+      725
+     ],
+     "check": "repeat_read_agrees"
+    }
+   },
+   "views": [
+    "front view",
+    "left view",
+    "isometric view"
+   ],
+   "dimensions": [
+    {
+     "text": "15,0",
+     "feature": "thickness",
+     "view": "left view",
+     "legibility": "clear",
+     "box_2d": [
+      288,
+      206,
+      301,
+      228
+     ],
+     "check": "repeat_read_agrees"
+    },
+    {
+     "text": "12,0",
+     "feature": "thickness",
+     "view": "left view",
+     "legibility": "clear",
+     "box_2d": [
+      303,
+      207,
+      316,
+      229
+     ],
+     "check": "repeat_read_agrees"
+    },
+    {
+     "text": "195,0",
+     "feature": "height",
+     "view": "front view",
+     "legibility": "clear",
+     "box_2d": [
+      487,
+      238,
+      526,
+      250
+     ],
+     "check": "repeat_read_agrees"
+    },
+    {
+     "text": "20,0",
+     "feature": "hole position",
+     "view": "front view",
+     "legibility": "clear",
+     "box_2d": [
+      295,
+      252,
+      327,
+      264
+     ],
+     "check": "repeat_read_agrees"
+    },
+    {
+     "text": "80,0",
+     "feature": "hole to hole distance",
+     "view": "front view",
+     "legibility": "clear",
+     "box_2d": [
+      439,
+      252,
+      469,
+      264
+     ],
+     "check": "repeat_read_agrees"
+    },
+    {
+     "text": "25,0",
+     "feature": "width",
+     "view": "front view",
+     "legibility": "clear",
+     "box_2d": [
+      301,
+      292,
+      316,
+      315
+     ],
+     "check": "repeat_read_agrees"
+    },
+    {
+     "text": "R35,0",
+     "feature": "inner corner radius",
+     "view": "front view",
+     "legibility": "clear",
+     "box_2d": [
+      569,
+      325,
+      608,
+      355
+     ],
+     "check": "repeat_read_agrees"
+    },
+    {
+     "text": "R60,0",
+     "feature": "outer corner radius",
+     "view": "front view",
+     "legibility": "clear",
+     "box_2d": [
+      686,
+      246,
+      725,
+      275
+     ],
+     "check": "repeat_read_agrees"
+    },
+    {
+     "text": "82,0",
+     "feature": "hole to hole distance",
+     "view": "front view",
+     "legibility": "clear",
+     "box_2d": [
+      577,
+      434,
+      591,
+      458
+     ],
+     "check": "repeat_read_agrees"
+    },
+    {
+     "text": "348,0",
+     "feature": "overall length",
+     "view": "front view",
+     "legibility": "clear",
+     "box_2d": [
+      697,
+      482,
+      710,
+      511
+     ],
+     "check": "repeat_read_agrees"
+    },
+    {
+     "text": "10,5",
+     "feature": "hole position from end",
+     "view": "front view",
+     "legibility": "clear",
+     "box_2d": [
+      594,
+      696,
+      608,
+      718
+     ],
+     "check": "repeat_read_agrees"
+    },
+    {
+     "text": "8,0",
+     "feature": "hole offset",
+     "view": "front view",
+     "legibility": "clear",
+     "box_2d": [
+      582,
+      722,
+      606,
+      734
+     ],
+     "check": "repeat_read_agrees"
+    },
+    {
+     "text": "25,0",
+     "feature": "height",
+     "view": "front view",
+     "legibility": "clear",
+     "box_2d": [
+      640,
+      742,
+      674,
+      754
+     ],
+     "check": "repeat_read_agrees"
+    }
+   ],
+   "callouts": [
+    {
+     "text": "2 x ⌀ 6,6 THRU ALL",
+     "legibility": "clear",
+     "box_2d": [
+      308,
+      348,
+      324,
+      450
+     ],
+     "check": "repeat_read_agrees"
+    },
+    {
+     "text": "4 x ⌀ 4,2 THRU ALL\nM5 - 6H THRU ALL",
+     "legibility": "clear",
+     "box_2d": [
+      538,
+      555,
+      574,
+      657
+     ],
+     "check": "repeat_read_agrees"
+    }
+   ],
+   "repeat_read": {
+    "dpi": 150,
+    "sheet_legibility": "clear"
+   }
+  }
+ ]
+}

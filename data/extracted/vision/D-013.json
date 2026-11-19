@@ -1,0 +1,345 @@
+{
+ "document_id": "D-013",
+ "distribution": "clean",
+ "extractor": {
+  "model": "gemini-3.8-flash",
+  "prompt_version": "drawing-fields-v1",
+  "dpi": 200,
+  "verification": "embedded text layer",
+  "extracted_at": "2026-11-19T19:56:00+00:00",
+  "seconds": 25.7,
+  "usage": {
+   "prompt_tokens": 2006,
+   "output_tokens": 1787,
+   "thinking_tokens": 1657
+  }
+ },
+ "pages": [
+  {
+   "page": 1,
+   "sheet_legibility": "clear",
+   "legibility_issues": "",
+   "title_block": {
+    "title": {
+     "value": "Recoater Plate",
+     "legibility": "clear",
+     "box_2d": [
+      863,
+      823,
+      877,
+      909
+     ],
+     "check": "text_layer_match"
+    },
+    "material": {
+     "value": "3.3315 (EN-AW 5005)",
+     "legibility": "clear",
+     "box_2d": [
+      919,
+      661,
+      928,
+      727
+     ],
+     "check": "text_layer_match"
+    },
+    "weight_g": {
+     "value": "87.5",
+     "legibility": "clear",
+     "box_2d": [
+      919,
+      782,
+      928,
+      796
+     ],
+     "check": "text_layer_match"
+    },
+    "scale": {
+     "value": "1:1",
+     "legibility": "clear",
+     "box_2d": [
+      954,
+      925,
+      963,
+      934
+     ],
+     "check": "text_layer_match"
+    },
+    "sheet": {
+     "value": "1 OF 1",
+     "legibility": "clear",
+     "box_2d": [
+      955,
+      955,
+      963,
+      971
+     ],
+     "check": "text_layer_match"
+    },
+    "date": {
+     "value": "24/11/2021",
+     "legibility": "clear",
+     "box_2d": [
+      955,
+      786,
+      963,
+      807
+     ],
+     "check": "text_layer_match"
+    },
+    "company": {
+     "value": "DTU MPP",
+     "legibility": "clear",
+     "box_2d": [
+      802,
+      834,
+      813,
+      876
+     ],
+     "check": "text_layer_match"
+    },
+    "finish": {
+     "value": null,
+     "legibility": "clear",
+     "box_2d": [
+      946,
+      624,
+      956,
+      645
+     ],
+     "check": "empty"
+    },
+    "general_tolerance": {
+     "value": "DIN ISO 2768-1 m",
+     "legibility": "clear",
+     "box_2d": [
+      940,
+      856,
+      949,
+      893
+     ],
+     "check": "text_layer_match"
+    },
+    "paper_size": {
+     "value": "A3",
+     "legibility": "clear",
+     "box_2d": [
+      930,
+      959,
+      942,
+      972
+     ],
+     "check": "text_layer_match"
+    },
+    "note": {
+     "value": "Alu. Justeringsplade til recoater.",
+     "legibility": "clear",
+     "box_2d": [
+      803,
+      626,
+      850,
+      776
+     ],
+     "check": "text_layer_match"
+    }
+   },
+   "views": [
+    "front view",
+    "left view",
+    "isometric"
+   ],
+   "dimensions": [
+    {
+     "text": "270,0",
+     "feature": "overall length",
+     "view": "front view",
+     "legibility": "clear",
+     "box_2d": [
+      370,
+      504,
+      385,
+      533
+     ],
+     "check": "text_layer_match"
+    },
+    {
+     "text": "82,0",
+     "feature": "unknown",
+     "view": "front view",
+     "legibility": "clear",
+     "box_2d": [
+      410,
+      410,
+      425,
+      433
+     ],
+     "check": "text_layer_match"
+    },
+    {
+     "text": "41,0",
+     "feature": "unknown",
+     "view": "front view",
+     "legibility": "clear",
+     "box_2d": [
+      411,
+      557,
+      425,
+      579
+     ],
+     "check": "text_layer_match"
+    },
+    {
+     "text": "82,0",
+     "feature": "unknown",
+     "view": "front view",
+     "legibility": "clear",
+     "box_2d": [
+      390,
+      703,
+      405,
+      725
+     ],
+     "check": "text_layer_match"
+    },
+    {
+     "text": "17,9",
+     "feature": "unknown",
+     "view": "front view",
+     "legibility": "clear",
+     "box_2d": [
+      583,
+      530,
+      597,
+      551
+     ],
+     "check": "text_layer_match"
+    },
+    {
+     "text": "35,7",
+     "feature": "unknown",
+     "view": "front view",
+     "legibility": "clear",
+     "box_2d": [
+      603,
+      600,
+      617,
+      622
+     ],
+     "check": "text_layer_match"
+    },
+    {
+     "text": "2,3",
+     "feature": "unknown",
+     "view": "front view",
+     "legibility": "clear",
+     "box_2d": [
+      468,
+      852,
+      492,
+      864
+     ],
+     "check": "text_layer_match"
+    },
+    {
+     "text": "7,5",
+     "feature": "unknown",
+     "view": "front view",
+     "legibility": "clear",
+     "box_2d": [
+      468,
+      880,
+      491,
+      892
+     ],
+     "check": "text_layer_match"
+    },
+    {
+     "text": "25,0",
+     "feature": "overall height",
+     "view": "front view",
+     "legibility": "clear",
+     "box_2d": [
+      483,
+      909,
+      516,
+      921
+     ],
+     "check": "text_layer_match"
+    },
+    {
+     "text": "4,5",
+     "feature": "unknown",
+     "view": "front view",
+     "legibility": "clear",
+     "box_2d": [
+      439,
+      162,
+      463,
+      173
+     ],
+     "check": "text_layer_match"
+    },
+    {
+     "text": "6,0",
+     "feature": "thickness",
+     "view": "left view",
+     "legibility": "clear",
+     "box_2d": [
+      397,
+      127,
+      410,
+      144
+     ],
+     "check": "text_layer_match"
+    },
+    {
+     "text": "3,0",
+     "feature": "unknown",
+     "view": "left view",
+     "legibility": "clear",
+     "box_2d": [
+      412,
+      127,
+      425,
+      143
+     ],
+     "check": "text_layer_match"
+    }
+   ],
+   "callouts": [
+    {
+     "text": "4 x 5,5 X 10,0 THRU ALL",
+     "legibility": "clear",
+     "box_2d": [
+      419,
+      638,
+      435,
+      757
+     ],
+     "check": "text_layer_match"
+    },
+    {
+     "text": "2 x ⌀ 4,2 THRU ALL M5 - 6H THRU ALL",
+     "legibility": "clear",
+     "box_2d": [
+      621,
+      359,
+      656,
+      460
+     ],
+     "check": "text_layer_match"
+    },
+    {
+     "text": "8 x ⌀ 2,5 THRU ALL M3 - 6H THRU ALL",
+     "legibility": "clear",
+     "box_2d": [
+      672,
+      258,
+      708,
+      360
+     ],
+     "check": "text_layer_match"
+    }
+   ]
+  }
+ ]
+}

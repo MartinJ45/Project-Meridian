@@ -1,0 +1,312 @@
+{
+ "document_id": "D-007",
+ "distribution": "clean",
+ "extractor": {
+  "model": "gemini-3.8-flash",
+  "prompt_version": "drawing-fields-v1",
+  "dpi": 200,
+  "verification": "embedded text layer",
+  "extracted_at": "2026-11-19T19:55:06+00:00",
+  "seconds": 23.2,
+  "usage": {
+   "prompt_tokens": 2000,
+   "output_tokens": 1676,
+   "thinking_tokens": 1126
+  }
+ },
+ "pages": [
+  {
+   "page": 1,
+   "sheet_legibility": "clear",
+   "legibility_issues": "",
+   "title_block": {
+    "title": {
+     "value": "Dispenser Shaft v6",
+     "legibility": "clear",
+     "box_2d": [
+      870,
+      828,
+      887,
+      926
+     ],
+     "check": "text_layer_match"
+    },
+    "material": {
+     "value": null,
+     "legibility": "clear",
+     "box_2d": [
+      916,
+      619,
+      936,
+      739
+     ],
+     "check": "empty"
+    },
+    "weight_g": {
+     "value": null,
+     "legibility": "clear",
+     "box_2d": [
+      915,
+      737,
+      935,
+      814
+     ],
+     "check": "empty"
+    },
+    "scale": {
+     "value": "1:2",
+     "legibility": "clear",
+     "box_2d": [
+      956,
+      922,
+      963,
+      932
+     ],
+     "check": "text_layer_match"
+    },
+    "sheet": {
+     "value": "1 OF 1",
+     "legibility": "clear",
+     "box_2d": [
+      956,
+      957,
+      963,
+      971
+     ],
+     "check": "text_layer_match"
+    },
+    "date": {
+     "value": "10/04/2024",
+     "legibility": "clear",
+     "box_2d": [
+      955,
+      786,
+      963,
+      807
+     ],
+     "check": "text_layer_match"
+    },
+    "company": {
+     "value": "DTU MPP",
+     "legibility": "clear",
+     "box_2d": [
+      801,
+      833,
+      814,
+      876
+     ],
+     "check": "text_layer_match"
+    },
+    "finish": {
+     "value": null,
+     "legibility": "clear",
+     "box_2d": [
+      938,
+      619,
+      965,
+      739
+     ],
+     "check": "empty"
+    },
+    "general_tolerance": {
+     "value": "DIN ISO 2768-1 m",
+     "legibility": "clear",
+     "box_2d": [
+      941,
+      853,
+      948,
+      893
+     ],
+     "check": "text_layer_match"
+    },
+    "paper_size": {
+     "value": "A3",
+     "legibility": "clear",
+     "box_2d": [
+      931,
+      959,
+      942,
+      971
+     ],
+     "check": "text_layer_match"
+    },
+    "note": {
+     "value": "Aluminium.\n3 identiske spor er formet som en\n\"konstant trekant\" langs en\nkontinuær bue. Dimensionerne\naf disse er vigtige. 120 grader\nimellem spor",
+     "legibility": "clear",
+     "box_2d": [
+      801,
+      626,
+      893,
+      803
+     ],
+     "check": "text_layer_match"
+    }
+   },
+   "views": [
+    "top view",
+    "front view",
+    "side view",
+    "SECTION A-A",
+    "isometric"
+   ],
+   "dimensions": [
+    {
+     "text": "336,1",
+     "feature": "overall length",
+     "view": "top view",
+     "legibility": "clear",
+     "box_2d": [
+      128,
+      395,
+      144,
+      423
+     ],
+     "check": "text_layer_match"
+    },
+    {
+     "text": "269,5 ±0,1",
+     "feature": "cylinder body length",
+     "view": "top view",
+     "legibility": "clear",
+     "box_2d": [
+      169,
+      377,
+      185,
+      431
+     ],
+     "check": "text_layer_match"
+    },
+    {
+     "text": "29,0",
+     "feature": "left pin length",
+     "view": "top view",
+     "legibility": "clear",
+     "box_2d": [
+      169,
+      215,
+      184,
+      238
+     ],
+     "check": "text_layer_match"
+    },
+    {
+     "text": "37,6",
+     "feature": "right pin length",
+     "view": "top view",
+     "legibility": "clear",
+     "box_2d": [
+      149,
+      575,
+      163,
+      598
+     ],
+     "check": "text_layer_match"
+    },
+    {
+     "text": "1,0 X 45°",
+     "feature": "chamfer",
+     "view": "top view",
+     "legibility": "clear",
+     "box_2d": [
+      248,
+      630,
+      296,
+      674
+     ],
+     "check": "text_layer_match"
+    },
+    {
+     "text": "1,0 X 45°",
+     "feature": "chamfer",
+     "view": "top view",
+     "legibility": "clear",
+     "box_2d": [
+      270,
+      592,
+      319,
+      637
+     ],
+     "check": "text_layer_match"
+    },
+    {
+     "text": "⌀8,0 g8 -0,005/-0,027",
+     "feature": "left pin diameter",
+     "view": "front view",
+     "legibility": "clear",
+     "box_2d": [
+      540,
+      214,
+      650,
+      239
+     ],
+     "check": "text_layer_match"
+    },
+    {
+     "text": "⌀8,0 g8 -0,005/-0,027",
+     "feature": "right pin diameter",
+     "view": "front view",
+     "legibility": "clear",
+     "box_2d": [
+      554,
+      555,
+      663,
+      579
+     ],
+     "check": "text_layer_match"
+    },
+    {
+     "text": "⌀25,0",
+     "feature": "cylinder diameter",
+     "view": "side view",
+     "legibility": "clear",
+     "box_2d": [
+      458,
+      716,
+      490,
+      751
+     ],
+     "check": "text_layer_match"
+    },
+    {
+     "text": "90°",
+     "feature": "groove angle",
+     "view": "SECTION A-A",
+     "legibility": "clear",
+     "box_2d": [
+      548,
+      111,
+      560,
+      129
+     ],
+     "check": "text_layer_match"
+    },
+    {
+     "text": "2,3",
+     "feature": "groove depth/width",
+     "view": "SECTION A-A",
+     "legibility": "clear",
+     "box_2d": [
+      489,
+      157,
+      510,
+      175
+     ],
+     "check": "text_layer_match"
+    }
+   ],
+   "callouts": [
+    {
+     "text": "Cylindriske flade skal være glat",
+     "legibility": "clear",
+     "box_2d": [
+      411,
+      338,
+      426,
+      505
+     ],
+     "check": "text_layer_match"
+    }
+   ]
+  }
+ ]
+}

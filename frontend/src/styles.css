@@ -116,14 +116,34 @@ pre { white-space: pre-wrap; word-break: break-word; }
 .panel-body { flex: 1; min-height: 0; overflow: auto; background: var(--panel); }
 
 .pdf { display: flex; flex-direction: column; height: 100%; }
-.toolbar { display: flex; align-items: center; gap: 8px; padding: 8px 12px; background: #fff; border-bottom: 1px solid var(--line); font-size: 13px; }
+.toolbar { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; padding: 8px 12px; background: #fff; border-bottom: 1px solid var(--line); font-size: 13px; }
 .toolbar button { border: 1px solid var(--line); background: #fff; border-radius: 6px; padding: 2px 10px; }
 .toolbar a { margin-left: auto; color: var(--accent); }
 .pdf { min-width: 0; }
 .pdf-scroll { flex: 1; min-height: 0; min-width: 0; overflow: auto; padding: 16px; }
 .toolbar .active { background: var(--accent-soft); border-color: #bfd3ff; }
 /* display:block removes the inline baseline gap under the canvas, which made "Fit" a few px too tall. */
-.pdf-scroll canvas { display: block; margin: 0 auto; background: #fff; box-shadow: 0 1px 4px rgba(0,0,0,.15); }
+.pdf-scroll canvas { display: block; background: #fff; box-shadow: 0 1px 4px rgba(0,0,0,.15); }
+.sheet { position: relative; width: fit-content; margin: 0 auto; }
+.hl-box { position: absolute; border: 2px solid #ef4444; background: rgba(239, 68, 68, .12); border-radius: 3px;
+  box-shadow: 0 0 0 4px rgba(239, 68, 68, .18); pointer-events: none; min-width: 6px; min-height: 6px; }
+.hl-chip { display: inline-flex; align-items: center; gap: 6px; background: #fee2e2; color: #991b1b; border-radius: 6px; padding: 2px 4px 2px 8px; font-size: 12px; }
+.hl-chip button { border: 0; background: none; color: inherit; padding: 0 4px; }
+.evidence th { font-weight: 500; color: var(--muted); white-space: nowrap; width: 1%; }
+.evidence .pre { white-space: pre-line; }
+.evidence table { table-layout: auto; }
+.evidence td, .evidence p { overflow-wrap: anywhere; }
+/* Label column: as narrow as its words allow, never broken mid-word. */
+.evidence tbody th { width: 1%; min-width: 64px; vertical-align: top; text-align: left; white-space: normal; overflow-wrap: normal; word-break: normal; hyphens: auto; }
+.evidence pre.text { max-width: 100%; overflow-x: auto; }
+.ev-meta { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 8px; margin-top: 3px; font-size: 12px; }
+.ev-meta:empty { display: none; }
+.ev-meta .tag { margin-left: 0; }
+.check-chip { font-size: 11px; border-radius: 4px; padding: 1px 6px; }
+.check-chip.ok { background: #dcfce7; color: #166534; }
+.check-chip.fail { background: var(--warn-soft); color: var(--warn); }
+.tag.bad { background: #fee2e2; color: var(--bad); border-color: #fca5a5; }
+.link-btn { border: 0; background: none; color: var(--accent); padding: 0 2px; font-size: 12px; text-decoration: underline; }
 
 .model { display: flex; flex-direction: column; height: 100%; }
 .recon-banner { background: #ede9fe; color: #5b21b6; padding: 6px 12px; font-size: 13px; font-weight: 500; }

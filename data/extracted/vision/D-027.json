@@ -1,0 +1,268 @@
+{
+ "document_id": "D-027",
+ "distribution": "clean",
+ "extractor": {
+  "model": "gemini-3.8-flash",
+  "prompt_version": "drawing-fields-v1",
+  "dpi": 200,
+  "verification": "embedded text layer",
+  "extracted_at": "2026-11-19T19:58:04+00:00",
+  "seconds": 22.3,
+  "usage": {
+   "prompt_tokens": 2027,
+   "output_tokens": 936,
+   "thinking_tokens": 1981
+  }
+ },
+ "pages": [
+  {
+   "page": 1,
+   "sheet_legibility": "clear",
+   "legibility_issues": "",
+   "title_block": {
+    "title": {
+     "value": "Cylinder Spænd Ring",
+     "legibility": "clear",
+     "box_2d": [
+      861,
+      822,
+      882,
+      946
+     ],
+     "check": "text_layer_match"
+    },
+    "material": {
+     "value": "6063-T6",
+     "legibility": "clear",
+     "box_2d": [
+      918,
+      663,
+      929,
+      686
+     ],
+     "check": "text_layer_match"
+    },
+    "weight_g": {
+     "value": "1204.1",
+     "legibility": "clear",
+     "box_2d": [
+      918,
+      782,
+      929,
+      802
+     ],
+     "check": "text_layer_match"
+    },
+    "scale": {
+     "value": "1:5",
+     "legibility": "clear",
+     "box_2d": [
+      954,
+      924,
+      963,
+      937
+     ],
+     "check": "text_layer_match"
+    },
+    "sheet": {
+     "value": "1 OF 1",
+     "legibility": "clear",
+     "box_2d": [
+      954,
+      957,
+      963,
+      971
+     ],
+     "check": "text_layer_match"
+    },
+    "date": {
+     "value": "15/11/2021",
+     "legibility": "clear",
+     "box_2d": [
+      954,
+      783,
+      964,
+      808
+     ],
+     "check": "text_layer_match"
+    },
+    "company": {
+     "value": "DTU MPP",
+     "legibility": "clear",
+     "box_2d": [
+      800,
+      833,
+      814,
+      876
+     ],
+     "check": "text_layer_match"
+    },
+    "finish": {
+     "value": null,
+     "legibility": "clear",
+     "box_2d": [
+      936,
+      618,
+      966,
+      745
+     ],
+     "check": "empty"
+    },
+    "general_tolerance": {
+     "value": "DIN ISO 2768-1 m",
+     "legibility": "clear",
+     "box_2d": [
+      939,
+      856,
+      949,
+      893
+     ],
+     "check": "text_layer_match"
+    },
+    "paper_size": {
+     "value": "A3",
+     "legibility": "clear",
+     "box_2d": [
+      929,
+      958,
+      943,
+      972
+     ],
+     "check": "text_layer_match"
+    },
+    "note": {
+     "value": "Brug gerne EN AW-6000, AW-2000\neller AW-7000 serie aluminium.",
+     "legibility": "clear",
+     "box_2d": [
+      801,
+      623,
+      832,
+      804
+     ],
+     "check": "text_layer_match"
+    }
+   },
+   "views": [
+    "front view",
+    "side view",
+    "rear view",
+    "isometric"
+   ],
+   "dimensions": [
+    {
+     "text": "15,0",
+     "feature": "thickness",
+     "view": "side view",
+     "legibility": "clear",
+     "box_2d": [
+      293,
+      486,
+      309,
+      509
+     ],
+     "check": "text_layer_match"
+    },
+    {
+     "text": "R148,5",
+     "feature": "bolt circle radius",
+     "view": "rear view",
+     "legibility": "clear",
+     "box_2d": [
+      334,
+      500,
+      351,
+      536
+     ],
+     "check": "text_layer_match"
+    },
+    {
+     "text": "120°",
+     "feature": "hole pattern angle",
+     "view": "rear view",
+     "legibility": "clear",
+     "box_2d": [
+      478,
+      645,
+      515,
+      670
+     ],
+     "check": "text_layer_match"
+    },
+    {
+     "text": "60°",
+     "feature": "angle",
+     "view": "rear view",
+     "legibility": "clear",
+     "box_2d": [
+      565,
+      569,
+      589,
+      589
+     ],
+     "check": "text_layer_match"
+    },
+    {
+     "text": "∅ 330,0",
+     "feature": "outer diameter",
+     "view": "front view",
+     "legibility": "clear",
+     "box_2d": [
+      464,
+      373,
+      480,
+      414
+     ],
+     "check": "text_layer_match"
+    },
+    {
+     "text": "∅ 264,0 H8 +0,081/0,000",
+     "feature": "inner diameter",
+     "view": "front view",
+     "legibility": "clear",
+     "box_2d": [
+      518,
+      349,
+      553,
+      444
+     ],
+     "check": "text_layer_match"
+    }
+   ],
+   "callouts": [
+    {
+     "text": "3 x ∅ 11,0 THRU ALL\n⌵ ∅ 24,4 X 90°\nObs. Ekstra undersænkning",
+     "legibility": "clear",
+     "box_2d": [
+      247,
+      85,
+      305,
+      230
+     ],
+     "check": "text_layer_match"
+    },
+    {
+     "text": "6 x ∅ 9,0 THRU ALL",
+     "legibility": "clear",
+     "box_2d": [
+      359,
+      720,
+      377,
+      822
+     ],
+     "check": "text_layer_match"
+    },
+    {
+     "text": "3 x ⌴ ∅ 20,0 H7 +0,021/0,000 ↧ 4,0 ±0,05",
+     "legibility": "clear",
+     "box_2d": [
+      479,
+      749,
+      513,
+      936
+     ],
+     "check": "text_layer_match"
+    }
+   ]
+  }
+ ]
+}

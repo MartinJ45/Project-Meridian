@@ -48,6 +48,13 @@ def get_document(con, doc_id: str) -> dict | None:
            FROM doc_bom_links l JOIN bom_rows b USING(row_index)
            WHERE l.document_id = ? AND l.status != 'rejected' ORDER BY l.score DESC""", (doc_id,)))
     doc["facts"] = facts_for(con, "document", doc_id)
+    doc["quality"] = all_rows(con.execute(
+        "SELECT page, legibility, issues, extractor FROM drawing_quality WHERE document_id = ? ORDER BY page", (doc_id,)))
+    doc["annotations"] = all_rows(con.execute(
+        "SELECT page, kind, feature, text, legibility, box_2d FROM drawing_annotations WHERE document_id = ? ORDER BY kind DESC, id",
+        (doc_id,)))
+    for a in doc["annotations"]:
+        a["box_2d"] = json.loads(a["box_2d"]) if a["box_2d"] else None
     doc["model"] = get_model(con, doc_id)
     doc["file_url"] = f"/api/documents/{doc_id}/file"
     return doc
@@ -94,7 +101,10 @@ def facts_for(con, subject_type: str, subject_id: str, include_superseded: bool 
     sql = "SELECT * FROM facts WHERE subject_type = ? AND subject_id = ?"
     if not include_superseded:
         sql += " AND status = 'active'"
-    return all_rows(con.execute(sql + " ORDER BY predicate, id", (subject_type, str(subject_id))))
+    rows = all_rows(con.execute(sql + " ORDER BY predicate, id", (subject_type, str(subject_id))))
+    for r in rows:
+        r["evidence"] = json.loads(r["evidence"]) if r.get("evidence") else None
+    return rows
 
 
 def _part_score(query: str, choice: str, **kwargs) -> float:
@@ -106,8 +116,14 @@ def find(con, query: str, limit: int = 8) -> list[dict]:
     """Fuzzy match a free-text part reference against drawing titles and BOM names.
     An explicit drawing id (e.g. 'D-012') in the query is an exact hit."""
     cands: dict[str, tuple[str, dict]] = {}
+    # Match drawings on the file name and on the title read from the title block
+    # (file names are often Danish, e.g. "ByggePlade" vs title "Build Plate").
+    sheet_titles = {r["subject_id"]: r["value"] for r in con.execute(
+        "SELECT subject_id, value FROM facts WHERE subject_type='document' AND predicate='title' "
+        "AND status='active' AND value IS NOT NULL")}
     for d in con.execute("SELECT id, title, subsystem, distribution FROM documents"):
-        cands[f"doc:{d['id']}"] = (d["title"], {"kind": "drawing", **dict(d)})
+        name = d["title"] + (f" {sheet_titles[d['id']]}" if d["id"] in sheet_titles else "")
+        cands[f"doc:{d['id']}"] = (name, {"kind": "drawing", **dict(d)})
     for b in con.execute("SELECT row_index, name, part_family, type FROM bom_rows WHERE name IS NOT NULL"):
         cands[f"bom:{b['row_index']}"] = (b["name"], {"kind": "bom_row", **dict(b)})
     hits = process.extract(query, {k: v[0] for k, v in cands.items()}, scorer=_part_score,

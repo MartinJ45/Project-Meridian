@@ -1,0 +1,300 @@
+{
+ "document_id": "D-017",
+ "distribution": "clean",
+ "extractor": {
+  "model": "gemini-3.8-flash",
+  "prompt_version": "drawing-fields-v1",
+  "dpi": 200,
+  "verification": "embedded text layer",
+  "extracted_at": "2026-11-19T19:56:30+00:00",
+  "seconds": 14.6,
+  "usage": {
+   "prompt_tokens": 1993,
+   "output_tokens": 1215,
+   "thinking_tokens": 0
+  }
+ },
+ "pages": [
+  {
+   "page": 1,
+   "sheet_legibility": "clear",
+   "legibility_issues": "",
+   "title_block": {
+    "title": {
+     "value": "Galvo Montage Plade",
+     "legibility": "clear",
+     "box_2d": [
+      862,
+      824,
+      881,
+      951
+     ],
+     "check": "text_layer_match"
+    },
+    "material": {
+     "value": "7075-T6, Plate (SS)",
+     "legibility": "clear",
+     "box_2d": [
+      919,
+      663,
+      928,
+      720
+     ],
+     "check": "text_layer_match"
+    },
+    "weight_g": {
+     "value": "508.9",
+     "legibility": "clear",
+     "box_2d": [
+      919,
+      782,
+      928,
+      798
+     ],
+     "check": "text_layer_match"
+    },
+    "scale": {
+     "value": "1:2",
+     "legibility": "clear",
+     "box_2d": [
+      956,
+      921,
+      962,
+      931
+     ],
+     "check": "text_layer_match"
+    },
+    "sheet": {
+     "value": "1 OF 1",
+     "legibility": "clear",
+     "box_2d": [
+      956,
+      957,
+      962,
+      971
+     ],
+     "check": "text_layer_match"
+    },
+    "date": {
+     "value": "06/09/2022",
+     "legibility": "clear",
+     "box_2d": [
+      956,
+      786,
+      962,
+      807
+     ],
+     "check": "text_layer_match"
+    },
+    "company": {
+     "value": "DTU MPP",
+     "legibility": "clear",
+     "box_2d": [
+      801,
+      834,
+      814,
+      875
+     ],
+     "check": "text_layer_match"
+    },
+    "finish": {
+     "value": null,
+     "legibility": "clear",
+     "box_2d": [
+      949,
+      625,
+      955,
+      645
+     ],
+     "check": "empty"
+    },
+    "general_tolerance": {
+     "value": "DIN ISO 2768-1 m",
+     "legibility": "clear",
+     "box_2d": [
+      940,
+      853,
+      948,
+      893
+     ],
+     "check": "text_layer_match"
+    },
+    "paper_size": {
+     "value": "A3",
+     "legibility": "clear",
+     "box_2d": [
+      931,
+      959,
+      942,
+      971
+     ],
+     "check": "text_layer_match"
+    },
+    "note": {
+     "value": "Galvo Collimator Plade\nAlu",
+     "legibility": "clear",
+     "box_2d": [
+      801,
+      629,
+      843,
+      754
+     ],
+     "check": "text_layer_match"
+    }
+   },
+   "views": [
+    "isometric view",
+    "top view",
+    "front view"
+   ],
+   "dimensions": [
+    {
+     "text": "10,0",
+     "feature": "thickness",
+     "view": "top view",
+     "legibility": "clear",
+     "box_2d": [
+      128,
+      263,
+      160,
+      272
+     ],
+     "check": "text_layer_match"
+    },
+    {
+     "text": "110,0",
+     "feature": "overall height",
+     "view": "front view",
+     "legibility": "clear",
+     "box_2d": [
+      518,
+      567,
+      558,
+      577
+     ],
+     "check": "text_layer_match"
+    },
+    {
+     "text": "50,9",
+     "feature": "hole height from center",
+     "view": "front view",
+     "legibility": "clear",
+     "box_2d": [
+      564,
+      549,
+      593,
+      558
+     ],
+     "check": "text_layer_match"
+    },
+    {
+     "text": "4,1",
+     "feature": "hole offset",
+     "view": "front view",
+     "legibility": "clear",
+     "box_2d": [
+      568,
+      525,
+      587,
+      534
+     ],
+     "check": "text_layer_match"
+    },
+    {
+     "text": "28,2",
+     "feature": "hole center distance",
+     "view": "front view",
+     "legibility": "clear",
+     "box_2d": [
+      652,
+      416,
+      665,
+      438
+     ],
+     "check": "text_layer_match"
+    },
+    {
+     "text": "180,00 -0,01/-0,06",
+     "feature": "overall width",
+     "view": "front view",
+     "legibility": "clear",
+     "box_2d": [
+      688,
+      386,
+      719,
+      447
+     ],
+     "check": "text_layer_match"
+    }
+   ],
+   "callouts": [
+    {
+     "text": "4x ⌀ 5,5 THRU\n⌵ ⌀ 10,8 X 90°",
+     "legibility": "clear",
+     "box_2d": [
+      349,
+      249,
+      384,
+      328
+     ],
+     "check": "text_layer_match"
+    },
+    {
+     "text": "8x M5",
+     "legibility": "clear",
+     "box_2d": [
+      403,
+      249,
+      416,
+      281
+     ],
+     "check": "text_layer_match"
+    },
+    {
+     "text": "⌀ 6,0 H7",
+     "legibility": "clear",
+     "box_2d": [
+      554,
+      224,
+      570,
+      267
+     ],
+     "check": "text_layer_match"
+    },
+    {
+     "text": "⌀ 42,00 +0,10/+0,05",
+     "legibility": "clear",
+     "box_2d": [
+      345,
+      495,
+      375,
+      565
+     ],
+     "check": "text_layer_match"
+    },
+    {
+     "text": "4x1,0 X 45°",
+     "legibility": "clear",
+     "box_2d": [
+      386,
+      517,
+      400,
+      575
+     ],
+     "check": "text_layer_match"
+    },
+    {
+     "text": "⌀ 6,0 H7",
+     "legibility": "clear",
+     "box_2d": [
+      478,
+      527,
+      494,
+      570
+     ],
+     "check": "text_layer_match"
+    }
+   ]
+  }
+ ]
+}

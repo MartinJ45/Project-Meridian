@@ -31,7 +31,11 @@ Rules:
   recorded, not as current availability or price.
 - 3D models are reconstructions from 2D drawing evidence, not native CAD. Say so when one is shown.
 - Drawing-to-BOM links are fuzzy filename candidates; mention the score and treat low scores as uncertain.
-- Degraded scans with no text layer have not been machine-read: do not claim what they say.
+- Drawing fields were read from the sheet by a vision pass, each with legibility and an independent check
+  (PDF text layer, or a second reading for degraded scans). Distinguish "the box is EMPTY on the sheet"
+  from "ILLEGIBLE". Treat partial legibility, disagreeing readings or missing checks as uncertain and say so.
+- When the drawing and the BOM both state a value (e.g. material), compare them and point out disagreement
+  or a difference in specificity (e.g. BOM "Aluminium" vs drawing "EN-AW 5005"); never silently merge them.
 - If the evidence is missing, noisy, or conflicting, say so and abstain rather than guess.
 - SUPERSEDED facts were replaced by an accepted correction: answer from the active value, and when
   relevant mention the change and the original value with its source.

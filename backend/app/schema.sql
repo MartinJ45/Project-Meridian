@@ -48,6 +48,28 @@ CREATE TABLE IF NOT EXISTS bom_rows (
     raw_json       TEXT NOT NULL             -- the untouched CSV row
 );
 
+-- What the vision pass read from each sheet: overall legibility plus every dimension / callout,
+-- each with its location on the sheet so answers can cite a region.
+CREATE TABLE IF NOT EXISTS drawing_quality (
+    document_id  TEXT NOT NULL REFERENCES documents(id),
+    page         INTEGER NOT NULL,
+    legibility   TEXT,                       -- clear | partly_legible | mostly_illegible
+    issues       TEXT,
+    extractor    TEXT,                       -- model + prompt version + date
+    PRIMARY KEY (document_id, page)
+);
+
+CREATE TABLE IF NOT EXISTS drawing_annotations (
+    id           INTEGER PRIMARY KEY AUTOINCREMENT,
+    document_id  TEXT NOT NULL REFERENCES documents(id),
+    page         INTEGER NOT NULL,
+    kind         TEXT NOT NULL,              -- dimension | callout
+    feature      TEXT,                       -- what it measures / refers to, as read
+    text         TEXT,                       -- exactly as written on the sheet ('' if illegible)
+    legibility   TEXT,                       -- clear | partial | illegible
+    box_2d       TEXT                        -- JSON [y0, x0, y1, x1] on a 0-1000 grid
+);
+
 -- Candidate links between a drawing and BOM rows, with how they were found.
 CREATE TABLE IF NOT EXISTS doc_bom_links (
     document_id  TEXT NOT NULL REFERENCES documents(id),
@@ -71,6 +93,7 @@ CREATE TABLE IF NOT EXISTS facts (
     confidence     REAL,
     status         TEXT NOT NULL DEFAULT 'active',  -- active | superseded
     superseded_by  INTEGER REFERENCES facts(id),
+    evidence       TEXT,                     -- JSON: page, box_2d (0-1000, y0 x0 y1 x1), legibility, extractor
     created_at     TEXT NOT NULL DEFAULT (datetime('now'))
 );
 CREATE INDEX IF NOT EXISTS idx_facts_subject ON facts(subject_type, subject_id, predicate);

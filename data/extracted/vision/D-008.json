@@ -1,0 +1,347 @@
+{
+ "document_id": "D-008",
+ "distribution": "clean",
+ "extractor": {
+  "model": "gemini-3.8-flash",
+  "prompt_version": "drawing-fields-v1",
+  "dpi": 200,
+  "verification": "embedded text layer",
+  "extracted_at": "2026-11-19T19:55:09+00:00",
+  "seconds": 24.6,
+  "usage": {
+   "prompt_tokens": 1945,
+   "output_tokens": 1803,
+   "thinking_tokens": 1281
+  }
+ },
+ "pages": [
+  {
+   "page": 1,
+   "sheet_legibility": "clear",
+   "legibility_issues": "",
+   "title_block": {
+    "title": {
+     "value": "Powder Bracket",
+     "legibility": "clear",
+     "box_2d": [
+      859,
+      825,
+      874,
+      912
+     ],
+     "check": "text_layer_match"
+    },
+    "material": {
+     "value": null,
+     "legibility": "clear",
+     "box_2d": [
+      917,
+      622,
+      937,
+      735
+     ],
+     "check": "empty"
+    },
+    "weight_g": {
+     "value": null,
+     "legibility": "clear",
+     "box_2d": [
+      916,
+      736,
+      936,
+      815
+     ],
+     "check": "empty"
+    },
+    "scale": {
+     "value": "1:5",
+     "legibility": "clear",
+     "box_2d": [
+      954,
+      908,
+      963,
+      932
+     ],
+     "check": "text_layer_match"
+    },
+    "sheet": {
+     "value": "1 OF 1",
+     "legibility": "clear",
+     "box_2d": [
+      954,
+      942,
+      963,
+      971
+     ],
+     "check": "text_layer_match"
+    },
+    "date": {
+     "value": "20/12/2023",
+     "legibility": "clear",
+     "box_2d": [
+      954,
+      785,
+      963,
+      808
+     ],
+     "check": "text_layer_match"
+    },
+    "company": {
+     "value": "DTU MPP",
+     "legibility": "clear",
+     "box_2d": [
+      799,
+      818,
+      814,
+      861
+     ],
+     "check": "text_layer_match"
+    },
+    "finish": {
+     "value": null,
+     "legibility": "clear",
+     "box_2d": [
+      937,
+      621,
+      963,
+      736
+     ],
+     "check": "empty"
+    },
+    "general_tolerance": {
+     "value": "DIN ISO 2768-1 m",
+     "legibility": "clear",
+     "box_2d": [
+      940,
+      852,
+      948,
+      894
+     ],
+     "check": "text_layer_match"
+    },
+    "paper_size": {
+     "value": "A3",
+     "legibility": "clear",
+     "box_2d": [
+      929,
+      959,
+      942,
+      972
+     ],
+     "check": "text_layer_match"
+    },
+    "note": {
+     "value": "Powder bracket.\n2-3mm non-magnetic stainless.\n6x M5 weld nuts - all on inside\nfaces.\nSurfaces [A] should be in same\nplane, and parallel to [B].",
+     "legibility": "clear",
+     "box_2d": [
+      799,
+      626,
+      893,
+      793
+     ],
+     "check": "text_layer_match"
+    }
+   },
+   "views": [
+    "top view",
+    "front view",
+    "bottom view",
+    "left view",
+    "right view",
+    "isometric view"
+   ],
+   "dimensions": [
+    {
+     "text": "134,00",
+     "feature": "width",
+     "view": "left view",
+     "legibility": "clear",
+     "box_2d": [
+      487,
+      204,
+      502,
+      239
+     ],
+     "check": "text_layer_match"
+    },
+    {
+     "text": "3,00\n2,00",
+     "feature": "sheet thickness/step",
+     "view": "front view",
+     "legibility": "clear",
+     "box_2d": [
+      492,
+      287,
+      526,
+      310
+     ],
+     "check": "text_layer_match"
+    },
+    {
+     "text": "41,00",
+     "feature": "flange height",
+     "view": "front view",
+     "legibility": "clear",
+     "box_2d": [
+      487,
+      328,
+      502,
+      357
+     ],
+     "check": "text_layer_match"
+    },
+    {
+     "text": "310,00",
+     "feature": "inner length",
+     "view": "front view",
+     "legibility": "clear",
+     "box_2d": [
+      398,
+      449,
+      412,
+      484
+     ],
+     "check": "text_layer_match"
+    },
+    {
+     "text": "61,80 ±0,10",
+     "feature": "height",
+     "view": "front view",
+     "legibility": "clear",
+     "box_2d": [
+      482,
+      549,
+      565,
+      560
+     ],
+     "check": "text_layer_match"
+    },
+    {
+     "text": "349,00",
+     "feature": "overall length",
+     "view": "bottom view",
+     "legibility": "clear",
+     "box_2d": [
+      784,
+      440,
+      799,
+      475
+     ],
+     "check": "text_layer_match"
+    }
+   ],
+   "callouts": [
+    {
+     "text": "3 x ⌀ 9,00 THRU ALL",
+     "legibility": "clear",
+     "box_2d": [
+      194,
+      253,
+      210,
+      362
+     ],
+     "check": "text_layer_match"
+    },
+    {
+     "text": "2x ⌀ 7,00 THRU\nfor weld nuts",
+     "legibility": "clear",
+     "box_2d": [
+      374,
+      252,
+      410,
+      328
+     ],
+     "check": "text_layer_match"
+    },
+    {
+     "text": "2x M5 weld nut",
+     "legibility": "clear",
+     "box_2d": [
+      368,
+      393,
+      382,
+      476
+     ],
+     "check": "text_layer_match"
+    },
+    {
+     "text": "B",
+     "legibility": "clear",
+     "box_2d": [
+      371,
+      521,
+      395,
+      539
+     ],
+     "check": "text_layer_match"
+    },
+    {
+     "text": "A",
+     "legibility": "clear",
+     "box_2d": [
+      523,
+      375,
+      549,
+      394
+     ],
+     "check": "text_layer_match"
+    },
+    {
+     "text": "4x M5 weld nut",
+     "legibility": "clear",
+     "box_2d": [
+      478,
+      423,
+      493,
+      505
+     ],
+     "check": "text_layer_match"
+    },
+    {
+     "text": "A",
+     "legibility": "clear",
+     "box_2d": [
+      489,
+      522,
+      515,
+      541
+     ],
+     "check": "text_layer_match"
+    },
+    {
+     "text": "4x ⌀ 7,00 THRU\nfor weld nuts",
+     "legibility": "clear",
+     "box_2d": [
+      429,
+      604,
+      465,
+      680
+     ],
+     "check": "text_layer_match"
+    },
+    {
+     "text": "⌀ 10,00 THRU",
+     "legibility": "clear",
+     "box_2d": [
+      387,
+      740,
+      403,
+      810
+     ],
+     "check": "text_layer_match"
+    },
+    {
+     "text": "4 x ⌀ 5,30 THRU ALL",
+     "legibility": "clear",
+     "box_2d": [
+      629,
+      455,
+      646,
+      563
+     ],
+     "check": "text_layer_match"
+    }
+   ]
+  }
+ ]
+}

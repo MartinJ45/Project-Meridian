@@ -1,0 +1,429 @@
+{
+ "document_id": "D-014",
+ "distribution": "clean",
+ "extractor": {
+  "model": "gemini-3.8-flash",
+  "prompt_version": "drawing-fields-v1",
+  "dpi": 200,
+  "verification": "embedded text layer",
+  "extracted_at": "2026-11-19T19:56:25+00:00",
+  "seconds": 33.1,
+  "usage": {
+   "prompt_tokens": 2061,
+   "output_tokens": 2265,
+   "thinking_tokens": 2423
+  }
+ },
+ "pages": [
+  {
+   "page": 1,
+   "sheet_legibility": "clear",
+   "legibility_issues": "",
+   "title_block": {
+    "title": {
+     "value": "Recoater Linear Plate",
+     "legibility": "clear",
+     "box_2d": [
+      862,
+      822,
+      876,
+      946
+     ],
+     "check": "text_layer_match"
+    },
+    "material": {
+     "value": "3.3315 (EN-AW 5005)",
+     "legibility": "clear",
+     "box_2d": [
+      918,
+      661,
+      929,
+      727
+     ],
+     "check": "text_layer_match"
+    },
+    "weight_g": {
+     "value": "331.8",
+     "legibility": "clear",
+     "box_2d": [
+      918,
+      782,
+      928,
+      799
+     ],
+     "check": "text_layer_match"
+    },
+    "scale": {
+     "value": "1:2",
+     "legibility": "clear",
+     "box_2d": [
+      954,
+      921,
+      964,
+      933
+     ],
+     "check": "text_layer_match"
+    },
+    "sheet": {
+     "value": "1 OF 1",
+     "legibility": "clear",
+     "box_2d": [
+      954,
+      943,
+      963,
+      971
+     ],
+     "check": "text_layer_match"
+    },
+    "date": {
+     "value": "24/11/2021",
+     "legibility": "clear",
+     "box_2d": [
+      954,
+      785,
+      963,
+      811
+     ],
+     "check": "text_layer_match"
+    },
+    "company": {
+     "value": "DTU MPP",
+     "legibility": "clear",
+     "box_2d": [
+      801,
+      834,
+      814,
+      876
+     ],
+     "check": "text_layer_match"
+    },
+    "finish": {
+     "value": null,
+     "legibility": "clear",
+     "box_2d": [
+      946,
+      624,
+      960,
+      646
+     ],
+     "check": "empty"
+    },
+    "general_tolerance": {
+     "value": "DIN ISO 2768-1 m",
+     "legibility": "clear",
+     "box_2d": [
+      939,
+      853,
+      950,
+      894
+     ],
+     "check": "text_layer_match"
+    },
+    "paper_size": {
+     "value": "A3",
+     "legibility": "clear",
+     "box_2d": [
+      929,
+      958,
+      942,
+      972
+     ],
+     "check": "text_layer_match"
+    },
+    "note": {
+     "value": "Alu.\nPlade til linæer føring",
+     "legibility": "clear",
+     "box_2d": [
+      806,
+      626,
+      839,
+      742
+     ],
+     "check": "text_layer_match"
+    }
+   },
+   "views": [
+    "front view",
+    "side view",
+    "rear view",
+    "isometric view"
+   ],
+   "dimensions": [
+    {
+     "text": "96,0",
+     "feature": "overall width",
+     "view": "front view",
+     "legibility": "clear",
+     "box_2d": [
+      213,
+      606,
+      227,
+      628
+     ],
+     "check": "text_layer_match"
+    },
+    {
+     "text": "25,0",
+     "feature": "hole distance from edge",
+     "view": "front view",
+     "legibility": "clear",
+     "box_2d": [
+      233,
+      569,
+      248,
+      592
+     ],
+     "check": "text_layer_match"
+    },
+    {
+     "text": "18,0",
+     "feature": "hole pitch",
+     "view": "front view",
+     "legibility": "clear",
+     "box_2d": [
+      253,
+      612,
+      267,
+      634
+     ],
+     "check": "text_layer_match"
+    },
+    {
+     "text": "26,0",
+     "feature": "hole distance from edge",
+     "view": "front view",
+     "legibility": "clear",
+     "box_2d": [
+      320,
+      524,
+      350,
+      535
+     ],
+     "check": "text_layer_match"
+    },
+    {
+     "text": "51,5",
+     "feature": "hole distance",
+     "view": "front view",
+     "legibility": "clear",
+     "box_2d": [
+      386,
+      524,
+      416,
+      535
+     ],
+     "check": "text_layer_match"
+    },
+    {
+     "text": "167,0",
+     "feature": "overall height",
+     "view": "front view",
+     "legibility": "clear",
+     "box_2d": [
+      424,
+      758,
+      462,
+      768
+     ],
+     "check": "text_layer_match"
+    },
+    {
+     "text": "10,5",
+     "feature": "hole pitch",
+     "view": "front view",
+     "legibility": "clear",
+     "box_2d": [
+      404,
+      696,
+      434,
+      707
+     ],
+     "check": "text_layer_match"
+    },
+    {
+     "text": "40,0",
+     "feature": "hole pitch",
+     "view": "front view",
+     "legibility": "clear",
+     "box_2d": [
+      412,
+      730,
+      442,
+      739
+     ],
+     "check": "text_layer_match"
+    },
+    {
+     "text": "21,0",
+     "feature": "hole pitch",
+     "view": "front view",
+     "legibility": "clear",
+     "box_2d": [
+      462,
+      715,
+      493,
+      725
+     ],
+     "check": "text_layer_match"
+    },
+    {
+     "text": "40,0",
+     "feature": "hole pitch",
+     "view": "front view",
+     "legibility": "clear",
+     "box_2d": [
+      513,
+      696,
+      545,
+      707
+     ],
+     "check": "text_layer_match"
+    },
+    {
+     "text": "35,0",
+     "feature": "hole distance",
+     "view": "front view",
+     "legibility": "clear",
+     "box_2d": [
+      601,
+      626,
+      616,
+      649
+     ],
+     "check": "text_layer_match"
+    },
+    {
+     "text": "8,0 ±0,2",
+     "feature": "thickness",
+     "view": "side view",
+     "legibility": "clear",
+     "box_2d": [
+      253,
+      426,
+      268,
+      468
+     ],
+     "check": "text_layer_match"
+    },
+    {
+     "text": "12,5",
+     "feature": "hole distance from centerline",
+     "view": "rear view",
+     "legibility": "clear",
+     "box_2d": [
+      393,
+      243,
+      407,
+      265
+     ],
+     "check": "text_layer_match"
+    },
+    {
+     "text": "60,0",
+     "feature": "hole distance",
+     "view": "rear view",
+     "legibility": "clear",
+     "box_2d": [
+      467,
+      228,
+      498,
+      238
+     ],
+     "check": "text_layer_match"
+    },
+    {
+     "text": "53,5",
+     "feature": "hole distance",
+     "view": "rear view",
+     "legibility": "clear",
+     "box_2d": [
+      473,
+      242,
+      503,
+      252
+     ],
+     "check": "text_layer_match"
+    }
+   ],
+   "callouts": [
+    {
+     "text": "8 x ⌀ 4,2 THRU ALL\nM5 - 6H THRU ALL",
+     "legibility": "clear",
+     "box_2d": [
+      222,
+      711,
+      256,
+      812
+     ],
+     "check": "text_layer_match"
+    },
+    {
+     "text": "8 x ⌀ 6,6 THRU ALL\n⌵ ⌀ 13,4 X 90°",
+     "legibility": "clear",
+     "box_2d": [
+      618,
+      435,
+      652,
+      536
+     ],
+     "check": "text_layer_match"
+    },
+    {
+     "text": "2 x ⌀ 6,6 THRU ALL\n⌵ ⌀ 14,4 X 90°",
+     "legibility": "clear",
+     "box_2d": [
+      598,
+      175,
+      634,
+      276
+     ],
+     "check": "text_layer_match"
+    },
+    {
+     "text": "// A",
+     "legibility": "clear",
+     "box_2d": [
+      323,
+      417,
+      347,
+      452
+     ],
+     "check": "text_layer_match"
+    },
+    {
+     "text": "A",
+     "legibility": "clear",
+     "box_2d": [
+      482,
+      500,
+      505,
+      518
+     ],
+     "check": "text_layer_match"
+    },
+    {
+     "text": "B",
+     "legibility": "clear",
+     "box_2d": [
+      619,
+      325,
+      644,
+      343
+     ],
+     "check": "text_layer_match"
+    },
+    {
+     "text": "B Ekstra undersænkning",
+     "legibility": "clear",
+     "box_2d": [
+      673,
+      179,
+      696,
+      319
+     ],
+     "check": "text_layer_match"
+    }
+   ]
+  }
+ ]
+}

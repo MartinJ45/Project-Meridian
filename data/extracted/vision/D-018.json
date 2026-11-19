@@ -1,0 +1,246 @@
+{
+ "document_id": "D-018",
+ "distribution": "clean",
+ "extractor": {
+  "model": "gemini-3.8-flash",
+  "prompt_version": "drawing-fields-v1",
+  "dpi": 200,
+  "verification": "embedded text layer",
+  "extracted_at": "2026-11-19T19:56:35+00:00",
+  "seconds": 18.6,
+  "usage": {
+   "prompt_tokens": 1914,
+   "output_tokens": 1231,
+   "thinking_tokens": 859
+  }
+ },
+ "pages": [
+  {
+   "page": 1,
+   "sheet_legibility": "clear",
+   "legibility_issues": "",
+   "title_block": {
+    "title": {
+     "value": "Galvo Mount Side x2",
+     "legibility": "clear",
+     "box_2d": [
+      862,
+      823,
+      878,
+      942
+     ],
+     "check": "text_layer_match"
+    },
+    "material": {
+     "value": "7075-T6, Plate (SS)",
+     "legibility": "clear",
+     "box_2d": [
+      917,
+      662,
+      929,
+      719
+     ],
+     "check": "text_layer_match"
+    },
+    "weight_g": {
+     "value": "200.5",
+     "legibility": "clear",
+     "box_2d": [
+      918,
+      781,
+      929,
+      800
+     ],
+     "check": "text_layer_match"
+    },
+    "scale": {
+     "value": "1:1",
+     "legibility": "clear",
+     "box_2d": [
+      954,
+      929,
+      963,
+      939
+     ],
+     "check": "text_layer_match"
+    },
+    "sheet": {
+     "value": "1 OF 1",
+     "legibility": "clear",
+     "box_2d": [
+      954,
+      957,
+      963,
+      972
+     ],
+     "check": "text_layer_match"
+    },
+    "date": {
+     "value": "06/09/2022",
+     "legibility": "clear",
+     "box_2d": [
+      954,
+      781,
+      964,
+      809
+     ],
+     "check": "text_layer_match"
+    },
+    "company": {
+     "value": "DTU MPP",
+     "legibility": "clear",
+     "box_2d": [
+      801,
+      833,
+      814,
+      876
+     ],
+     "check": "text_layer_match"
+    },
+    "finish": {
+     "value": null,
+     "legibility": "clear",
+     "box_2d": [
+      946,
+      624,
+      957,
+      646
+     ],
+     "check": "empty"
+    },
+    "general_tolerance": {
+     "value": "DIN ISO 2768-1 m",
+     "legibility": "clear",
+     "box_2d": [
+      938,
+      853,
+      949,
+      894
+     ],
+     "check": "text_layer_match"
+    },
+    "paper_size": {
+     "value": "A3",
+     "legibility": "clear",
+     "box_2d": [
+      929,
+      958,
+      942,
+      971
+     ],
+     "check": "text_layer_match"
+    },
+    "note": {
+     "value": "2 stk.\nAlu.",
+     "legibility": "clear",
+     "box_2d": [
+      803,
+      628,
+      833,
+      656
+     ],
+     "check": "text_layer_match"
+    }
+   },
+   "views": [
+    "front view",
+    "top view",
+    "left view",
+    "isometric"
+   ],
+   "dimensions": [
+    {
+     "text": "10,0",
+     "feature": "thickness",
+     "view": "left view",
+     "legibility": "clear",
+     "box_2d": [
+      771,
+      109,
+      787,
+      133
+     ],
+     "check": "text_layer_match"
+    },
+    {
+     "text": "15,0",
+     "feature": "corner radius height",
+     "view": "front view",
+     "legibility": "clear",
+     "box_2d": [
+      712,
+      255,
+      746,
+      269
+     ],
+     "check": "text_layer_match"
+    },
+    {
+     "text": "95,0",
+     "feature": "base width",
+     "view": "front view",
+     "legibility": "clear",
+     "box_2d": [
+      771,
+      393,
+      787,
+      417
+     ],
+     "check": "text_layer_match"
+    },
+    {
+     "text": "120,0",
+     "feature": "overall height",
+     "view": "front view",
+     "legibility": "clear",
+     "box_2d": [
+      531,
+      529,
+      572,
+      542
+     ],
+     "check": "text_layer_match"
+    },
+    {
+     "text": "R15,0",
+     "feature": "corner radius",
+     "view": "front view",
+     "legibility": "clear",
+     "box_2d": [
+      291,
+      431,
+      331,
+      460
+     ],
+     "check": "text_layer_match"
+    },
+    {
+     "text": "15,0",
+     "feature": "top flange width",
+     "view": "front view",
+     "legibility": "clear",
+     "box_2d": [
+      299,
+      489,
+      316,
+      513
+     ],
+     "check": "text_layer_match"
+    }
+   ],
+   "callouts": [
+    {
+     "text": "6x M4 ↧ 10,1",
+     "legibility": "clear",
+     "box_2d": [
+      97,
+      204,
+      115,
+      269
+     ],
+     "check": "text_layer_match"
+    }
+   ]
+  }
+ ]
+}

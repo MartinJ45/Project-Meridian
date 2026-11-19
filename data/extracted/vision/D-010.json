@@ -1,0 +1,255 @@
+{
+ "document_id": "D-010",
+ "distribution": "clean",
+ "extractor": {
+  "model": "gemini-3.8-flash",
+  "prompt_version": "drawing-fields-v1",
+  "dpi": 200,
+  "verification": "embedded text layer",
+  "extracted_at": "2026-11-19T19:55:32+00:00",
+  "seconds": 26.1,
+  "usage": {
+   "prompt_tokens": 1836,
+   "output_tokens": 1269,
+   "thinking_tokens": 2109
+  }
+ },
+ "pages": [
+  {
+   "page": 1,
+   "sheet_legibility": "clear",
+   "legibility_issues": "",
+   "title_block": {
+    "title": {
+     "value": null,
+     "legibility": "clear",
+     "box_2d": [
+      845,
+      816,
+      921,
+      895
+     ],
+     "check": "empty"
+    },
+    "material": {
+     "value": null,
+     "legibility": "clear",
+     "box_2d": [
+      919,
+      619,
+      940,
+      736
+     ],
+     "check": "empty"
+    },
+    "weight_g": {
+     "value": null,
+     "legibility": "clear",
+     "box_2d": [
+      919,
+      737,
+      938,
+      814
+     ],
+     "check": "empty"
+    },
+    "scale": {
+     "value": "1:1",
+     "legibility": "clear",
+     "box_2d": [
+      955,
+      924,
+      963,
+      936
+     ],
+     "check": "text_layer_match"
+    },
+    "sheet": {
+     "value": "1 OF 1",
+     "legibility": "clear",
+     "box_2d": [
+      955,
+      955,
+      963,
+      973
+     ],
+     "check": "text_layer_match"
+    },
+    "date": {
+     "value": "20/12/2023",
+     "legibility": "clear",
+     "box_2d": [
+      954,
+      784,
+      963,
+      809
+     ],
+     "check": "text_layer_match"
+    },
+    "company": {
+     "value": "DTU MPP",
+     "legibility": "clear",
+     "box_2d": [
+      799,
+      818,
+      812,
+      861
+     ],
+     "check": "text_layer_match"
+    },
+    "finish": {
+     "value": null,
+     "legibility": "clear",
+     "box_2d": [
+      938,
+      619,
+      966,
+      736
+     ],
+     "check": "empty"
+    },
+    "general_tolerance": {
+     "value": "DIN ISO 2768-1 m",
+     "legibility": "clear",
+     "box_2d": [
+      941,
+      853,
+      948,
+      894
+     ],
+     "check": "text_layer_match"
+    },
+    "paper_size": {
+     "value": "A3",
+     "legibility": "clear",
+     "box_2d": [
+      930,
+      958,
+      942,
+      972
+     ],
+     "check": "text_layer_match"
+    },
+    "note": {
+     "value": "Motor Plate\n2mm non-magnetic stainless",
+     "legibility": "clear",
+     "box_2d": [
+      804,
+      630,
+      836,
+      785
+     ],
+     "check": "text_layer_match"
+    }
+   },
+   "views": [
+    "top view",
+    "front view",
+    "left view",
+    "isometric view"
+   ],
+   "dimensions": [
+    {
+     "text": "70,00",
+     "feature": "overall width",
+     "view": "left view",
+     "legibility": "clear",
+     "box_2d": [
+      393,
+      235,
+      431,
+      248
+     ],
+     "check": "text_layer_match"
+    },
+    {
+     "text": "35,30",
+     "feature": "hole center distance",
+     "view": "top view",
+     "legibility": "clear",
+     "box_2d": [
+      412,
+      646,
+      451,
+      658
+     ],
+     "check": "text_layer_match"
+    },
+    {
+     "text": "15,00",
+     "feature": "flange height",
+     "view": "front view",
+     "legibility": "clear",
+     "box_2d": [
+      702,
+      301,
+      742,
+      313
+     ],
+     "check": "text_layer_match"
+    },
+    {
+     "text": "107,00",
+     "feature": "overall length",
+     "view": "front view",
+     "legibility": "clear",
+     "box_2d": [
+      786,
+      448,
+      802,
+      482
+     ],
+     "check": "text_layer_match"
+    },
+    {
+     "text": "30,00",
+     "feature": "flange height",
+     "view": "front view",
+     "legibility": "clear",
+     "box_2d": [
+      634,
+      603,
+      672,
+      615
+     ],
+     "check": "text_layer_match"
+    }
+   ],
+   "callouts": [
+    {
+     "text": "⌀ 22,10 THRU",
+     "legibility": "clear",
+     "box_2d": [
+      199,
+      377,
+      216,
+      447
+     ],
+     "check": "text_layer_match"
+    },
+    {
+     "text": "4 x ⌀ 3,60 THRU ALL",
+     "legibility": "clear",
+     "box_2d": [
+      244,
+      332,
+      261,
+      439
+     ],
+     "check": "text_layer_match"
+    },
+    {
+     "text": "2 x ⌀ 5,80 THRU ALL",
+     "legibility": "clear",
+     "box_2d": [
+      544,
+      625,
+      560,
+      733
+     ],
+     "check": "text_layer_match"
+    }
+   ]
+  }
+ ]
+}

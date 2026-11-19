@@ -1,0 +1,267 @@
+{
+ "document_id": "D-016",
+ "distribution": "clean",
+ "extractor": {
+  "model": "gemini-3.8-flash",
+  "prompt_version": "drawing-fields-v1",
+  "dpi": 200,
+  "verification": "embedded text layer",
+  "extracted_at": "2026-11-19T19:56:37+00:00",
+  "seconds": 22.7,
+  "usage": {
+   "prompt_tokens": 1947,
+   "output_tokens": 1365,
+   "thinking_tokens": 1305
+  }
+ },
+ "pages": [
+  {
+   "page": 1,
+   "sheet_legibility": "clear",
+   "legibility_issues": "",
+   "title_block": {
+    "title": {
+     "value": "Galvo Bundplade",
+     "legibility": "clear",
+     "box_2d": [
+      862,
+      823,
+      881,
+      925
+     ],
+     "check": "text_layer_match"
+    },
+    "material": {
+     "value": "7075-T6, Plate (SS)",
+     "legibility": "clear",
+     "box_2d": [
+      918,
+      661,
+      929,
+      719
+     ],
+     "check": "text_layer_match"
+    },
+    "weight_g": {
+     "value": "1118.1",
+     "legibility": "clear",
+     "box_2d": [
+      917,
+      781,
+      928,
+      802
+     ],
+     "check": "text_layer_match"
+    },
+    "scale": {
+     "value": "1:2",
+     "legibility": "clear",
+     "box_2d": [
+      954,
+      919,
+      963,
+      932
+     ],
+     "check": "text_layer_match"
+    },
+    "sheet": {
+     "value": "1 OF 1",
+     "legibility": "clear",
+     "box_2d": [
+      954,
+      957,
+      963,
+      973
+     ],
+     "check": "text_layer_match"
+    },
+    "date": {
+     "value": "06/09/2022",
+     "legibility": "clear",
+     "box_2d": [
+      953,
+      785,
+      963,
+      809
+     ],
+     "check": "text_layer_match"
+    },
+    "company": {
+     "value": "DTU MPP",
+     "legibility": "clear",
+     "box_2d": [
+      801,
+      833,
+      814,
+      876
+     ],
+     "check": "text_layer_match"
+    },
+    "finish": {
+     "value": null,
+     "legibility": "clear",
+     "box_2d": [
+      944,
+      623,
+      957,
+      646
+     ],
+     "check": "empty"
+    },
+    "general_tolerance": {
+     "value": "DIN ISO 2768-1 m",
+     "legibility": "clear",
+     "box_2d": [
+      938,
+      852,
+      949,
+      895
+     ],
+     "check": "text_layer_match"
+    },
+    "paper_size": {
+     "value": "A3",
+     "legibility": "clear",
+     "box_2d": [
+      928,
+      958,
+      943,
+      973
+     ],
+     "check": "text_layer_match"
+    },
+    "note": {
+     "value": "Aluminium",
+     "legibility": "clear",
+     "box_2d": [
+      809,
+      629,
+      824,
+      686
+     ],
+     "check": "text_layer_match"
+    }
+   },
+   "views": [
+    "front view",
+    "left view",
+    "isometric"
+   ],
+   "dimensions": [
+    {
+     "text": "10,0",
+     "feature": "thickness",
+     "view": "left view",
+     "legibility": "clear",
+     "box_2d": [
+      180,
+      168,
+      196,
+      191
+     ],
+     "check": "text_layer_match"
+    },
+    {
+     "text": "200,0",
+     "feature": "width",
+     "view": "front view",
+     "legibility": "clear",
+     "box_2d": [
+      180,
+      372,
+      196,
+      402
+     ],
+     "check": "text_layer_match"
+    },
+    {
+     "text": "188,5",
+     "feature": "unknown",
+     "view": "front view",
+     "legibility": "clear",
+     "box_2d": [
+      369,
+      630,
+      408,
+      643
+     ],
+     "check": "text_layer_match"
+    },
+    {
+     "text": "283,5",
+     "feature": "overall height",
+     "view": "front view",
+     "legibility": "clear",
+     "box_2d": [
+      438,
+      656,
+      479,
+      668
+     ],
+     "check": "text_layer_match"
+    },
+    {
+     "text": "⌀ 145,0",
+     "feature": "bore diameter",
+     "view": "front view",
+     "legibility": "clear",
+     "box_2d": [
+      488,
+      399,
+      532,
+      438
+     ],
+     "check": "text_layer_match"
+    },
+    {
+     "text": "R15,0",
+     "feature": "corner radius",
+     "view": "front view",
+     "legibility": "clear",
+     "box_2d": [
+      714,
+      520,
+      755,
+      547
+     ],
+     "check": "text_layer_match"
+    }
+   ],
+   "callouts": [
+    {
+     "text": "4x M6 THRU",
+     "legibility": "clear",
+     "box_2d": [
+      105,
+      574,
+      120,
+      636
+     ],
+     "check": "text_layer_match"
+    },
+    {
+     "text": "6x ⌀ 4,5 THRU\n⌵ ⌀ 9,0 X 90°",
+     "legibility": "clear",
+     "box_2d": [
+      141,
+      558,
+      178,
+      633
+     ],
+     "check": "text_layer_match"
+    },
+    {
+     "text": "3x ⌀ 5,5 THRU\n⌵ ⌀ 11,2 X 90°",
+     "legibility": "clear",
+     "box_2d": [
+      409,
+      542,
+      444,
+      622
+     ],
+     "check": "text_layer_match"
+    }
+   ]
+  }
+ ]
+}

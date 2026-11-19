@@ -1,0 +1,261 @@
+{
+ "document_id": "D-020",
+ "distribution": "degraded-only",
+ "extractor": {
+  "model": "gemini-3.8-flash",
+  "prompt_version": "drawing-fields-v1",
+  "dpi": 200,
+  "verification": "repeat read at 150 dpi",
+  "extracted_at": "2026-11-19T19:57:41+00:00",
+  "seconds": 71.4,
+  "usage": {
+   "prompt_tokens": 2898,
+   "output_tokens": 2169,
+   "thinking_tokens": 6645
+  }
+ },
+ "pages": [
+  {
+   "page": 1,
+   "sheet_legibility": "clear",
+   "legibility_issues": "",
+   "title_block": {
+    "title": {
+     "value": "SealRing",
+     "legibility": "clear",
+     "box_2d": [
+      862,
+      822,
+      881,
+      872
+     ],
+     "check": "repeat_read_agrees"
+    },
+    "material": {
+     "value": "6061 Alloy",
+     "legibility": "clear",
+     "box_2d": [
+      917,
+      661,
+      928,
+      694
+     ],
+     "check": "repeat_read_agrees"
+    },
+    "weight_g": {
+     "value": "107.4",
+     "legibility": "clear",
+     "box_2d": [
+      918,
+      782,
+      927,
+      799
+     ],
+     "check": "repeat_read_agrees"
+    },
+    "scale": {
+     "value": "1:2",
+     "legibility": "clear",
+     "box_2d": [
+      954,
+      919,
+      963,
+      931
+     ],
+     "check": "repeat_read_agrees"
+    },
+    "sheet": {
+     "value": "1 OF 1",
+     "legibility": "clear",
+     "box_2d": [
+      954,
+      955,
+      963,
+      972
+     ],
+     "check": "repeat_read_agrees"
+    },
+    "date": {
+     "value": "06/01/2022",
+     "legibility": "clear",
+     "box_2d": [
+      954,
+      784,
+      963,
+      809
+     ],
+     "check": "repeat_read_agrees"
+    },
+    "company": {
+     "value": "DTU MPP",
+     "legibility": "clear",
+     "box_2d": [
+      801,
+      833,
+      812,
+      876
+     ],
+     "check": "repeat_read_agrees"
+    },
+    "finish": {
+     "value": null,
+     "legibility": "clear",
+     "box_2d": [
+      942,
+      621,
+      965,
+      745
+     ],
+     "check": "repeat_read_agrees"
+    },
+    "general_tolerance": {
+     "value": "DIN ISO 2768-1 m",
+     "legibility": "clear",
+     "box_2d": [
+      938,
+      864,
+      948,
+      898
+     ],
+     "check": "repeat_read_agrees"
+    },
+    "paper_size": {
+     "value": "A3",
+     "legibility": "clear",
+     "box_2d": [
+      930,
+      958,
+      941,
+      971
+     ],
+     "check": "repeat_read_agrees"
+    },
+    "note": {
+     "value": "Ring with o-ring groove Aluminium",
+     "legibility": "clear",
+     "box_2d": [
+      798,
+      622,
+      846,
+      748
+     ],
+     "check": "repeat_read_agrees"
+    }
+   },
+   "views": [
+    "front view",
+    "side view",
+    "SECTION A-A",
+    "isometric view"
+   ],
+   "dimensions": [
+    {
+     "text": "10,2 9,8",
+     "feature": "thickness",
+     "view": "side view",
+     "legibility": "clear",
+     "box_2d": [
+      314,
+      161,
+      345,
+      185
+     ],
+     "check": "repeat_read_agrees"
+    },
+    {
+     "text": "⌀141,0",
+     "feature": "outer diameter",
+     "view": "front view",
+     "legibility": "clear",
+     "box_2d": [
+      316,
+      353,
+      364,
+      388
+     ],
+     "check": "repeat_read_agrees"
+    },
+    {
+     "text": "⌀118,6",
+     "feature": "inner diameter",
+     "view": "front view",
+     "legibility": "clear",
+     "box_2d": [
+      360,
+      347,
+      404,
+      384
+     ],
+     "check": "repeat_read_agrees"
+    },
+    {
+     "text": "R65,5",
+     "feature": "pitch circle radius",
+     "view": "front view",
+     "legibility": "clear",
+     "box_2d": [
+      431,
+      337,
+      461,
+      370
+     ],
+     "check": "repeat_read_agrees"
+    },
+    {
+     "text": "5,2 +0,2/0,0",
+     "feature": "groove depth",
+     "view": "SECTION A-A",
+     "legibility": "clear",
+     "box_2d": [
+      313,
+      703,
+      345,
+      747
+     ],
+     "check": "repeat_read_agrees"
+    },
+    {
+     "text": "3,2 ±0,1",
+     "feature": "groove width",
+     "view": "SECTION A-A",
+     "legibility": "clear",
+     "box_2d": [
+      328,
+      765,
+      396,
+      778
+     ],
+     "check": "repeat_read_agrees"
+    }
+   ],
+   "callouts": [
+    {
+     "text": "6 x ⌀ 3,3 ↧ 8,0 M4 - 6H ↧ 6,0 Blinde huller",
+     "legibility": "clear",
+     "box_2d": [
+      602,
+      281,
+      660,
+      369
+     ],
+     "check": "repeat_read_agrees"
+    },
+    {
+     "text": "Radius op til 1mm",
+     "legibility": "clear",
+     "box_2d": [
+      499,
+      735,
+      517,
+      833
+     ],
+     "check": "repeat_read_agrees"
+    }
+   ],
+   "repeat_read": {
+    "dpi": 150,
+    "sheet_legibility": "clear"
+   }
+  }
+ ]
+}

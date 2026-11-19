@@ -1,0 +1,229 @@
+{
+ "document_id": "D-030",
+ "distribution": "degraded-only",
+ "extractor": {
+  "model": "gemini-3.8-flash",
+  "prompt_version": "drawing-fields-v1",
+  "dpi": 200,
+  "verification": "repeat read at 150 dpi",
+  "extracted_at": "2026-11-19T20:01:08+00:00",
+  "seconds": 186.9,
+  "usage": {
+   "prompt_tokens": 2898,
+   "output_tokens": 1911,
+   "thinking_tokens": 21259
+  }
+ },
+ "pages": [
+  {
+   "page": 1,
+   "sheet_legibility": "clear",
+   "legibility_issues": "",
+   "title_block": {
+    "title": {
+     "value": null,
+     "legibility": "clear",
+     "box_2d": [
+      842,
+      818,
+      852,
+      861
+     ],
+     "check": "repeat_read_agrees"
+    },
+    "material": {
+     "value": null,
+     "legibility": "clear",
+     "box_2d": [
+      916,
+      624,
+      928,
+      658
+     ],
+     "check": "repeat_read_agrees"
+    },
+    "weight_g": {
+     "value": null,
+     "legibility": "clear",
+     "box_2d": [
+      916,
+      738,
+      928,
+      775
+     ],
+     "check": "repeat_read_agrees"
+    },
+    "scale": {
+     "value": "1:3",
+     "legibility": "clear",
+     "box_2d": [
+      954,
+      908,
+      963,
+      932
+     ],
+     "check": "repeat_read_agrees"
+    },
+    "sheet": {
+     "value": "1 OF 1",
+     "legibility": "clear",
+     "box_2d": [
+      954,
+      942,
+      963,
+      971
+     ],
+     "check": "repeat_read_agrees"
+    },
+    "date": {
+     "value": "24-01-2024",
+     "legibility": "clear",
+     "box_2d": [
+      954,
+      781,
+      963,
+      813
+     ],
+     "check": "repeat_read_agrees"
+    },
+    "company": {
+     "value": "DTU MPP",
+     "legibility": "clear",
+     "box_2d": [
+      799,
+      818,
+      812,
+      861
+     ],
+     "check": "repeat_read_agrees"
+    },
+    "finish": {
+     "value": null,
+     "legibility": "clear",
+     "box_2d": [
+      945,
+      623,
+      956,
+      646
+     ],
+     "check": "repeat_read_agrees"
+    },
+    "general_tolerance": {
+     "value": "DIN ISO 2768-1 m",
+     "legibility": "clear",
+     "box_2d": [
+      939,
+      852,
+      948,
+      895
+     ],
+     "check": "repeat_read_agrees"
+    },
+    "paper_size": {
+     "value": "A3",
+     "legibility": "clear",
+     "box_2d": [
+      929,
+      958,
+      942,
+      972
+     ],
+     "check": "repeat_read_agrees"
+    },
+    "note": {
+     "value": "NOTE: Z-axis MotorPlate Aluminium",
+     "legibility": "partial",
+     "box_2d": [
+      782,
+      621,
+      848,
+      722
+     ],
+     "check": "repeat_read_disagrees",
+     "alternative": "Z-axis MotorPlate Aluminium"
+    }
+   },
+   "views": [
+    "SECTION A-A",
+    "front view",
+    "isometric"
+   ],
+   "dimensions": [
+    {
+     "text": "4,00 ±0,05",
+     "feature": "plate thickness",
+     "view": "SECTION A-A",
+     "legibility": "clear",
+     "box_2d": [
+      257,
+      136,
+      273,
+      191
+     ],
+     "check": "repeat_read_agrees"
+    }
+   ],
+   "callouts": [
+    {
+     "text": "Ø 36,00 H6 +0,016 0,000 THRU",
+     "legibility": "clear",
+     "box_2d": [
+      369,
+      277,
+      404,
+      402
+     ],
+     "check": "repeat_read_agrees"
+    },
+    {
+     "text": "4 x Ø 5,00 THRU ALL M6 - 6H THRU ALL",
+     "legibility": "clear",
+     "box_2d": [
+      367,
+      523,
+      404,
+      632
+     ],
+     "check": "repeat_read_agrees"
+    },
+    {
+     "text": "4 x Ø 4,50 THRU ALL",
+     "legibility": "clear",
+     "box_2d": [
+      420,
+      523,
+      439,
+      632
+     ],
+     "check": "repeat_read_agrees"
+    },
+    {
+     "text": "Ø 13,50 THRU H6 +0,013 0,000 ⌴ Ø 20,00 ↧ 4,00",
+     "legibility": "partial",
+     "box_2d": [
+      484,
+      591,
+      535,
+      747
+     ],
+     "check": "repeat_read_disagrees"
+    },
+    {
+     "text": "Ø 10,20 THRU ALL M12 - 6H THRU ALL",
+     "legibility": "clear",
+     "box_2d": [
+      638,
+      552,
+      674,
+      652
+     ],
+     "check": "repeat_read_agrees"
+    }
+   ],
+   "repeat_read": {
+    "dpi": 150,
+    "sheet_legibility": "clear"
+   }
+  }
+ ]
+}
