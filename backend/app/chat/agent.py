@@ -9,6 +9,7 @@ Without GEMINI_API_KEY, or when every model is unavailable, the turn falls back 
 matches and still opens the drawing.
 """
 import json
+import logging
 import time
 from concurrent.futures import ThreadPoolExecutor
 from concurrent.futures import TimeoutError as FutureTimeout
@@ -63,6 +64,7 @@ RESPONSE_SCHEMA = {
     "required": ["reply", "open_documents"],
 }
 
+log = logging.getLogger("uvicorn.error")
 HISTORY_MESSAGES = 8
 _POOL = ThreadPoolExecutor(max_workers=4, thread_name_prefix="gemini")
 
@@ -91,7 +93,7 @@ def run_turn(con, messages: list[dict]) -> dict:
             try:
                 # Hard wall-clock cap; on timeout the worker thread is abandoned and its result ignored.
                 result, usage = _POOL.submit(_ask_gemini, messages, evidence, model).result(timeout=remaining)
-                mode = model
+                mode = "online"
                 attempts.append({"model": model, "ok": True, "seconds": round(time.time() - t, 1), **usage})
                 break
             except Exception as e:  # noqa: BLE001 - surfaced to the UI below
@@ -99,9 +101,13 @@ def run_turn(con, messages: list[dict]) -> dict:
                 attempts.append({"model": model, "ok": False, "seconds": round(time.time() - t, 1), "error": msg[:300]})
                 if not any(s in msg for s in RETRYABLE):
                     break  # e.g. 404 model not found, 400 bad key: another model will not help
+        # Provider/model details go to the server log only; the UI just sees online/offline.
+        for a in attempts:
+            log.info("llm attempt %s", a)
         if result is None:
-            last = next(a["error"] for a in reversed(attempts) if not a["error"].startswith("skipped"))
-            reply = (f"**Gemini unavailable** ({last[:120]}). Try again shortly; showing offline matches.\n\n"
+            busy = any("Timeout" in a.get("error", "") or "DEADLINE" in a.get("error", "") for a in attempts)
+            reason = "took longer than a minute" if busy else "is unavailable"
+            reply = (f"**The assistant {reason} right now.** Try again shortly; here are the closest offline matches.\n\n"
                      + _offline_turn(ctx, messages[-1]["content"], header=False))
             mode = "offline-fallback"
         else:
@@ -111,7 +117,6 @@ def run_turn(con, messages: list[dict]) -> dict:
         "attachments": ctx.attachments,
         "trace": ctx.trace,
         "mode": mode,
-        "attempts": attempts,
         "latency_ms": round((time.time() - t0) * 1000),
     }
 
@@ -181,7 +186,7 @@ def _apply(ctx: TurnContext, result: dict, hits: list[dict]) -> str:
 def _offline_turn(ctx: TurnContext, question: str, header: bool = True) -> str:
     hits = kb.find(ctx.con, question, limit=5)
     ctx.log("find_parts", {"query": question}, hits)
-    lines = ["**Offline mode** (no `GEMINI_API_KEY` set): showing the closest matches, no generated answer.", ""] if header else []
+    lines = ["**Offline mode:** showing the closest matches, no generated answer.", ""] if header else []
     for h in hits:
         if h["kind"] == "drawing":
             lines.append(f"- Drawing {h['id']} - {h['title']} ({h['subsystem']}, {h['distribution']}) - match {h['score']}")

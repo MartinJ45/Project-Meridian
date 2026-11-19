@@ -25,9 +25,9 @@ GEMINI_MODEL = os.getenv("GEMINI_MODEL", "gemini-3.8-flash").strip()
 GEMINI_FALLBACK_MODELS = [m.strip() for m in os.getenv(
     "GEMINI_FALLBACK_MODELS", "gemini-3.5-flash,gemini-3.1-flash-lite").split(",") if m.strip()]
 # Per-request timeout. A chat turn makes several requests (one per tool round).
-GEMINI_TIMEOUT_S = float(os.getenv("GEMINI_TIMEOUT_S", "45"))
+GEMINI_TIMEOUT_S = float(os.getenv("GEMINI_TIMEOUT_S", "60"))
 # Thinking effort for chat replies: minimal | low | medium | high, or empty for the model default.
 # Lower is faster; answers come from retrieved evidence, so heavy reasoning is rarely needed.
 GEMINI_THINKING = os.getenv("GEMINI_THINKING", "low").strip()
 # Whole chat turn: no further fallback model is tried once this much time has passed.
-GEMINI_TURN_BUDGET_S = float(os.getenv("GEMINI_TURN_BUDGET_S", "75"))
+GEMINI_TURN_BUDGET_S = float(os.getenv("GEMINI_TURN_BUDGET_S", "60"))

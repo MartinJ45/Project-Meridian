@@ -1,0 +1,26 @@
+{
+  "document_id": "D-025",
+  "title": "Bygge Base Ring (build base ring, version 2)",
+  "units": "mm",
+  "profile": { "annulus": { "outer_d": 250.0, "inner_d": 224.0 } },
+  "thickness": 3.0,
+  "holes": [
+    { "polar": { "count": 8, "radius": 115.5, "start_deg": 0 }, "d": 3.4 }
+  ],
+  "features": [
+    { "type": "countersink", "at": { "polar": { "count": 8, "radius": 115.5, "start_deg": 0 } }, "d": 6.9, "face": "top" }
+  ],
+  "mass_check": { "density_g_cm3": 2.70, "drawing_weight_g": 77.3, "source": "title block WEIGHT [g]: 77.3; MATERIAL 3.3315 (EN-AW 5005)" },
+  "evidence": [
+    { "dim": "outer diameter", "value": 250.0, "page": 1, "view": "front view", "note": "Ø250,0 ±0,2" },
+    { "dim": "inner diameter", "value": 224.0, "page": 1, "view": "front view", "note": "Ø224,0 +0,3/0,0" },
+    { "dim": "thickness", "value": 3.0, "page": 1, "view": "edge view (left)", "note": "edge view shows two stacked values, 3,0 and 2,0; 3,0 chosen (see assumptions)" },
+    { "dim": "bolt circle radius", "value": 115.5, "page": 1, "view": "front view", "note": "R115,5" },
+    { "dim": "holes", "value": 3.4, "page": 1, "view": "front view", "note": "8 x Ø3,4 THRU ALL, 45 deg apart" },
+    { "dim": "countersink", "value": 6.9, "page": 1, "view": "front view", "note": "Ø6,9 X 90 deg" }
+  ],
+  "assumptions": [
+    "Thickness is ambiguous on the sheet (3,0 and 2,0). 3,0 is used because the resulting mass matches the title-block weight of 77.3 g; 2,0 would give about 52 g.",
+    "Countersinks are on the face shown in the front view."
+  ]
+}

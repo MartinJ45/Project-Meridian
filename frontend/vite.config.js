@@ -4,6 +4,8 @@ import react from '@vitejs/plugin-react'
 // In dev, the Vite server proxies API and file requests to the FastAPI backend.
 export default defineConfig({
   plugins: [react()],
+  // The repo-level assets/ folder (logo etc.) is served at the site root: assets/x.png -> /x.png
+  publicDir: '../assets',
   server: {
     port: 5173,
     proxy: {

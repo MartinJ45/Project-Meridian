@@ -1,0 +1,31 @@
+{
+  "document_id": "D-027",
+  "title": "Cylinder Spaend Ring (build cylinder clamp ring)",
+  "units": "mm",
+  "profile": { "annulus": { "outer_d": 330.0, "inner_d": 264.0 } },
+  "thickness": 15.0,
+  "holes": [
+    { "polar": { "count": 6, "radius": 148.5, "start_deg": 30 }, "d": 9.0 },
+    { "polar": { "count": 3, "radius": 148.5, "start_deg": 60 }, "d": 11.0 }
+  ],
+  "features": [
+    { "type": "countersink", "at": { "polar": { "count": 3, "radius": 148.5, "start_deg": 60 } }, "d": 24.4, "face": "top" },
+    { "type": "counterbore", "at": { "polar": { "count": 3, "radius": 148.5, "start_deg": 60 } }, "d": 20.0, "depth": 4.0, "face": "bottom" }
+  ],
+  "mass_check": { "density_g_cm3": 2.70, "drawing_weight_g": 1204.1, "source": "title block WEIGHT [g]: 1204.1; MATERIAL 6063-T6" },
+  "evidence": [
+    { "dim": "outer diameter", "value": 330.0, "page": 1, "view": "left view", "note": "Ø330,0" },
+    { "dim": "inner diameter", "value": 264.0, "page": 1, "view": "left view", "note": "Ø264,0 H8 +0,081/0,000" },
+    { "dim": "thickness", "value": 15.0, "page": 1, "view": "edge view (centre)", "note": "15,0" },
+    { "dim": "bolt circle radius", "value": 148.5, "page": 1, "view": "right view", "note": "R148,5 to the hole centreline circle" },
+    { "dim": "small holes", "value": 9.0, "page": 1, "view": "right view", "note": "6 x Ø9,0 THRU ALL, 60 deg apart" },
+    { "dim": "large holes", "value": 11.0, "page": 1, "view": "left view", "note": "3 x Ø11,0 THRU ALL, 120 deg apart" },
+    { "dim": "countersink", "value": 24.4, "page": 1, "view": "left view", "note": "Ø24,4 X 90 deg; 'Obs. Ekstra undersaenkning'" },
+    { "dim": "counterbore", "value": 20.0, "page": 1, "view": "right view", "note": "3 x Ø20,0 H7 depth 4,0 ±0,05" },
+    { "dim": "pattern angles", "value": 60.0, "page": 1, "view": "right view", "note": "120 deg between large holes, 60 deg to the small-hole pattern" }
+  ],
+  "assumptions": [
+    "Left view is the front face (countersinks) and right view the back face (counterbores); angles are given as seen from the front.",
+    "All 9 holes share the R148,5 circle (measured on the sheet; only one R148,5 callout is dimensioned)."
+  ]
+}

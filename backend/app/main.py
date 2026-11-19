@@ -31,7 +31,8 @@ def get_con():
 
 @app.get("/api/health")
 def health(con=Depends(get_con)):
-    return {"ok": True, "gemini_configured": bool(config.GEMINI_API_KEY), "model": config.GEMINI_MODEL, **kb.stats(con)}
+    # Deliberately does not name the LLM provider or model: users only need online/offline.
+    return {"ok": True, "llm_configured": bool(config.GEMINI_API_KEY), **kb.stats(con)}
 
 
 @app.get("/api/documents")

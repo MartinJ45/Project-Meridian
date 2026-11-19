@@ -63,16 +63,32 @@ export default function ModelViewer({ model }) {
   }, [model.url])
 
   const spec = model.spec || {}
+  const c = spec.checks || {}
   return (
     <div className="model">
       <div className="recon-banner">⚠ {model.label}</div>
       <div className="model-canvas" ref={hostRef} />
       <div className="model-meta small">
-        <b>Method:</b> {model.method} · <b>Units:</b> {spec.units}
+        <div>
+          <b>Method:</b> {model.method} · <b>Size:</b> {c.extents_mm?.join(' × ')} {spec.units}
+          {c.watertight === false && <em className="tag warn">not watertight</em>}
+        </div>
+        {c.mass && (
+          <div className={Math.abs(c.mass.error_pct) <= 2 ? 'check ok' : 'check fail'}>
+            <b>Mass check:</b> model {c.mass.model_g} g vs drawing {c.mass.drawing_g} g
+            ({c.mass.error_pct > 0 ? '+' : ''}{c.mass.error_pct}%, at {c.mass.density_g_cm3} g/cm³) — {c.mass.source}
+          </div>
+        )}
         {spec.evidence?.length > 0 && (
           <details>
             <summary>{spec.evidence.length} dimensions read from the drawing</summary>
-            <ul>{spec.evidence.map((e, i) => <li key={i}>{e.dim} = {e.value} (p{e.page}) {e.note}</li>)}</ul>
+            <ul>{spec.evidence.map((e, i) => <li key={i}><b>{e.dim}</b> = {e.value} — p{e.page} {e.view}: {e.note}</li>)}</ul>
+          </details>
+        )}
+        {spec.assumptions?.length > 0 && (
+          <details>
+            <summary>{spec.assumptions.length} assumption{spec.assumptions.length === 1 ? '' : 's'}</summary>
+            <ul>{spec.assumptions.map((a, i) => <li key={i}>{a}</li>)}</ul>
           </details>
         )}
       </div>

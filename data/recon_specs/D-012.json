@@ -1,0 +1,29 @@
+{
+  "document_id": "D-012",
+  "title": "Recoater Mount Block",
+  "units": "mm",
+  "profile": { "rect": [25.0, 120.0] },
+  "thickness": 15.0,
+  "holes": [
+    { "x": 12.5, "y": 20.0, "d": 5.0 },
+    { "x": 12.5, "y": 100.0, "d": 5.0 }
+  ],
+  "features": [
+    { "type": "side_hole", "axis": "x", "d": 5.0, "pos": [30.0, 7.5] },
+    { "type": "side_hole", "axis": "x", "d": 5.0, "pos": [90.0, 7.5] }
+  ],
+  "mass_check": { "density_g_cm3": 2.70, "drawing_weight_g": 117.3, "source": "title block WEIGHT [g]: 117.3; MATERIAL 3.3315 (EN-AW 5005)" },
+  "evidence": [
+    { "dim": "length", "value": 120.0, "page": 1, "view": "front view (centre)", "note": "120,0 overall" },
+    { "dim": "width", "value": 25.0, "page": 1, "view": "front view (centre)", "note": "25,0 +0,1/-0,5" },
+    { "dim": "thickness", "value": 15.0, "page": 1, "view": "side view (left)", "note": "15,0 ±1,0" },
+    { "dim": "face hole x", "value": 12.5, "page": 1, "view": "front view", "note": "12,5 ±0,1 from left edge (centred)" },
+    { "dim": "face hole spacing from centre", "value": 40.0, "page": 1, "view": "front view", "note": "40,0 from hole to centreline; holes symmetric -> y = 20 and 100" },
+    { "dim": "side hole spacing from centre", "value": 30.0, "page": 1, "view": "side view", "note": "30,0 from hole to centreline; holes symmetric -> y = 30 and 90" },
+    { "dim": "hole diameter", "value": 5.0, "page": 1, "view": "both views", "note": "2 x Ø5,0 THRU ALL, M6-6H THRU ALL (tap drill; threads not modelled)" }
+  ],
+  "assumptions": [
+    "Side holes are centred in the 15 mm thickness (drawn on the side view centreline).",
+    "M6 threads are not modelled; holes use the Ø5.0 tap-drill diameter."
+  ]
+}
