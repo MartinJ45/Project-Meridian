@@ -1,0 +1,16 @@
+{
+ "document_id": "D-020",
+ "extractor": "pymupdf-2.1",
+ "needs_vision": true,
+ "pages": [
+  {
+   "page": 1,
+   "width": 1190.4000244140625,
+   "height": 842.4000244140625,
+   "has_text_layer": false,
+   "text": "",
+   "words": []
+  }
+ ],
+ "fields": {}
+}

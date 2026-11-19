@@ -1,0 +1,17 @@
+{
+  "_comment": "Format example only. Not read from any drawing and not registered (leading underscore). Copy to D-0xx.json and fill in dimensions read from that drawing.",
+  "document_id": "EXAMPLE",
+  "units": "mm",
+  "shape": "plate",
+  "outline": { "rect": [100, 60] },
+  "thickness": 8,
+  "holes": [
+    { "x": 10, "y": 10, "d": 5.5 },
+    { "x": 90, "y": 10, "d": 5.5 },
+    { "x": 10, "y": 50, "d": 5.5 },
+    { "x": 90, "y": 50, "d": 5.5 }
+  ],
+  "evidence": [
+    { "dim": "width", "value": 100, "page": 1, "note": "where on the sheet this was read" }
+  ]
+}

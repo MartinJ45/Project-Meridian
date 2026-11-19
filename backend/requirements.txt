@@ -1,0 +1,10 @@
+fastapi>=0.115
+uvicorn[standard]>=0.32
+python-dotenv>=1.0
+google-genai>=1.0
+pymupdf>=1.24
+rapidfuzz>=3.10
+numpy>=1.26
+trimesh>=4.5
+shapely>=2.0
+mapbox-earcut>=1.0

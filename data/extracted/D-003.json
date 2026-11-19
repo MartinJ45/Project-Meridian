@@ -1,0 +1,32 @@
+{
+ "document_id": "D-003",
+ "extractor": "pymupdf-2.1",
+ "needs_vision": true,
+ "pages": [
+  {
+   "page": 1,
+   "width": 1182.4000244140625,
+   "height": 834.4000244140625,
+   "has_text_layer": false,
+   "text": "",
+   "words": []
+  },
+  {
+   "page": 2,
+   "width": 1182.4000244140625,
+   "height": 834.4000244140625,
+   "has_text_layer": false,
+   "text": "",
+   "words": []
+  },
+  {
+   "page": 3,
+   "width": 1182.4000244140625,
+   "height": 834.4000244140625,
+   "has_text_layer": false,
+   "text": "",
+   "words": []
+  }
+ ],
+ "fields": {}
+}

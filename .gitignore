@@ -1,0 +1,17 @@
+# secrets
+.env
+
+# python
+.venv/
+__pycache__/
+*.pyc
+
+# node
+frontend/node_modules/
+frontend/dist/
+
+# generated database (rebuilt by ingest from dataset + data/extracted + data/corrections.jsonl)
+data/meridian.db
+data/meridian.db-*
+
+# Committed on purpose: data/extracted/, data/recon_specs/, data/models/, data/corrections.jsonl
