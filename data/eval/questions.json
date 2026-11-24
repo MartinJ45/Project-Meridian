@@ -1,0 +1,583 @@
+{
+ "_about": "Evaluation questions for Meridian chat. Each check is automatic. 'all_of': every group must match; a group is a list of alternatives (any one matches, case-insensitive; 're:' prefix = regex). 'none_of': phrases that must not appear. 'open': drawing ids that must be attached (opened) this turn; 'open_3d': ids whose 3D reconstruction must be attached; 'open_none': no drawing should open. Expected values were taken from the BOM snapshot, the extracted title blocks, and manual reading of the sheets.",
+ "cases": [
+  {
+   "id": "org-subsystems",
+   "category": "organization",
+   "turns": [
+    "Which subsystems do the 30 drawings cover, and how many drawings are in each?"
+   ],
+   "all_of": [
+    [
+     "Box"
+    ],
+    [
+     "Powder"
+    ],
+    [
+     "Recoater"
+    ],
+    [
+     "Optical"
+    ],
+    [
+     "Gas Flow",
+     "Gas flow"
+    ],
+    [
+     "Z-axis"
+    ],
+    [
+     "re:Z-axis[^\\n]{0,60}\\b8\\b|\\b8\\b[^\\n]{0,40}Z-axis"
+    ],
+    [
+     "re:Gas [Ff]low[^\\n]{0,60}\\b2\\b|\\b2\\b[^\\n]{0,40}Gas [Ff]low"
+    ]
+   ],
+   "open_none": true
+  },
+  {
+   "id": "org-degraded",
+   "category": "clean-vs-noisy",
+   "turns": [
+    "Which drawings are degraded scans?"
+   ],
+   "all_of": [
+    [
+     "D-001"
+    ],
+    [
+     "D-003"
+    ],
+    [
+     "D-009"
+    ],
+    [
+     "D-011"
+    ],
+    [
+     "D-020"
+    ],
+    [
+     "D-022"
+    ],
+    [
+     "D-023"
+    ],
+    [
+     "D-030"
+    ]
+   ],
+   "none_of": [
+    "D-012",
+    "D-026"
+   ]
+  },
+  {
+   "id": "link-confirmed",
+   "category": "drawing-bom",
+   "turns": [
+    "Which BOM row corresponds to the build plate drawing, and how sure is that link?"
+   ],
+   "all_of": [
+    [
+     "48"
+    ],
+    [
+     "confirmed"
+    ]
+   ],
+   "open": [
+    "D-026"
+   ]
+  },
+  {
+   "id": "link-ambiguous",
+   "category": "drawing-bom",
+   "turns": [
+    "Which BOM row does the powder bracket drawing D-008 correspond to?"
+   ],
+   "all_of": [
+    [
+     "91"
+    ],
+    [
+     "93"
+    ],
+    [
+     "probable",
+     "ambiguous",
+     "not certain",
+     "uncertain",
+     "does not disambiguate"
+    ]
+   ],
+   "open": [
+    "D-008"
+   ]
+  },
+  {
+   "id": "link-none",
+   "category": "uncertainty",
+   "turns": [
+    "Which BOM row is the Z-axis bottom plate drawing?"
+   ],
+   "all_of": [
+    [
+     "re:no (matching |corresponding |linked )?BOM row|not (in|listed in|recorded in) the BOM|no BOM (entry|row)|does not (have|appear)|no row"
+    ]
+   ],
+   "open": [
+    "D-029"
+   ]
+  },
+  {
+   "id": "iface-out",
+   "category": "interfaces",
+   "turns": [
+    "What does the Left Side Box interface with?"
+   ],
+   "all_of": [
+    [
+     "Print Platform"
+    ],
+    [
+     "Top Side"
+    ],
+    [
+     "Front Side Box"
+    ],
+    [
+     "Back Box"
+    ]
+   ]
+  },
+  {
+   "id": "iface-in",
+   "category": "interfaces",
+   "turns": [
+    "Which parts list the Front Door as an interface?"
+   ],
+   "all_of": [
+    [
+     "Front Side Box"
+    ],
+    [
+     "hinge"
+    ],
+    [
+     "latch"
+    ]
+   ]
+  },
+  {
+   "id": "mat-shared",
+   "category": "materials",
+   "turns": [
+    "Which drawings specify EN-AW 5005?"
+   ],
+   "all_of": [
+    [
+     "D-012"
+    ],
+    [
+     "D-013"
+    ],
+    [
+     "D-014"
+    ],
+    [
+     "D-024"
+    ],
+    [
+     "D-025"
+    ],
+    [
+     "D-028"
+    ]
+   ],
+   "none_of": [
+    "D-027",
+    "D-023"
+   ]
+  },
+  {
+   "id": "mat-compare",
+   "category": "materials",
+   "turns": [
+    "What material is the cylinder clamp ring, according to its drawing and the BOM?"
+   ],
+   "all_of": [
+    [
+     "6063"
+    ],
+    [
+     "Aluminium",
+     "aluminum"
+    ]
+   ],
+   "open": [
+    "D-027"
+   ],
+   "open_3d": [
+    "D-027"
+   ]
+  },
+  {
+   "id": "supplier-cost",
+   "category": "supplier-cost",
+   "turns": [
+    "Who supplied the laser source, what was its recorded cost, and can I still buy it at that price?"
+   ],
+   "all_of": [
+    [
+     "Max Photonics"
+    ],
+    [
+     "45000",
+     "45,000",
+     "45.000"
+    ],
+    [
+     "MFSC-300W",
+     "300W",
+     "300 W"
+    ],
+    [
+     "snapshot",
+     "recorded",
+     "pinned",
+     "may have changed",
+     "not current",
+     "cannot confirm",
+     "not guaranteed"
+    ]
+   ]
+  },
+  {
+   "id": "supplier-order",
+   "category": "supplier-cost",
+   "turns": [
+    "What is the supplier order number for the silicone gun?"
+   ],
+   "all_of": [
+    [
+     "174-791"
+    ],
+    [
+     "RS components",
+     "RS Components"
+    ]
+   ]
+  },
+  {
+   "id": "noisy-empty",
+   "category": "clean-vs-noisy",
+   "turns": [
+    "What weight does the door drawing D-001 give?"
+   ],
+   "all_of": [
+    [
+     "empty",
+     "not stated",
+     "no weight",
+     "blank",
+     "not given",
+     "not provided",
+     "does not"
+    ]
+   ],
+   "none_of": [
+    "re:\\b\\d{3,4}(\\.\\d)? ?g\\b"
+   ],
+   "open": [
+    "D-001"
+   ]
+  },
+  {
+   "id": "noisy-partial",
+   "category": "clean-vs-noisy",
+   "turns": [
+    "What material does the Z-axis motor plate drawing's title block give?"
+   ],
+   "all_of": [
+    [
+     "empty",
+     "blank",
+     "not stated",
+     "no material"
+    ],
+    [
+     "Aluminium",
+     "aluminum"
+    ],
+    [
+     "partial",
+     "uncertain",
+     "disagree",
+     "note"
+    ]
+   ],
+   "open": [
+    "D-030"
+   ]
+  },
+  {
+   "id": "conflict-list",
+   "category": "uncertainty",
+   "turns": [
+    "Where do the drawings and the BOM disagree?"
+   ],
+   "all_of": [
+    [
+     "D-018"
+    ],
+    [
+     "D-026"
+    ],
+    [
+     "quantity",
+     "amount"
+    ]
+   ]
+  },
+  {
+   "id": "conflict-qty",
+   "category": "uncertainty",
+   "turns": [
+    "How many build plates does the BOM record, and does the drawing agree?"
+   ],
+   "all_of": [
+    [
+     "10"
+    ],
+    [
+     "1-3",
+     "1–3",
+     "1 to 3"
+    ],
+    [
+     "conflict",
+     "disagree",
+     "does not agree",
+     "differ",
+     "mismatch",
+     "inconsistent"
+    ]
+   ],
+   "open": [
+    "D-026"
+   ]
+  },
+  {
+   "id": "ambiguous-dim",
+   "category": "uncertainty",
+   "turns": [
+    "What is the thickness of the build base ring?"
+   ],
+   "all_of": [
+    [
+     "re:\\b3[,.]0\\b|\\b3 ?mm"
+    ],
+    [
+     "re:\\b2[,.]0\\b|\\b2 ?mm"
+    ]
+   ],
+   "open": [
+    "D-025"
+   ],
+   "open_3d": [
+    "D-025"
+   ]
+  },
+  {
+   "id": "unsupported",
+   "category": "uncertainty",
+   "turns": [
+    "What is the machine's maximum build rate in cm3 per hour?"
+   ],
+   "all_of": [
+    [
+     "not",
+     "no information",
+     "does not",
+     "isn't",
+     "cannot",
+     "unable"
+    ]
+   ],
+   "none_of": [
+    "re:\\b\\d+ ?cm3/h",
+    "re:\\b\\d+ ?cm³/h"
+   ],
+   "open_none": true
+  },
+  {
+   "id": "open-3d-block",
+   "category": "visual",
+   "turns": [
+    "Show me the recoater mount block."
+   ],
+   "all_of": [
+    [
+     "D-012"
+    ],
+    [
+     "reconstruction"
+    ]
+   ],
+   "open": [
+    "D-012"
+   ],
+   "open_3d": [
+    "D-012"
+   ]
+  },
+  {
+   "id": "open-danish",
+   "category": "visual",
+   "turns": [
+    "Show me the heating element plate."
+   ],
+   "all_of": [
+    [
+     "D-028"
+    ]
+   ],
+   "open": [
+    "D-028"
+   ]
+  },
+  {
+   "id": "dims",
+   "category": "drawing-fields",
+   "turns": [
+    "What are the main dimensions on the cylinder clamp ring drawing?"
+   ],
+   "all_of": [
+    [
+     "330"
+    ],
+    [
+     "264"
+    ],
+    [
+     "re:\\b15([,.]0)?\\b"
+    ],
+    [
+     "148,5",
+     "148.5"
+    ]
+   ],
+   "open": [
+    "D-027"
+   ]
+  },
+  {
+   "id": "followup",
+   "category": "multi-turn",
+   "turns": [
+    "Show me the build cylinder drawing.",
+    "What material is it made of?"
+   ],
+   "all_of": [
+    [
+     "6082"
+    ]
+   ],
+   "open": [
+    "D-023"
+   ]
+  },
+  {
+   "id": "graph-open",
+   "category": "bonus-graph",
+   "turns": [
+    "Show the Left Side Box and its interfaces in the knowledge graph."
+   ],
+   "all_of": [
+    [
+     "Print Platform"
+    ],
+    [
+     "Top Side"
+    ]
+   ],
+   "open_graph": true
+  },
+  {
+   "id": "supplier-leads",
+   "category": "bonus-suppliers",
+   "turns": [
+    "Who could manufacture the cylinder clamp ring, and who supplied it originally?"
+   ],
+   "all_of": [
+    [
+     "DTU"
+    ],
+    [
+     "Prototech",
+     "MSSP",
+     "Kvisgaard",
+     "Ringsted"
+    ],
+    [
+     "lead",
+     "unverified",
+     "retrieved",
+     "may be out of date",
+     "not verified",
+     "confirm"
+    ]
+   ],
+   "open": [
+    "D-027"
+   ]
+  },
+  {
+   "id": "supplier-nosearch",
+   "category": "bonus-suppliers",
+   "turns": [
+    "Who could make the recoater mount block for us?"
+   ],
+   "all_of": [
+    [
+     "DTU"
+    ],
+    [
+     "Suppliers tab",
+     "no web search",
+     "no search",
+     "not been run",
+     "has not been searched",
+     "run a search"
+    ]
+   ],
+   "none_of": [
+    "re:\bA/S\b",
+    "re:\bApS\b"
+   ],
+   "open": [
+    "D-012"
+   ]
+  },
+  {
+   "id": "link-correct",
+   "category": "bonus-learning",
+   "turns": [
+    "Drawing D-001 only shows the front door, not the back door. Please correct its BOM link to row 11."
+   ],
+   "all_of": [
+    [
+     "review",
+     "pending"
+    ]
+   ],
+   "expect_correction": {
+    "predicate": "bom_link",
+    "subject_id": "D-001",
+    "new_value": "11"
+   }
+  }
+ ]
+}

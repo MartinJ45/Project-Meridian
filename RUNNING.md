@@ -1,6 +1,8 @@
 # Running Project Meridian
 
-The challenge brief is in [README.md](README.md). This file covers the app.
+The challenge brief is in [README.md](README.md). This file covers running the app.
+Architecture, decisions, measurements and limitations: [docs/SUBMISSION.md](docs/SUBMISSION.md).
+Evaluation results: [data/eval/REPORT.md](data/eval/REPORT.md).
 
 ## Requirements
 - Python 3.11+ and Node 18+
@@ -42,6 +44,16 @@ Open http://127.0.0.1:5173 (Vite proxies `/api` and `/files` to the backend).
 | Re-extract PDF text | `python -m app.ingest.run --force` | `data/extracted/D-0xx.json` (committed) |
 | Read drawings with vision (needs API key; ~7 min, run once) | `python -m app.ingest.vision [--only D-012] [--force]` | `data/extracted/vision/D-0xx.json` (committed) |
 | Build 3D reconstructions | `python -m app.recon.build` | `data/models/D-0xx.glb` from `data/recon_specs/D-0xx.json` |
+| Evaluate chat (needs API key; ~5 min) | `python -m app.evaluate [--repeats 2] [--only id ...]` | `data/eval/REPORT.md`, `data/eval/results/*.json` |
+
+In the app: **Drawings → +** adds a new drawing PDF (stored in `data/uploads/`, extracted, and a BOM link is
+proposed for review); each drawing's **Suppliers** tab shows what the part needs and can search the web for
+potential suppliers (needs an API key; cached in `data/suppliers/`); the **Knowledge graph** view shows the
+extracted relationships; **Review** shows knowledge-health metrics.
+
+Drawing↔BOM links come from the reviewed decisions in `data/links_curated.json` (edit and rebuild to change
+them). Ingest also parses the BOM's 'Interface with' column into links and computes drawing-vs-BOM
+consistency checks (material, quantity).
 
 The vision pass reads every sheet's title block (title, material, weight, scale, date, notes…),
 dimensions and callouts, each with a location on the sheet and a legibility rating. Every value

@@ -1,0 +1,108 @@
+{
+ "document_id": "D-002",
+ "retrieved_at": "2026-11-24T17:02:40+00:00",
+ "region": "Denmark or nearby EU countries",
+ "queries": [
+  "pladebearbejdning laserskæring bukning svejsning rustfrit stål prototype",
+  "\"Ringsted Maskinfabrik\" contact address",
+  "sheet metal fabrication Denmark laser cutting bending welding stainless steel",
+  "\"Sommerlund Industries\" contact address",
+  "\"KT Stålindustri\" contact address"
+ ],
+ "profile_used": {
+  "material": "Left Wall / 2mm non-magnetic stainless / M5 weld nuts on inside of flanges",
+  "processes": "sheet-metal laser cutting and bending, drilling, welding, weld/press nuts",
+  "quantity": "1"
+ },
+ "suggestions": [
+  {
+   "name": "Ringsted Maskinfabrik ApS",
+   "website": "https://ringstedmaskinfabrik.dk/",
+   "location": "Ringsted, Denmark",
+   "matches": [
+    "Stainless steel, structural steel, and aluminum",
+    "Laser cutting, sheet metal bending/rolling, TIG/MIG welding, threading, drilling, and fitting inserts or bushings",
+    "Explicitly states production runs from single parts (“1 pc.”) to recurring and large series"
+   ],
+   "basis": "Ringsted Maskinfabrik explicitly accepts 1-piece custom jobs and provides all the required sheet metal capabilities in-house—from laser cutting and bending 2 mm stainless steel to drilling and welding/installing threaded fastener inserts.",
+   "in_search_results": true
+  },
+  {
+   "name": "Herbst Engineering ApS",
+   "website": "https://www.herbst.dk/",
+   "location": "Ejby, Denmark",
+   "matches": [
+    "Stainless steel (rustfrit stål), carbon steel, aluminum, and specialty alloys",
+    "CNC laser cutting, hole making/punching (hulsætning/klip og stans), CNC press brake bending (CNC-bukning), pressing (presning), and assembly/welding (svejsning og montage)",
+    "Explicitly advertises single-piece and prototype fabrication (enkeltstyk og prototyper)"
+   ],
+   "basis": "Herbst Engineering routinely undertakes prototype and single-piece commissions and offers the exact combination of stainless steel laser cutting, CNC bending, and pressing/welding needed to affix inside weld nuts to your flanges.",
+   "in_search_results": true
+  },
+  {
+   "name": "KT Stålindustri A/S",
+   "website": "https://www.ktstaal.dk/",
+   "location": "Slangerup, Denmark",
+   "matches": [
+    "Stainless steel, mild steel, aluminum, copper, and brass",
+    "15 kW fiber laser cutting (up to 3000 × 1500 mm), CNC press brake bending with laser angle verification (up to 4000 mm length), CNC punching/drilling, and specialized thin-sheet TIG, MIG/MAG, and spot welding",
+    "Handles custom individual projects, prototyping, and series production"
+   ],
+   "basis": "With large-bed fiber laser cutting and 4-meter press brake capacities, KT Stålindustri easily accommodates the 775 mm dimensions while offering specialized stainless-steel thin-sheet welding and fastener integration.",
+   "in_search_results": true
+  },
+  {
+   "name": "Sommerlund Industries ApS",
+   "website": "https://www.sommerlund.dk/",
+   "location": "Aabenraa, Denmark",
+   "matches": [
+    "Stainless steel (with a dedicated workshop hall exclusively for stainless steel work) and carbon steel",
+    "Sheet metal laser cutting, precision bending, drilling/sawing/milling, and TIG/MIG/MAG welding and assembly",
+    "Tailored custom solutions, one-off specialized components, and machine subcontractor work"
+   ],
+   "basis": "Sommerlund Industries maintains segregated stainless steel facilities to prevent cross-contamination (critical for non-magnetic/clean enclosures) and provides complete custom laser cutting, bending, drilling, and nut-welding services.",
+   "in_search_results": true
+  }
+ ],
+ "sources": [
+  {
+   "title": "ringstedmaskinfabrik.dk",
+   "uri": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQG6CXaOhRCPEIELRD4hiV05zNO0M7Aqzn14Sm6hC4ZBe8ALBLjOhLTSafbwtVvQxbF-KVafs2ZZabm4Ongtrn2dkKv44Q1R9n-bkOU_yYKJ4FBhBrpcFNpSpUl-B5cpIjuI"
+  },
+  {
+   "title": "ringstedmaskinfabrik.dk",
+   "uri": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGhuq0O4gflNkg17ZbgDdrfFsWcIyuQNS46cj-lXZM0rF64TONpsk6YE4n-8_ooFzGHTyJ6oyt6TpV5e57Z5ZwHMObcRd9bb378LvJUs0xzuVl9tZ-K7qYNfFxRFw5Xall2vQjA6QzXmCQoVGIej_-g"
+  },
+  {
+   "title": "herbst.dk",
+   "uri": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFGCZ40shHuSPvSGyFXW4CJGzlXDmhnuErEZmOVosSUEaQ0PGGw4wRMILc-fetiVoWyHN4G6Q1ACr6brXC82a0sylY_jUhD6bt6oea4LVGxfJfBuIz66iYB3is_og=="
+  },
+  {
+   "title": "largestcompanies.com",
+   "uri": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFyuFHrMcP_uUeoMXc7t1Y_NaQuZirSnuCfGXMgWLO8P2ng0LN6R6ubK8aUr-6tqk_3jRXcdSswGms7tkr3KZzC_LjMwIBr95dGQ7NI3UC4uS51FG_NrwVFrfvxMUY0gf7YoOGiASUvuP4nIHJt2eJ6CkhsBuogCwo="
+  },
+  {
+   "title": "ktstaal.dk",
+   "uri": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEzaBk3rc9J_ad-4hRBP-AfFleFORbqyFxCVNsxnwnv4ggWdqAZk46Mv6y8AjAOTK33mg0IN5KPvTD-1TIT3j-lrMQM2B82U2RToxafZSOmOE8yc_BQQuB6rUg3qXI="
+  },
+  {
+   "title": "degulesider.dk",
+   "uri": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHLZcV0IK9ml7IFKuQG8NtZ5qkrCqp-6VhEJB8QfWWkx5MptqyCG0SCgjhbva7T-UefYb8YmgtnMxc1waVbjqMdvegjuMd4Na2fWsuZmQvsqInUWLK89sf9pmGUs6870WiCpyixIg7v5QoHXHIywWPiBvrkT0TFPuMcDNoslrAgeZrdwf65ag=="
+  },
+  {
+   "title": "sommerlund.dk",
+   "uri": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFJP1dbXCyGtAQQmxJsZJsx6FSrgNHxDaGZxOm52PTx4nj_l4b9mUfPTlFXuGCuv4b6U71YIbNVvlatgypy7mZsmPhfCclKoAglPOSZWPJo99RPOFltnZJ1tEWB"
+  },
+  {
+   "title": "sommerlund.dk",
+   "uri": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFBDwC9DRfPOKadUwjueOZGTA-rgui2Wq3OW_uqAHO7JuV0aa8SUghwTIRDVCQeZ0G8lDfMS3uWpdcuJLqmNX-AQDIJDDg0RBX_PsvNb1yDwUHklw=="
+  },
+  {
+   "title": "sommerlund.dk",
+   "uri": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFaYmbIT_xLg1C_jQaAXt3zCYOX-U29xLPdTAB8hUXXM0iMZqM3KKD158dQ02Ausa0fgaZm6RCZ-3DN55mcqOYtn-g9u3dHOX5Dttnykl51owJ48MFvygbLo3mFpsM9fUyXOHxyjRUYn5xiTLfwWtVagZhO"
+  }
+ ],
+ "caveat": "Search results are leads, not verified capabilities, quotes or availability. They reflect the web on the retrieval date; contact the company to confirm. Recorded BOM suppliers are a pinned snapshot.",
+ "searched": true,
+ "note": null
+}

@@ -6,12 +6,12 @@ mimetypes.add_type("text/javascript", ".js")
 mimetypes.add_type("text/javascript", ".mjs")
 mimetypes.add_type("model/gltf-binary", ".glb")
 
-from fastapi import Depends, FastAPI, HTTPException
+from fastapi import Depends, FastAPI, File, Form, HTTPException, UploadFile
 from fastapi.responses import FileResponse
 from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel
 
-from . import chats, config
+from . import chats, config, graph, metrics, suppliers, uploads
 from . import knowledge as kb
 from .chat.agent import run_turn
 from .db import connect
@@ -91,9 +91,61 @@ def chat(req: ChatRequest, con=Depends(get_con), ccon=Depends(get_chats_con)):
     msgs = chats.history(ccon, chat_id) + [{"role": "user", "content": message}]
     chats.add_message(ccon, chat_id, "user", message)  # saved first, so a failed turn still shows the question
     result = run_turn(con, msgs)
+    result.pop("_internal", None)  # provider/model details stay server-side
     chats.add_message(ccon, chat_id, "assistant", result["reply"],
                       {k: result[k] for k in ("attachments", "trace", "mode", "latency_ms")})
     return {"chat_id": chat_id, **result}
+
+
+@app.post("/api/documents/upload")
+async def upload_drawing(file: UploadFile = File(...), subsystem: str = Form("Unassigned")):
+    """Add a new drawing. Returns at once; processing continues in the background."""
+    if not (file.filename or "").lower().endswith(".pdf"):
+        raise HTTPException(400, "please upload a PDF")
+    data = await file.read()
+    if len(data) > 30 * 1024 * 1024:
+        raise HTTPException(413, "PDF is larger than 30 MB")
+    try:
+        item = uploads.save_upload(data, file.filename, subsystem)
+    except ValueError as e:
+        raise HTTPException(400, str(e))
+    uploads.start(item["id"])
+    return {**item, "status": uploads.status(item["id"])}
+
+
+@app.get("/api/uploads/{uid}")
+def upload_status(uid: str):
+    return uploads.status(uid) or _404(uid)
+
+
+@app.get("/api/metrics")
+def knowledge_metrics(con=Depends(get_con)):
+    """Current knowledge health, its history after each reviewed change, and evaluation runs."""
+    return {"now": metrics.snapshot(con), "history": metrics.history(), "eval_runs": metrics.eval_runs()}
+
+
+@app.get("/api/suppliers/{doc_id}")
+def supplier_info(doc_id: str, con=Depends(get_con)):
+    prof = suppliers.profile(con, doc_id) or _404(doc_id)
+    return {"profile": prof, "internal": suppliers.internal(con, prof), "search": suppliers.cached(doc_id),
+            "caveat": suppliers.CAVEAT, "search_available": bool(config.GEMINI_API_KEY)}
+
+
+@app.post("/api/suppliers/{doc_id}/search")
+def supplier_search(doc_id: str, con=Depends(get_con)):
+    if not config.GEMINI_API_KEY:
+        raise HTTPException(503, "web search needs an API key (offline mode)")
+    try:
+        return suppliers.search(con, doc_id)
+    except KeyError:
+        _404(doc_id)
+    except Exception as e:  # noqa: BLE001
+        raise HTTPException(502, f"supplier search failed: {e}")
+
+
+@app.get("/api/graph")
+def knowledge_graph(con=Depends(get_con)):
+    return graph.build(con)
 
 
 @app.get("/api/chats")
@@ -115,6 +167,23 @@ def chat_delete(chat_id: str, ccon=Depends(get_chats_con)):
 
 class Review(BaseModel):
     note: str = ""
+
+
+class Proposal(BaseModel):
+    subject_type: str          # bom_row | document
+    subject_id: str
+    predicate: str             # e.g. material, amount, bom_link
+    new_value: str
+    rationale: str = ""
+
+
+@app.post("/api/corrections")
+def propose(body: Proposal, con=Depends(get_con)):
+    """Propose a correction from the UI (same review flow as chat proposals)."""
+    if body.subject_type not in kb.SUBJECT_TYPES or not body.new_value.strip():
+        raise HTTPException(400, "subject_type must be bom_row or document, and new_value is required")
+    return kb.propose_correction(con, body.subject_type, body.subject_id.strip(), body.predicate.strip(),
+                                 body.new_value.strip(), body.rationale, "ui")
 
 
 @app.get("/api/corrections")

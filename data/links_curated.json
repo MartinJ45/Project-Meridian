@@ -1,0 +1,41 @@
+{
+  "_about": "Reviewed drawing -> BOM row links. One decision per drawing. status: confirmed (sheet title or its translation names the BOM part, and subsystem/material agree), probable (judgement from notes, material and subsystem; may be wrong), none (no BOM row describes this part). Proposed by the assistant from the extracted title block, notes, BOM names, families and materials on 2026-11-24; the author should review. Fuzzy filename matches are not used for drawings listed here.",
+  "glossary_da_en": {
+    "bygge": "build", "plade": "plate", "base": "base", "spaend / spænd": "clamp", "varmeelement": "heating element",
+    "pakning": "gasket", "bund": "bottom", "montage": "mount", "klods": "block", "silikone": "silicone",
+    "justeringsplade": "adjustment plate", "linaer foering / linær føring": "linear guide", "rustfri": "stainless",
+    "styk / stk": "pieces"
+  },
+  "links": {
+    "D-001": { "rows": [11, 17], "status": "probable", "rationale": "Sheet note 'Door - x2, 3mm aluminium' (Box). The BOM has two aluminium doors in Box: Front Door (row 11, qty 1) and Back Door (row 17, qty 1); 'x2' fits one drawing for both doors, but the sheet does not say which." },
+    "D-002": { "rows": [10], "status": "probable", "rationale": "Sheet note 'Left Wall, 2mm non-magnetic stainless' matches BOM 'Left Side Box' (row 10, Box, stainless steel)." },
+    "D-003": { "rows": [13], "status": "probable", "rationale": "File 'MainPlatform_Loop2' (Box); the BOM's only platform in Box is 'Print Platform' (row 13). The sheet title and material boxes are empty, so material cannot be cross-checked." },
+    "D-004": { "rows": [14], "status": "probable", "rationale": "Sheet note 'Top Plate, 3 mm non-magnetic stainless' matches BOM 'Top Side' (row 14, Box, stainless steel)." },
+    "D-005": { "rows": [16], "status": "confirmed", "rationale": "Sheet title 'Window Clamp Frame' and file 'WindowFrame' match BOM 'Window Frame' (row 16, Box); both aluminium (sheet: 6061 Alloy)." },
+    "D-006": { "rows": [89], "status": "probable", "rationale": "Sheet note 'Canister Wall, left and right side, non-magnetic stainless' (Powder): a wall of the powder canister. The BOM has no separate wall row; linked to 'Powder hopper' (row 89, stainless) as the assembly it belongs to." },
+    "D-007": { "rows": [90], "status": "probable", "rationale": "Sheet 'Dispenser Shaft v6', aluminium, with three constant-width-triangle grooves (Powder): the powder dispensing roller. BOM 'Powder roller' (row 90, aluminium)." },
+    "D-008": { "rows": [91, 93], "status": "probable", "rationale": "Sheet 'Powder Bracket', 2-3 mm non-magnetic stainless with M5 weld nuts (Powder). Two stainless brackets in the BOM fit: 'Powder handling mount bracket' (row 91) and 'Powder stepper bracket' (row 93); the sheet does not disambiguate." },
+    "D-009": { "rows": [89], "status": "probable", "rationale": "Sheet note 'Powder canister, non-magnetic stainless' (Powder) matches BOM 'Powder hopper' (row 89, stainless steel)." },
+    "D-010": { "rows": [93], "status": "probable", "rationale": "Sheet note 'Motor Plate, 2mm non-magnetic stainless' (Powder): plate for the powder stepper. BOM 'Powder stepper bracket' (row 93, stainless steel)." },
+    "D-011": { "rows": [30], "status": "confirmed", "rationale": "Sheet title 'Recoater Arm' = BOM 'Recoater Arm' (row 30, Recoater); aluminium (sheet: 7075-T6)." },
+    "D-012": { "rows": [32], "status": "confirmed", "rationale": "Sheet title 'Recoater Mount Block' = BOM 'Recoater mount block' (row 32, Recoater); aluminium (sheet: EN-AW 5005)." },
+    "D-013": { "rows": [], "status": "none", "rationale": "Sheet 'Recoater Plate', note 'Justeringsplade til recoater' (adjustment plate for the recoater). No BOM row names an adjustment plate; 'Recoater head' (row 28) or 'Recoater Clamp' (row 29) are possible but unsupported." },
+    "D-014": { "rows": [31], "status": "confirmed", "rationale": "File 'RecoaterStagePlate' = BOM 'Recoater stage plate' (row 31, Recoater); sheet title 'Recoater Linear Plate', note 'plate for linear guide'; aluminium." },
+    "D-015": { "rows": [27], "status": "probable", "rationale": "Sheet title 'Silikone Wiper', '2 styk' (2 pieces) of 1 mm silicone (Recoater): the recoater wiper blade. BOM 'Recoater Blade' (row 27, silicone, qty 2)." },
+    "D-016": { "rows": [], "status": "none", "rationale": "Sheet title 'Galvo Bundplade' (galvo bottom plate, Optical, 7075). BOM galvo parts are 'Sunny Galvo Adapter Plate' (row 79) and 'Galvo box bracket' (row 81); neither is clearly a bottom plate." },
+    "D-017": { "rows": [79], "status": "probable", "rationale": "Sheet title 'Galvo Montage Plade' (galvo mount plate), note 'Galvo Collimator Plade' (Optical, aluminium). Closest BOM row: 'Sunny Galvo Adapter Plate' (row 79, aluminium)." },
+    "D-018": { "rows": [81], "status": "probable", "rationale": "Sheet title 'Galvo Mount Side x2', '2 stk', aluminium (Optical). Closest BOM row: 'Galvo box bracket' (row 81, aluminium, qty 1)." },
+    "D-019": { "rows": [83], "status": "confirmed", "rationale": "File 'SiliconePakningfTheta' (pakning = gasket), note '1mm silicone pakning' = BOM 'Silicone gasket f-theta ring' (row 83, Optics, silicone)." },
+    "D-020": { "rows": [80], "status": "confirmed", "rationale": "File 'f-theta-SealRing', sheet title 'SealRing' = BOM 'F-theta seal ring' (row 80, Optics); aluminium (sheet: 6061 Alloy)." },
+    "D-021": { "rows": [61], "status": "probable", "rationale": "Sheet note 'Gas outlet box' (Gas Flow). BOM 'Gas flow end duct' (row 61) is the outlet-side custom part; the BOM records it as polymer." },
+    "D-022": { "rows": [62], "status": "probable", "rationale": "Sheet note 'Inlet Box, four corner joints welded, stainless' (Gas Flow). BOM 'Gas flow inlet geometry' (row 62, custom, material not recorded)." },
+    "D-023": { "rows": [46], "status": "confirmed", "rationale": "Sheet title 'ByggeCylinder' (build cylinder) = BOM 'Build cylinder' (row 46, Build-plate family = Z-axis); aluminium (sheet: EN AW-6082)." },
+    "D-024": { "rows": [47], "status": "confirmed", "rationale": "Sheet title 'ByggeBase' (build base) = BOM 'Build base' (row 47); aluminium (sheet: EN-AW 5005)." },
+    "D-025": { "rows": [], "status": "none", "rationale": "Sheet 'Bygge Base Ring' (build base ring, 3 mm aluminium). No BOM row names a base ring; it is not 'Build base' (row 47), which has its own drawing D-024." },
+    "D-026": { "rows": [48], "status": "confirmed", "rationale": "Sheet title 'Build Plate' (file 'ByggePlade') = BOM 'Build Plate' (row 48); stainless (sheet: AISI 316)." },
+    "D-027": { "rows": [50], "status": "confirmed", "rationale": "Sheet title 'Cylinder Spaend Ring' (cylinder clamp ring) = BOM 'Build cylinder clamp ring' (row 50); aluminium (sheet: 6063-T6)." },
+    "D-028": { "rows": [51], "status": "confirmed", "rationale": "Sheet title 'Varmeelement Plade' (heating element plate) = BOM 'Heating element plate' (row 51); aluminium; sheet '3 styk' = BOM qty 3." },
+    "D-029": { "rows": [], "status": "none", "rationale": "Sheet note 'Z-axis BottomPlate, aluminium'. No BOM row names a Z-axis bottom plate; 'Motor plate' (row 49) belongs to D-030." },
+    "D-030": { "rows": [49], "status": "probable", "rationale": "Sheet note 'Z-axis MotorPlate, aluminium' (degraded scan). BOM 'Motor plate' (row 49, Build-plate family, aluminium)." }
+  }
+}

@@ -22,3 +22,11 @@ data/chats.db
 data/chats.db-*
 
 # Committed on purpose: data/extracted/, data/recon_specs/, data/models/
+
+# drawings added through the app, and their extraction output (local)
+data/uploads/
+data/extracted/U-*.json
+data/extracted/vision/U-*.json
+
+# local knowledge-health history (snapshots after reviewed changes)
+data/metrics_history.jsonl

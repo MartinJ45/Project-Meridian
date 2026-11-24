@@ -31,4 +31,21 @@ def load_documents(con) -> int:
             ),
         )
         n += 1
-    return n
+    return n + load_uploads(con)
+
+
+def load_uploads(con) -> int:
+    """Drawings added through the app (data/uploads/manifest.json), so they survive rebuilds."""
+    from ..uploads import MANIFEST as UPLOADS
+    if not UPLOADS.exists():
+        return 0
+    items = json.loads(UPLOADS.read_text(encoding="utf-8"))
+    for u in items:
+        con.execute(
+            """INSERT OR REPLACE INTO documents
+               (id, path, subsystem, distribution, role, source_path, source_url, title, pages, sha256, derivation)
+               VALUES (?,?,?,?,?,?,?,?,?,?,NULL)""",
+            (u["id"], u["path"], u["subsystem"], "uploaded", "uploaded-drawing",
+             f"uploaded: {u['original_filename']}", None, title_from_source(u["original_filename"]),
+             u.get("pages"), u["sha256"]))
+    return len(items)

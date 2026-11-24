@@ -46,6 +46,13 @@ export const SendIcon = (p) => (
 
 
 
+export const GraphIcon = (p) => (
+  <svg {...base} {...p}>
+    <circle cx="6" cy="6" r="2.5" /><circle cx="18" cy="7" r="2.5" /><circle cx="12" cy="18" r="2.5" />
+    <path d="M8.3 7.1 15.6 6.7M7.2 8.2l3.7 7.6M16.8 9.2l-3.6 6.7" />
+  </svg>
+)
+
 export const HistoryIcon = (p) => (
   <svg {...base} {...p}>
     <path d="M3.5 12a8.5 8.5 0 1 0 2.5-6" />

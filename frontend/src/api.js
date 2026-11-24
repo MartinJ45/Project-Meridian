@@ -29,8 +29,23 @@ export const api = {
   chat: (message, chatId) =>
     request('/api/chat', { method: 'POST', body: JSON.stringify({ message, chat_id: chatId || null }) }),
   chats: () => request('/api/chats'),
+  graph: () => request('/api/graph'),
+  metrics: () => request('/api/metrics'),
+  suppliers: (id) => request(`/api/suppliers/${id}`),
+  supplierSearch: (id) => request(`/api/suppliers/${id}/search`, { method: 'POST' }),
   getChat: (id) => request(`/api/chats/${encodeURIComponent(id)}`),
   deleteChat: (id) => request(`/api/chats/${encodeURIComponent(id)}`, { method: 'DELETE' }),
+  upload: async (file, subsystem) => {
+    const fd = new FormData()
+    fd.append('file', file)
+    fd.append('subsystem', subsystem)
+    const res = await fetch('/api/documents/upload', { method: 'POST', body: fd })
+    const body = await res.json().catch(() => ({}))
+    if (!res.ok) throw new Error(errorText(body.detail) || `${res.status} ${res.statusText}`)
+    return body
+  },
+  uploadStatus: (id) => request(`/api/uploads/${id}`),
+  propose: (p) => request('/api/corrections', { method: 'POST', body: JSON.stringify(p) }),
   corrections: (status) => request(`/api/corrections${status ? `?status=${status}` : ''}`),
   review: (id, accept, note) =>
     request(`/api/corrections/${id}/${accept ? 'accept' : 'reject'}`, {

@@ -2,12 +2,23 @@ import { useEffect, useState } from 'react'
 import { api } from '../api.js'
 import PdfViewer from './PdfViewer.jsx'
 import ModelViewer from './ModelViewer.jsx'
+import SuppliersPanel from './SuppliersPanel.jsx'
 
 const CHECK = {
   text_layer_match: { label: 'matches PDF text', ok: true },
   repeat_read_agrees: { label: 'two readings agree', ok: true },
   repeat_read_disagrees: { label: 'readings disagree', ok: false },
   not_in_text_layer: { label: 'not in PDF text', ok: false },
+}
+
+const LINK_TAG = { confirmed: 'ok', probable: 'warn', none: '' }
+
+const VERDICT = {
+  agree: { label: 'agree', tag: 'ok' },
+  drawing_more_specific: { label: 'agree · drawing more specific', tag: 'ok' },
+  conflict: { label: 'conflict', tag: 'bad' },
+  missing_on_drawing: { label: 'not on drawing', tag: 'warn' },
+  missing_in_bom: { label: 'not in BOM', tag: 'warn' },
 }
 
 const FIELD_LABEL = {
@@ -55,6 +66,7 @@ export default function PartPanel({ docId, initialTab = '2d', onClose, onExpand 
         <button className={effectiveTab === '3d' ? 'active' : ''} onClick={() => setTab('3d')} disabled={!doc.model}
           title={doc.model ? '' : 'No reconstruction built for this drawing'}>3D model</button>
         <button className={effectiveTab === 'detail' ? 'active' : ''} onClick={() => setTab('detail')}>Evidence</button>
+        <button className={effectiveTab === 'suppliers' ? 'active' : ''} onClick={() => setTab('suppliers')}>Suppliers</button>
       </div>
       <div className="panel-body">
         {effectiveTab === '2d' && (
@@ -62,6 +74,7 @@ export default function PartPanel({ docId, initialTab = '2d', onClose, onExpand 
         )}
         {effectiveTab === '3d' && <ModelViewer model={doc.model} />}
         {effectiveTab === 'detail' && <Evidence doc={doc} onShow={showOnSheet} />}
+        {effectiveTab === 'suppliers' && <SuppliersPanel docId={doc.id} />}
       </div>
     </div>
   )
@@ -76,6 +89,56 @@ function Check({ value }) {
   const c = CHECK[value]
   if (!c) return null
   return <span className={`check-chip ${c.ok ? 'ok' : 'fail'}`}>{c.ok ? '✓' : '!'} {c.label}</span>
+}
+
+// Propose a link change (or confirm a probable link). It goes to the Review page like any correction.
+function LinkReview({ doc }) {
+  const [open, setOpen] = useState(false)
+  const [rows, setRows] = useState('')
+  const [why, setWhy] = useState('')
+  const [msg, setMsg] = useState(null)
+  const [busy, setBusy] = useState(false)
+  const [confirmed, setConfirmed] = useState(false) // confirmation already sent for this drawing
+  useEffect(() => { setOpen(false); setRows(''); setWhy(''); setMsg(null); setBusy(false); setConfirmed(false) }, [doc.id])
+  const current = doc.bom_links.filter((l) => l.method === 'curated' || l.method === 'correction').map((l) => l.row_index)
+  const submit = async (value, rationale, isConfirm = false) => {
+    if (busy) return
+    setBusy(true)
+    try {
+      const c = await api.propose({ subject_type: 'document', subject_id: doc.id, predicate: 'bom_link', new_value: value, rationale })
+      const flagged = c.check_report.checks.filter((k) => !k.ok).map((k) => k.name)
+      setMsg(c.duplicate
+        ? `This change is already waiting for review as correction #${c.id}.`
+        : `Sent for review as correction #${c.id}${flagged.length ? ` — checks flagged: ${flagged.join(', ')}` : ''}.`)
+      setOpen(false)
+      setRows('')
+      setWhy('')
+      if (isConfirm) setConfirmed(true)
+    } catch (e) {
+      setMsg(`Could not propose: ${e.message}`)
+    } finally {
+      setBusy(false)
+    }
+  }
+  return (
+    <div className="link-review">
+      {doc.link_decision?.status === 'probable' && current.length > 0 && !confirmed && (
+        <button className="ghost small" disabled={busy}
+          onClick={() => submit(current.join(','), 'Link checked against the drawing.', true)}>
+          Confirm this link
+        </button>
+      )}
+      <button className="ghost small" disabled={busy} onClick={() => setOpen(!open)}>Propose a different link…</button>
+      {open && (
+        <form className="link-form" onSubmit={(e) => { e.preventDefault(); if (rows.trim()) submit(rows.trim(), why) }}>
+          <input placeholder="BOM row number(s), e.g. 81 or 91,93 — or none" value={rows} onChange={(e) => setRows(e.target.value)} />
+          <input placeholder="Why (evidence)" value={why} onChange={(e) => setWhy(e.target.value)} />
+          <button type="submit" disabled={busy || !rows.trim()}>{busy ? 'Sending…' : 'Send for review'}</button>
+        </form>
+      )}
+      {msg && <p className="small muted">{msg}</p>}
+    </div>
+  )
 }
 
 // Small line under a value: feature / legibility / check badges and the "show on sheet" link.
@@ -99,6 +162,62 @@ function Evidence({ doc, onShow }) {
   const quality = doc.quality[0]
   return (
     <div className="evidence">
+      <section>
+        <h4>
+          BOM link{' '}
+          {doc.link_decision
+            ? <em className={`tag ${LINK_TAG[doc.link_decision.status]}`}>{doc.link_decision.status}</em>
+            : <em className="tag warn">not reviewed</em>}
+        </h4>
+        {doc.link_decision && <p className="small">{doc.link_decision.rationale}</p>}
+        <LinkReview doc={doc} />
+        {!doc.link_decision && <p className="muted small">Only unconfirmed filename matches below.</p>}
+        {doc.bom_links.length === 0 && <p className="muted small">No BOM row is linked to this drawing.</p>}
+        {doc.bom_links.length > 0 && (
+          <table>
+            <tbody>
+              {doc.bom_links.map((l) => (
+                <tr key={`${l.row_index}-${l.method}`}>
+                  <th>Row {l.row_index}</th>
+                  <td>
+                    <div>{l.name}</div>
+                    <Meta>
+                      <span className="muted">{l.part_family}</span>
+                      <span className="muted">material: {l.material || '—'}</span>
+                      {l.method !== 'curated' && (
+                        <span className="muted">filename match {Math.round(l.score)} (unconfirmed)</span>
+                      )}
+                    </Meta>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        )}
+      </section>
+      {doc.consistency?.length > 0 && (
+        <section>
+          <h4>Drawing vs BOM</h4>
+          <table>
+            <tbody>
+              {doc.consistency.map((c) => (
+                <tr key={c.id}>
+                  <th>{c.field === 'quantity' ? 'Quantity' : 'Material'}<div className="muted small">row {c.row_index}</div></th>
+                  <td>
+                    <div className="small"><span className="muted">Drawing:</span> {c.drawing_value || '—'}</div>
+                    <div className="small"><span className="muted">BOM:</span> {c.bom_value || '—'}
+                      {c.bom_ref?.startsWith('correction') && <span className="muted"> ({c.bom_ref})</span>}</div>
+                    <Meta>
+                      <em className={`tag ${VERDICT[c.verdict]?.tag || ''}`}>{VERDICT[c.verdict]?.label || c.verdict}</em>
+                      <span className="muted">{c.detail}</span>
+                    </Meta>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </section>
+      )}
       {quality && (
         <section>
           <h4>Sheet reading</h4>
@@ -106,7 +225,6 @@ function Evidence({ doc, onShow }) {
             Legibility: <b>{quality.legibility.replace('_', ' ')}</b>
             {quality.issues && <span className="muted"> — {quality.issues}</span>}
           </p>
-          <p className="muted small">Read by {quality.extractor}</p>
         </section>
       )}
       {doc.derivation && (
@@ -167,29 +285,6 @@ function Evidence({ doc, onShow }) {
           </table>
         </section>
       ))}
-      <section>
-        <h4>Candidate BOM rows</h4>
-        {doc.bom_links.length === 0 && <p className="muted">No BOM row matched this drawing's name.</p>}
-        {doc.bom_links.length > 0 && (
-          <table>
-            <tbody>
-              {doc.bom_links.map((l) => (
-                <tr key={`${l.row_index}-${l.method}`}>
-                  <th>Row {l.row_index}</th>
-                  <td>
-                    <div>{l.name}</div>
-                    <Meta>
-                      <span className="muted">{l.part_family}</span>
-                      <span className="muted">material: {l.material || '—'}</span>
-                      <span className="muted">match {Math.round(l.score)} · {l.method} ({l.status})</span>
-                    </Meta>
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        )}
-      </section>
       <details>
         <summary className="small">Raw PDF text layer</summary>
         {doc.pages_text.map((p) => (

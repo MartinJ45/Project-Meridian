@@ -41,12 +41,15 @@ function Avatar() {
 function panelFor(attachments = []) {
   const first = attachments.find((a) => a.type === 'drawing')
   if (!first) return null
+  if (first.tab) return { document_id: first.document_id, tab: first.tab } // e.g. 'suppliers'
   const has3d = attachments.some((a) => a.type === 'model3d' && a.document_id === first.document_id)
   return { document_id: first.document_id, tab: has3d ? '3d' : '2d' }
 }
 
 // chatId: the stored chat to show (null = new chat). Mounted fresh for each chat (keyed in App).
-export default function ChatView({ chatId, online, onChatCreated, onChatMissing, onOpenInDrawings }) {
+export default function ChatView({
+  chatId, online, onChatCreated, onChatMissing, onOpenInDrawings, onOpenGraph, pendingQuestion, onPendingConsumed,
+}) {
   const [messages, setMessages] = useState([])
   const [input, setInput] = useState('')
   const [busy, setBusy] = useState(false)
@@ -75,6 +78,15 @@ export default function ChatView({ chatId, online, onChatCreated, onChatMissing,
 
   // Braces matter: newer browsers return a Promise from scrollIntoView, which React would treat as a cleanup.
   useEffect(() => { endRef.current?.scrollIntoView({ behavior: 'smooth' }) }, [messages, progress])
+
+  // A question asked from another view (e.g. "Ask in chat" in the graph) is sent here.
+  useEffect(() => {
+    if (pendingQuestion && !busy && !loading) {
+      onPendingConsumed?.()
+      send(pendingQuestion)
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [pendingQuestion, busy, loading])
 
   async function send(text) {
     const q = (text ?? input).trim()
@@ -140,7 +152,11 @@ export default function ChatView({ chatId, online, onChatCreated, onChatMissing,
                     <div className="bubble" dangerouslySetInnerHTML={renderMd(m.content)} />
                     {m.meta?.attachments?.length > 0 && (
                       <div className="attachments">
-                        {m.meta.attachments.map((a, j) => (
+                        {m.meta.attachments.map((a, j) => a.type === 'graph' ? (
+                          <button key={j} className="attach graph" onClick={() => onOpenGraph?.(a.focus)}>
+                            Knowledge graph · around {a.label}
+                          </button>
+                        ) : (
                           <button
                             key={j}
                             className={`attach ${a.type}`}

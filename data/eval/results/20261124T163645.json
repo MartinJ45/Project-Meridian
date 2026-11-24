@@ -1,0 +1,3026 @@
+{
+ "started": "2026-11-24T16:36:45+00:00",
+ "repeats": 2,
+ "cases": [
+  {
+   "id": "org-subsystems",
+   "category": "organization",
+   "turns": [
+    "Which subsystems do the 30 drawings cover, and how many drawings are in each?"
+   ],
+   "all_of": [
+    [
+     "Box"
+    ],
+    [
+     "Powder"
+    ],
+    [
+     "Recoater"
+    ],
+    [
+     "Optical"
+    ],
+    [
+     "Gas Flow",
+     "Gas flow"
+    ],
+    [
+     "Z-axis"
+    ],
+    [
+     "re:Z-axis[^\\n]{0,60}\\b8\\b|\\b8\\b[^\\n]{0,40}Z-axis"
+    ],
+    [
+     "re:Gas [Ff]low[^\\n]{0,60}\\b2\\b|\\b2\\b[^\\n]{0,40}Gas [Ff]low"
+    ]
+   ],
+   "open_none": true,
+   "runs": [
+    {
+     "reply": "According to the drawing index, the 30 drawings cover six subsystems:\n\n- **Box**: 5 drawings (D-001 through D-005) [Drawing Index]\n- **Powder**: 5 drawings (D-006 through D-010) [Drawing Index]\n- **Recoater**: 5 drawings (D-011 through D-015) [Drawing Index]\n- **Optical**: 5 drawings (D-016 through D-020) [Drawing Index]\n- **Gas Flow**: 2 drawings (D-021 and D-022) [Drawing Index]\n- **Z-axis**: 8 drawings (D-023 through D-030) [Drawing Index]",
+     "mode": "online",
+     "latency_ms": 10972,
+     "attachments": [],
+     "model": "gemini-3.8-flash",
+     "fallbacks": 0,
+     "tokens": {
+      "prompt_tokens": 6622,
+      "thinking_tokens": null,
+      "output_tokens": 196
+     },
+     "score": {
+      "passed": true,
+      "checks": [
+       {
+        "check": "mentions Box",
+        "ok": true
+       },
+       {
+        "check": "mentions Powder",
+        "ok": true
+       },
+       {
+        "check": "mentions Recoater",
+        "ok": true
+       },
+       {
+        "check": "mentions Optical",
+        "ok": true
+       },
+       {
+        "check": "mentions Gas Flow | Gas flow",
+        "ok": true
+       },
+       {
+        "check": "mentions Z-axis",
+        "ok": true
+       },
+       {
+        "check": "mentions re:Z-axis[^\\n]{0,60}\\b8\\b|\\b8\\b[^\\n]{0,40}Z-axis",
+        "ok": true
+       },
+       {
+        "check": "mentions re:Gas [Ff]low[^\\n]{0,60}\\b2\\b|\\b2\\b[^\\n]{0,40}Gas [Ff]low",
+        "ok": true
+       },
+       {
+        "check": "opens no drawing",
+        "ok": true
+       }
+      ],
+      "opened": [],
+      "opened_3d": []
+     }
+    },
+    {
+     "reply": "According to the Drawing Index, the 30 drawings (D-001 through D-030) cover six subsystems:\n\n- **Box**: 5 drawings (D-001 to D-005)\n- **Powder**: 5 drawings (D-006 to D-010)\n- **Recoater**: 5 drawings (D-011 to D-015)\n- **Optical**: 5 drawings (D-016 to D-020)\n- **Gas Flow**: 2 drawings (D-021, D-022)\n- **Z-axis**: 8 drawings (D-023 to D-030)",
+     "mode": "online",
+     "latency_ms": 4631,
+     "attachments": [],
+     "model": "gemini-3.8-flash",
+     "fallbacks": 0,
+     "tokens": {
+      "prompt_tokens": 6622,
+      "thinking_tokens": null,
+      "output_tokens": 184
+     },
+     "score": {
+      "passed": true,
+      "checks": [
+       {
+        "check": "mentions Box",
+        "ok": true
+       },
+       {
+        "check": "mentions Powder",
+        "ok": true
+       },
+       {
+        "check": "mentions Recoater",
+        "ok": true
+       },
+       {
+        "check": "mentions Optical",
+        "ok": true
+       },
+       {
+        "check": "mentions Gas Flow | Gas flow",
+        "ok": true
+       },
+       {
+        "check": "mentions Z-axis",
+        "ok": true
+       },
+       {
+        "check": "mentions re:Z-axis[^\\n]{0,60}\\b8\\b|\\b8\\b[^\\n]{0,40}Z-axis",
+        "ok": true
+       },
+       {
+        "check": "mentions re:Gas [Ff]low[^\\n]{0,60}\\b2\\b|\\b2\\b[^\\n]{0,40}Gas [Ff]low",
+        "ok": true
+       },
+       {
+        "check": "opens no drawing",
+        "ok": true
+       }
+      ],
+      "opened": [],
+      "opened_3d": []
+     }
+    }
+   ]
+  },
+  {
+   "id": "org-degraded",
+   "category": "clean-vs-noisy",
+   "turns": [
+    "Which drawings are degraded scans?"
+   ],
+   "all_of": [
+    [
+     "D-001"
+    ],
+    [
+     "D-003"
+    ],
+    [
+     "D-009"
+    ],
+    [
+     "D-011"
+    ],
+    [
+     "D-020"
+    ],
+    [
+     "D-022"
+    ],
+    [
+     "D-023"
+    ],
+    [
+     "D-030"
+    ]
+   ],
+   "none_of": [
+    "D-012",
+    "D-026"
+   ],
+   "runs": [
+    {
+     "reply": "According to the drawing index, the following 8 drawings are recorded with a quality of **DEGRADED scan**:\n\n- **D-001**: Door x2 (Box subsystem) [D-001]\n- **D-003**: Main Platform Loop2 (Box subsystem) [D-003]\n- **D-009**: Powder Canister (Powder subsystem) [D-009]\n- **D-011**: Recoater Arm (Recoater subsystem) [D-011]\n- **D-020**: f-theta-Seal Ring (Optical subsystem) [D-020]\n- **D-022**: Inlet Box (Gas Flow subsystem) [D-022]\n- **D-023**: Build Cylinder v2 (Z-axis subsystem) [D-023]\n- **D-030**: Z-axis Motor Plate (Z-axis subsystem) [D-030]",
+     "mode": "online",
+     "latency_ms": 6018,
+     "attachments": [
+      {
+       "type": "drawing",
+       "document_id": "D-001",
+       "title": "Door x2",
+       "url": "/api/documents/D-001/file",
+       "distribution": "degraded-only"
+      },
+      {
+       "type": "drawing",
+       "document_id": "D-003",
+       "title": "Main Platform Loop2",
+       "url": "/api/documents/D-003/file",
+       "distribution": "degraded-only"
+      },
+      {
+       "type": "drawing",
+       "document_id": "D-009",
+       "title": "Powder Canister",
+       "url": "/api/documents/D-009/file",
+       "distribution": "degraded-only"
+      },
+      {
+       "type": "drawing",
+       "document_id": "D-011",
+       "title": "Recoater Arm",
+       "url": "/api/documents/D-011/file",
+       "distribution": "degraded-only"
+      },
+      {
+       "type": "drawing",
+       "document_id": "D-020",
+       "title": "f-theta-Seal Ring",
+       "url": "/api/documents/D-020/file",
+       "distribution": "degraded-only"
+      },
+      {
+       "type": "drawing",
+       "document_id": "D-022",
+       "title": "Inlet Box",
+       "url": "/api/documents/D-022/file",
+       "distribution": "degraded-only"
+      },
+      {
+       "type": "drawing",
+       "document_id": "D-023",
+       "title": "Build Cylinder v2",
+       "url": "/api/documents/D-023/file",
+       "distribution": "degraded-only"
+      },
+      {
+       "type": "drawing",
+       "document_id": "D-030",
+       "title": "Z-axis Motor Plate",
+       "url": "/api/documents/D-030/file",
+       "distribution": "degraded-only"
+      }
+     ],
+     "model": "gemini-3.8-flash",
+     "fallbacks": 0,
+     "tokens": {
+      "prompt_tokens": 6610,
+      "thinking_tokens": null,
+      "output_tokens": 322
+     },
+     "score": {
+      "passed": true,
+      "checks": [
+       {
+        "check": "mentions D-001",
+        "ok": true
+       },
+       {
+        "check": "mentions D-003",
+        "ok": true
+       },
+       {
+        "check": "mentions D-009",
+        "ok": true
+       },
+       {
+        "check": "mentions D-011",
+        "ok": true
+       },
+       {
+        "check": "mentions D-020",
+        "ok": true
+       },
+       {
+        "check": "mentions D-022",
+        "ok": true
+       },
+       {
+        "check": "mentions D-023",
+        "ok": true
+       },
+       {
+        "check": "mentions D-030",
+        "ok": true
+       },
+       {
+        "check": "does not mention D-012",
+        "ok": true
+       },
+       {
+        "check": "does not mention D-026",
+        "ok": true
+       }
+      ],
+      "opened": [
+       "D-001",
+       "D-003",
+       "D-009",
+       "D-011",
+       "D-020",
+       "D-022",
+       "D-023",
+       "D-030"
+      ],
+      "opened_3d": []
+     }
+    },
+    {
+     "reply": "According to the drawing index, the following 8 drawings are classified as **DEGRADED scan**:\n\n- **D-001**: Door x2 (Box)\n- **D-003**: Main Platform Loop2 (Box)\n- **D-009**: Powder Canister (Powder)\n- **D-011**: Recoater Arm (Recoater)\n- **D-020**: f-theta-Seal Ring (Optical)\n- **D-022**: Inlet Box (Gas Flow)\n- **D-023**: Build Cylinder v2 (Z-axis)\n- **D-030**: Z-axis Motor Plate (Z-axis)",
+     "mode": "online",
+     "latency_ms": 6743,
+     "attachments": [
+      {
+       "type": "drawing",
+       "document_id": "D-001",
+       "title": "Door x2",
+       "url": "/api/documents/D-001/file",
+       "distribution": "degraded-only"
+      },
+      {
+       "type": "drawing",
+       "document_id": "D-003",
+       "title": "Main Platform Loop2",
+       "url": "/api/documents/D-003/file",
+       "distribution": "degraded-only"
+      },
+      {
+       "type": "drawing",
+       "document_id": "D-009",
+       "title": "Powder Canister",
+       "url": "/api/documents/D-009/file",
+       "distribution": "degraded-only"
+      },
+      {
+       "type": "drawing",
+       "document_id": "D-011",
+       "title": "Recoater Arm",
+       "url": "/api/documents/D-011/file",
+       "distribution": "degraded-only"
+      },
+      {
+       "type": "drawing",
+       "document_id": "D-020",
+       "title": "f-theta-Seal Ring",
+       "url": "/api/documents/D-020/file",
+       "distribution": "degraded-only"
+      },
+      {
+       "type": "drawing",
+       "document_id": "D-022",
+       "title": "Inlet Box",
+       "url": "/api/documents/D-022/file",
+       "distribution": "degraded-only"
+      },
+      {
+       "type": "drawing",
+       "document_id": "D-023",
+       "title": "Build Cylinder v2",
+       "url": "/api/documents/D-023/file",
+       "distribution": "degraded-only"
+      },
+      {
+       "type": "drawing",
+       "document_id": "D-030",
+       "title": "Z-axis Motor Plate",
+       "url": "/api/documents/D-030/file",
+       "distribution": "degraded-only"
+      }
+     ],
+     "model": "gemini-3.8-flash",
+     "fallbacks": 0,
+     "tokens": {
+      "prompt_tokens": 6610,
+      "thinking_tokens": null,
+      "output_tokens": 255
+     },
+     "score": {
+      "passed": true,
+      "checks": [
+       {
+        "check": "mentions D-001",
+        "ok": true
+       },
+       {
+        "check": "mentions D-003",
+        "ok": true
+       },
+       {
+        "check": "mentions D-009",
+        "ok": true
+       },
+       {
+        "check": "mentions D-011",
+        "ok": true
+       },
+       {
+        "check": "mentions D-020",
+        "ok": true
+       },
+       {
+        "check": "mentions D-022",
+        "ok": true
+       },
+       {
+        "check": "mentions D-023",
+        "ok": true
+       },
+       {
+        "check": "mentions D-030",
+        "ok": true
+       },
+       {
+        "check": "does not mention D-012",
+        "ok": true
+       },
+       {
+        "check": "does not mention D-026",
+        "ok": true
+       }
+      ],
+      "opened": [
+       "D-001",
+       "D-003",
+       "D-009",
+       "D-011",
+       "D-020",
+       "D-022",
+       "D-023",
+       "D-030"
+      ],
+      "opened_3d": []
+     }
+    }
+   ]
+  },
+  {
+   "id": "link-confirmed",
+   "category": "drawing-bom",
+   "turns": [
+    "Which BOM row corresponds to the build plate drawing, and how sure is that link?"
+   ],
+   "all_of": [
+    [
+     "48"
+    ],
+    [
+     "confirmed"
+    ]
+   ],
+   "open": [
+    "D-026"
+   ],
+   "runs": [
+    {
+     "reply": "The build plate drawing (**D-026**, file name *Bygge Plade*) corresponds to **BOM row 48** (*Build Plate*) [D-026 p1 title block, BOM row 48].\n\n### Link Certainty\n* **Status:** **CONFIRMED** [D-026 BOM link].\n* **Rationale:** The drawing sheet title explicitly reads *\"Build Plate\"* (matching the Danish filename *ByggePlade*), directly matching the BOM name *\"Build Plate\"* in the Build-plate subsystem [D-026 p1 title block, BOM row 48].\n\n### Consistency Check\n* **Material:** Agrees, though the drawing is more specific. The drawing specifies `AISI 316 Stainless Steel Sheet (SS)` [D-026 p1 title block], while the BOM records `Stainless steel,Steel` [BOM row 48].\n* **Quantity:** **CONFLICT**. The drawing title note calls for `1-3` (note: *\"Byggeplade, rustfri og alu. / 1-3 stk af hver.\"*) [D-026 p1 title block], whereas the BOM lists an amount of `10` [BOM row 48].",
+     "mode": "online",
+     "latency_ms": 9397,
+     "attachments": [
+      {
+       "type": "drawing",
+       "document_id": "D-026",
+       "title": "Bygge Plade",
+       "url": "/api/documents/D-026/file",
+       "distribution": "clean"
+      }
+     ],
+     "model": "gemini-3.8-flash",
+     "fallbacks": 0,
+     "tokens": {
+      "prompt_tokens": 7801,
+      "thinking_tokens": null,
+      "output_tokens": 322
+     },
+     "score": {
+      "passed": true,
+      "checks": [
+       {
+        "check": "mentions 48",
+        "ok": true
+       },
+       {
+        "check": "mentions confirmed",
+        "ok": true
+       },
+       {
+        "check": "opens D-026",
+        "ok": true
+       }
+      ],
+      "opened": [
+       "D-026"
+      ],
+      "opened_3d": []
+     }
+    },
+    {
+     "reply": "The build plate drawing **D-026** (*Bygge Plade*) corresponds to **BOM row 48** (*Build Plate*) [D-026 p1 title block, BOM row 48].\n\n### Link Confidence\n- **Status:** **CONFIRMED** [D-026 BOM link].\n- **Basis:** The drawing title block explicitly states the title as `Build Plate` (file name `Bygge Plade`), directly matching the BOM part name `Build Plate` in row 48 [D-026 p1 title block, BOM row 48].\n\n### Consistency Check\n- **Material:** Agreement with drawing being more specific. The drawing specifies `AISI 316 Stainless Steel Sheet (SS)` [D-026 p1 title block], while the BOM records `Stainless steel,Steel` [BOM row 48].\n- **Quantity:** Conflict. The drawing note indicates `1-3 stk af hver` (1–3) [D-026 p1 title block], whereas the BOM lists an amount of `10` [BOM row 48].",
+     "mode": "online",
+     "latency_ms": 5093,
+     "attachments": [
+      {
+       "type": "drawing",
+       "document_id": "D-026",
+       "title": "Bygge Plade",
+       "url": "/api/documents/D-026/file",
+       "distribution": "clean"
+      }
+     ],
+     "model": "gemini-3.8-flash",
+     "fallbacks": 0,
+     "tokens": {
+      "prompt_tokens": 7801,
+      "thinking_tokens": null,
+      "output_tokens": 291
+     },
+     "score": {
+      "passed": true,
+      "checks": [
+       {
+        "check": "mentions 48",
+        "ok": true
+       },
+       {
+        "check": "mentions confirmed",
+        "ok": true
+       },
+       {
+        "check": "opens D-026",
+        "ok": true
+       }
+      ],
+      "opened": [
+       "D-026"
+      ],
+      "opened_3d": []
+     }
+    }
+   ]
+  },
+  {
+   "id": "link-ambiguous",
+   "category": "drawing-bom",
+   "turns": [
+    "Which BOM row does the powder bracket drawing D-008 correspond to?"
+   ],
+   "all_of": [
+    [
+     "91"
+    ],
+    [
+     "93"
+    ],
+    [
+     "probable",
+     "ambiguous",
+     "not certain",
+     "uncertain",
+     "does not disambiguate"
+    ]
+   ],
+   "open": [
+    "D-008"
+   ],
+   "runs": [
+    {
+     "reply": "The drawing **D-008** (*Powder Bracket*) has a reviewed link status of **PROBABLE** to two candidate BOM rows, because the drawing sheet does not explicitly disambiguate between them [D-008 p1]:\n\n- **BOM row 91** (*Powder handling mount bracket*): Custom stainless steel part [BOM row 91].\n- **BOM row 93** (*Powder stepper bracket*): Custom stainless steel part [BOM row 93].\n\nBoth BOM rows record the material as \"Stainless steel\" [BOM row 91, BOM row 93], which agrees with the drawing note specifying \"2-3mm non-magnetic stainless\" [D-008 p1 title block].",
+     "mode": "online",
+     "latency_ms": 3108,
+     "attachments": [
+      {
+       "type": "drawing",
+       "document_id": "D-008",
+       "title": "Powder Bracket",
+       "url": "/api/documents/D-008/file",
+       "distribution": "clean"
+      }
+     ],
+     "model": "gemini-3.8-flash",
+     "fallbacks": 0,
+     "tokens": {
+      "prompt_tokens": 8355,
+      "thinking_tokens": null,
+      "output_tokens": 208
+     },
+     "score": {
+      "passed": true,
+      "checks": [
+       {
+        "check": "mentions 91",
+        "ok": true
+       },
+       {
+        "check": "mentions 93",
+        "ok": true
+       },
+       {
+        "check": "mentions probable | ambiguous | not certain | uncertain | does not disambiguate",
+        "ok": true
+       },
+       {
+        "check": "opens D-008",
+        "ok": true
+       }
+      ],
+      "opened": [
+       "D-008"
+      ],
+      "opened_3d": []
+     }
+    },
+    {
+     "reply": "Drawing D-008 ('Powder Bracket') has a **PROBABLE** link to two candidate BOM rows, as the drawing sheet does not explicitly disambiguate between them [D-008 p1]:\n\n- **BOM row 91**: *Powder handling mount bracket* (Custom stainless steel bracket, DTU) [BOM row 91]\n- **BOM row 93**: *Powder stepper bracket* (Custom stainless steel bracket, DTU) [BOM row 93]\n\n### Material Comparison\n- **Drawing D-008**: The material box is empty, but the title-block note specifies `2-3mm non-magnetic stainless` [D-008 p1].\n- **BOM rows 91 & 93**: Both record `Stainless steel` [BOM row 91, BOM row 93], which agrees with the drawing's material specification.",
+     "mode": "online",
+     "latency_ms": 4372,
+     "attachments": [
+      {
+       "type": "drawing",
+       "document_id": "D-008",
+       "title": "Powder Bracket",
+       "url": "/api/documents/D-008/file",
+       "distribution": "clean"
+      }
+     ],
+     "model": "gemini-3.8-flash",
+     "fallbacks": 0,
+     "tokens": {
+      "prompt_tokens": 8355,
+      "thinking_tokens": null,
+      "output_tokens": 245
+     },
+     "score": {
+      "passed": true,
+      "checks": [
+       {
+        "check": "mentions 91",
+        "ok": true
+       },
+       {
+        "check": "mentions 93",
+        "ok": true
+       },
+       {
+        "check": "mentions probable | ambiguous | not certain | uncertain | does not disambiguate",
+        "ok": true
+       },
+       {
+        "check": "opens D-008",
+        "ok": true
+       }
+      ],
+      "opened": [
+       "D-008"
+      ],
+      "opened_3d": []
+     }
+    }
+   ]
+  },
+  {
+   "id": "link-none",
+   "category": "uncertainty",
+   "turns": [
+    "Which BOM row is the Z-axis bottom plate drawing?"
+   ],
+   "all_of": [
+    [
+     "re:no (matching |corresponding |linked )?BOM row|not (in|listed in|recorded in) the BOM|no BOM (entry|row)|does not (have|appear)|no row"
+    ]
+   ],
+   "open": [
+    "D-029"
+   ],
+   "runs": [
+    {
+     "reply": "The Z-axis bottom plate drawing (D-029) does not link to any BOM row (reviewed status: **NONE**) [D-029 BOM link].\n\n* **Drawing:** D-029 has the sheet note *\"Z-axis BottomPlate Aluminium\"* [D-029 p1 title block].\n* **BOM status:** No row in the BOM describes or names a Z-axis bottom plate. Note that BOM row 49 (*\"Motor plate\"*) corresponds to drawing D-030 (*Z-axis Motor Plate*) rather than D-029 [D-029 BOM link, D-030].",
+     "mode": "online",
+     "latency_ms": 3283,
+     "attachments": [
+      {
+       "type": "drawing",
+       "document_id": "D-029",
+       "title": "Z-axis Bottom Plate",
+       "url": "/api/documents/D-029/file",
+       "distribution": "clean"
+      }
+     ],
+     "model": "gemini-3.8-flash",
+     "fallbacks": 0,
+     "tokens": {
+      "prompt_tokens": 7297,
+      "thinking_tokens": null,
+      "output_tokens": 184
+     },
+     "score": {
+      "passed": true,
+      "checks": [
+       {
+        "check": "mentions re:no (matching |corresponding |linked )?BOM row|not (in|listed in|recorded in) the BOM|no BOM (entry|row)|does not (have|appear)|no row",
+        "ok": true
+       },
+       {
+        "check": "opens D-029",
+        "ok": true
+       }
+      ],
+      "opened": [
+       "D-029"
+      ],
+      "opened_3d": []
+     }
+    },
+    {
+     "reply": "There is **no BOM row** for the Z-axis bottom plate drawing (D-029) [D-029 p1].\n\nThe reviewed link status for drawing D-029 is **NONE**: while the drawing includes a note reading \"Z-axis BottomPlate Aluminium\" [D-029 p1 title block], no row in the BOM describes or names a Z-axis bottom plate. Note that row 49 (\"Motor plate\") links to drawing D-030 instead [BOM row 49, D-030].",
+     "mode": "online",
+     "latency_ms": 2971,
+     "attachments": [
+      {
+       "type": "drawing",
+       "document_id": "D-029",
+       "title": "Z-axis Bottom Plate",
+       "url": "/api/documents/D-029/file",
+       "distribution": "clean"
+      }
+     ],
+     "model": "gemini-3.8-flash",
+     "fallbacks": 0,
+     "tokens": {
+      "prompt_tokens": 7297,
+      "thinking_tokens": null,
+      "output_tokens": 160
+     },
+     "score": {
+      "passed": true,
+      "checks": [
+       {
+        "check": "mentions re:no (matching |corresponding |linked )?BOM row|not (in|listed in|recorded in) the BOM|no BOM (entry|row)|does not (have|appear)|no row",
+        "ok": true
+       },
+       {
+        "check": "opens D-029",
+        "ok": true
+       }
+      ],
+      "opened": [
+       "D-029"
+      ],
+      "opened_3d": []
+     }
+    }
+   ]
+  },
+  {
+   "id": "iface-out",
+   "category": "interfaces",
+   "turns": [
+    "What does the Left Side Box interface with?"
+   ],
+   "all_of": [
+    [
+     "Print Platform"
+    ],
+    [
+     "Top Side"
+    ],
+    [
+     "Front Side Box"
+    ],
+    [
+     "Back Box"
+    ]
+   ],
+   "runs": [
+    {
+     "reply": "According to the BOM, **Left Side Box** (BOM row 10) interfaces with the following parts [BOM row 10]:\n\n- **Print Platform** [BOM row 10, row 13]\n- **Top Side** [BOM row 10, row 14]\n- **Front Side Box** [BOM row 10, row 15]\n- **Back Box** [BOM row 10, row 12]\n\nNote: BOM row 10 has a PROBABLE link to drawing **D-002** (*Left Wall*), based on the sheet note referencing *\"Left Wall, 2mm non-magnetic stainless\"* [D-002 p1].",
+     "mode": "online",
+     "latency_ms": 3865,
+     "attachments": [
+      {
+       "type": "drawing",
+       "document_id": "D-002",
+       "title": "Left Wall",
+       "url": "/api/documents/D-002/file",
+       "distribution": "clean"
+      }
+     ],
+     "model": "gemini-3.8-flash",
+     "fallbacks": 0,
+     "tokens": {
+      "prompt_tokens": 7833,
+      "thinking_tokens": null,
+      "output_tokens": 206
+     },
+     "score": {
+      "passed": true,
+      "checks": [
+       {
+        "check": "mentions Print Platform",
+        "ok": true
+       },
+       {
+        "check": "mentions Top Side",
+        "ok": true
+       },
+       {
+        "check": "mentions Front Side Box",
+        "ok": true
+       },
+       {
+        "check": "mentions Back Box",
+        "ok": true
+       }
+      ],
+      "opened": [
+       "D-002"
+      ],
+      "opened_3d": []
+     }
+    },
+    {
+     "reply": "According to the BOM's **Interface with** column for the **Left Side Box** [BOM row 10], it interfaces with:\n\n- **Print Platform** [BOM row 10] (linked to row 13)\n- **Top Side** [BOM row 10] (linked to row 14)\n- **Front Side Box** [BOM row 10] (linked to row 15)\n- **Back Box** [BOM row 10] (linked to row 12)\n\n*(Note: Left Side Box is linked by a probable match to drawing D-002, titled \"Left Wall\" in notes [D-002 p1]).*",
+     "mode": "online",
+     "latency_ms": 3120,
+     "attachments": [
+      {
+       "type": "drawing",
+       "document_id": "D-002",
+       "title": "Left Wall",
+       "url": "/api/documents/D-002/file",
+       "distribution": "clean"
+      }
+     ],
+     "model": "gemini-3.8-flash",
+     "fallbacks": 0,
+     "tokens": {
+      "prompt_tokens": 7833,
+      "thinking_tokens": null,
+      "output_tokens": 196
+     },
+     "score": {
+      "passed": true,
+      "checks": [
+       {
+        "check": "mentions Print Platform",
+        "ok": true
+       },
+       {
+        "check": "mentions Top Side",
+        "ok": true
+       },
+       {
+        "check": "mentions Front Side Box",
+        "ok": true
+       },
+       {
+        "check": "mentions Back Box",
+        "ok": true
+       }
+      ],
+      "opened": [
+       "D-002"
+      ],
+      "opened_3d": []
+     }
+    }
+   ]
+  },
+  {
+   "id": "iface-in",
+   "category": "interfaces",
+   "turns": [
+    "Which parts list the Front Door as an interface?"
+   ],
+   "all_of": [
+    [
+     "Front Side Box"
+    ],
+    [
+     "hinge"
+    ],
+    [
+     "latch"
+    ]
+   ],
+   "runs": [
+    {
+     "reply": "According to the BOM's \"Interface with\" data for the Front Door [BOM row 11], the following parts list the Front Door as an interface:\n\n- **Front Side Box** [BOM row 15, Box]\n- **Front door hinge** [BOM row 21, Box]\n- **Front door latch** [BOM row 22, Box]\n\n*(Note: Conversely, the Front Door itself records an interface with the Front Side Box [BOM row 11]).*",
+     "mode": "online",
+     "latency_ms": 2915,
+     "attachments": [
+      {
+       "type": "drawing",
+       "document_id": "D-001",
+       "title": "Door x2",
+       "url": "/api/documents/D-001/file",
+       "distribution": "degraded-only"
+      }
+     ],
+     "model": "gemini-3.8-flash",
+     "fallbacks": 0,
+     "tokens": {
+      "prompt_tokens": 8542,
+      "thinking_tokens": null,
+      "output_tokens": 151
+     },
+     "score": {
+      "passed": true,
+      "checks": [
+       {
+        "check": "mentions Front Side Box",
+        "ok": true
+       },
+       {
+        "check": "mentions hinge",
+        "ok": true
+       },
+       {
+        "check": "mentions latch",
+        "ok": true
+       }
+      ],
+      "opened": [
+       "D-001"
+      ],
+      "opened_3d": []
+     }
+    },
+    {
+     "reply": "According to the BOM's \"Interface with\" data, the **Front Door** (row 11) is listed as an interface by the following parts [BOM row 11]:\n\n- **Front Side Box** [BOM row 15]\n- **Front door hinge** [BOM row 21]\n- **Front door latch** [BOM row 22]",
+     "mode": "online",
+     "latency_ms": 4069,
+     "attachments": [
+      {
+       "type": "drawing",
+       "document_id": "D-001",
+       "title": "Door x2",
+       "url": "/api/documents/D-001/file",
+       "distribution": "degraded-only"
+      }
+     ],
+     "model": "gemini-3.8-flash",
+     "fallbacks": 0,
+     "tokens": {
+      "prompt_tokens": 8542,
+      "thinking_tokens": null,
+      "output_tokens": 123
+     },
+     "score": {
+      "passed": true,
+      "checks": [
+       {
+        "check": "mentions Front Side Box",
+        "ok": true
+       },
+       {
+        "check": "mentions hinge",
+        "ok": true
+       },
+       {
+        "check": "mentions latch",
+        "ok": true
+       }
+      ],
+      "opened": [
+       "D-001"
+      ],
+      "opened_3d": []
+     }
+    }
+   ]
+  },
+  {
+   "id": "mat-shared",
+   "category": "materials",
+   "turns": [
+    "Which drawings specify EN-AW 5005?"
+   ],
+   "all_of": [
+    [
+     "D-012"
+    ],
+    [
+     "D-013"
+    ],
+    [
+     "D-014"
+    ],
+    [
+     "D-024"
+    ],
+    [
+     "D-025"
+    ],
+    [
+     "D-028"
+    ]
+   ],
+   "none_of": [
+    "D-027",
+    "D-023"
+   ],
+   "runs": [
+    {
+     "reply": "According to the drawing index, the following drawings specify **3.3315 (EN-AW 5005)** in their title blocks:\n\n- **[D-012]**: Recoater Mount Block (clean; linked to confirmed BOM row 32)\n- **[D-013]**: Recoater Plate (clean; no reviewed BOM link)\n- **[D-014]**: Recoater Linear Plate (clean; linked to confirmed BOM row 31)\n- **[D-024]**: ByggeBase (clean; linked to confirmed BOM row 47)\n- **[D-025]**: Bygge Base Ring (clean; no reviewed BOM link)\n- **[D-028]**: Varmeelement Plade (clean; linked to confirmed BOM row 51)\n\n*(Note: For the linked parts—rows 31, 32, 47, and 51—the BOM records the broader material \"Aluminium\", whereas the drawings provide the specific grade [BOM rows 31, 32, 47, 51; D-012, D-014, D-024, D-028]).*",
+     "mode": "online",
+     "latency_ms": 11773,
+     "attachments": [
+      {
+       "type": "drawing",
+       "document_id": "D-012",
+       "title": "Recoater Mount Block",
+       "url": "/api/documents/D-012/file",
+       "distribution": "clean"
+      },
+      {
+       "type": "model3d",
+       "document_id": "D-012",
+       "title": "Recoater Mount Block",
+       "url": "/files/models/D-012.glb",
+       "label": "Reconstruction from 2D drawing evidence - not native CAD"
+      },
+      {
+       "type": "drawing",
+       "document_id": "D-013",
+       "title": "Recoater Plate",
+       "url": "/api/documents/D-013/file",
+       "distribution": "clean"
+      },
+      {
+       "type": "drawing",
+       "document_id": "D-014",
+       "title": "Recoater Stage Plate",
+       "url": "/api/documents/D-014/file",
+       "distribution": "clean"
+      },
+      {
+       "type": "drawing",
+       "document_id": "D-024",
+       "title": "Bygge Base",
+       "url": "/api/documents/D-024/file",
+       "distribution": "clean"
+      },
+      {
+       "type": "drawing",
+       "document_id": "D-025",
+       "title": "Bygge Base Ring Version2",
+       "url": "/api/documents/D-025/file",
+       "distribution": "clean"
+      },
+      {
+       "type": "model3d",
+       "document_id": "D-025",
+       "title": "Bygge Base Ring Version2",
+       "url": "/files/models/D-025.glb",
+       "label": "Reconstruction from 2D drawing evidence - not native CAD"
+      },
+      {
+       "type": "drawing",
+       "document_id": "D-028",
+       "title": "Varme Element Plade",
+       "url": "/api/documents/D-028/file",
+       "distribution": "clean"
+      }
+     ],
+     "model": "gemini-3.8-flash",
+     "fallbacks": 0,
+     "tokens": {
+      "prompt_tokens": 6616,
+      "thinking_tokens": null,
+      "output_tokens": 361
+     },
+     "score": {
+      "passed": true,
+      "checks": [
+       {
+        "check": "mentions D-012",
+        "ok": true
+       },
+       {
+        "check": "mentions D-013",
+        "ok": true
+       },
+       {
+        "check": "mentions D-014",
+        "ok": true
+       },
+       {
+        "check": "mentions D-024",
+        "ok": true
+       },
+       {
+        "check": "mentions D-025",
+        "ok": true
+       },
+       {
+        "check": "mentions D-028",
+        "ok": true
+       },
+       {
+        "check": "does not mention D-027",
+        "ok": true
+       },
+       {
+        "check": "does not mention D-023",
+        "ok": true
+       }
+      ],
+      "opened": [
+       "D-012",
+       "D-013",
+       "D-014",
+       "D-024",
+       "D-025",
+       "D-028"
+      ],
+      "opened_3d": [
+       "D-012",
+       "D-025"
+      ]
+     }
+    },
+    {
+     "reply": "According to the drawing index, the following drawings specify **3.3315 (EN-AW 5005)** in their title blocks:\n\n- **D-012** (Recoater Mount Block) [D-012]\n- **D-013** (Recoater Plate) [D-013]\n- **D-014** (Recoater Stage Plate / title: Recoater Linear Plate) [D-014]\n- **D-024** (Bygge Base / ByggeBase) [D-024]\n- **D-025** (Bygge Base Ring Version2) [D-025]\n- **D-028** (Varme Element Plade / Varmeelement Plade) [D-028]\n\n*(Note: For the linked BOM rows—rows 32, 31, 47, and 51—the BOM records the broader material \"Aluminium\", whereas the drawings specify the alloy 3.3315 / EN-AW 5005. D-013 and D-025 have no linked BOM rows).* [BOM rows 31, 32, 47, 51; Drawing Index]",
+     "mode": "online",
+     "latency_ms": 4947,
+     "attachments": [
+      {
+       "type": "drawing",
+       "document_id": "D-012",
+       "title": "Recoater Mount Block",
+       "url": "/api/documents/D-012/file",
+       "distribution": "clean"
+      },
+      {
+       "type": "model3d",
+       "document_id": "D-012",
+       "title": "Recoater Mount Block",
+       "url": "/files/models/D-012.glb",
+       "label": "Reconstruction from 2D drawing evidence - not native CAD"
+      },
+      {
+       "type": "drawing",
+       "document_id": "D-013",
+       "title": "Recoater Plate",
+       "url": "/api/documents/D-013/file",
+       "distribution": "clean"
+      },
+      {
+       "type": "drawing",
+       "document_id": "D-014",
+       "title": "Recoater Stage Plate",
+       "url": "/api/documents/D-014/file",
+       "distribution": "clean"
+      },
+      {
+       "type": "drawing",
+       "document_id": "D-024",
+       "title": "Bygge Base",
+       "url": "/api/documents/D-024/file",
+       "distribution": "clean"
+      },
+      {
+       "type": "drawing",
+       "document_id": "D-025",
+       "title": "Bygge Base Ring Version2",
+       "url": "/api/documents/D-025/file",
+       "distribution": "clean"
+      },
+      {
+       "type": "model3d",
+       "document_id": "D-025",
+       "title": "Bygge Base Ring Version2",
+       "url": "/files/models/D-025.glb",
+       "label": "Reconstruction from 2D drawing evidence - not native CAD"
+      },
+      {
+       "type": "drawing",
+       "document_id": "D-028",
+       "title": "Varme Element Plade",
+       "url": "/api/documents/D-028/file",
+       "distribution": "clean"
+      }
+     ],
+     "model": "gemini-3.8-flash",
+     "fallbacks": 0,
+     "tokens": {
+      "prompt_tokens": 6616,
+      "thinking_tokens": null,
+      "output_tokens": 368
+     },
+     "score": {
+      "passed": true,
+      "checks": [
+       {
+        "check": "mentions D-012",
+        "ok": true
+       },
+       {
+        "check": "mentions D-013",
+        "ok": true
+       },
+       {
+        "check": "mentions D-014",
+        "ok": true
+       },
+       {
+        "check": "mentions D-024",
+        "ok": true
+       },
+       {
+        "check": "mentions D-025",
+        "ok": true
+       },
+       {
+        "check": "mentions D-028",
+        "ok": true
+       },
+       {
+        "check": "does not mention D-027",
+        "ok": true
+       },
+       {
+        "check": "does not mention D-023",
+        "ok": true
+       }
+      ],
+      "opened": [
+       "D-012",
+       "D-013",
+       "D-014",
+       "D-024",
+       "D-025",
+       "D-028"
+      ],
+      "opened_3d": [
+       "D-012",
+       "D-025"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "mat-compare",
+   "category": "materials",
+   "turns": [
+    "What material is the cylinder clamp ring, according to its drawing and the BOM?"
+   ],
+   "all_of": [
+    [
+     "6063"
+    ],
+    [
+     "Aluminium",
+     "aluminum"
+    ]
+   ],
+   "open": [
+    "D-027"
+   ],
+   "open_3d": [
+    "D-027"
+   ],
+   "runs": [
+    {
+     "reply": "According to the evidence for the cylinder clamp ring (drawing D-027, confirmed link to BOM row 50):\n\n- **BOM row 50** records the general material class as **Aluminium** [BOM row 50].\n- **Drawing D-027** specifies the specific material grade as **6063-T6** in the title block [D-027 p1 title block].\n\nAdditionally, the drawing's title block note indicates: *\"Brug gerne EN AW-6000, AW-2000 / eller AW-7000 serie aluminium.\"* [D-027 p1 title block]. The sources agree on the general material family, with the drawing providing greater specificity.",
+     "mode": "online",
+     "latency_ms": 5147,
+     "attachments": [
+      {
+       "type": "drawing",
+       "document_id": "D-027",
+       "title": "Cylinder Spænd Ring",
+       "url": "/api/documents/D-027/file",
+       "distribution": "clean"
+      },
+      {
+       "type": "model3d",
+       "document_id": "D-027",
+       "title": "Cylinder Spænd Ring",
+       "url": "/files/models/D-027.glb",
+       "label": "Reconstruction from 2D drawing evidence - not native CAD"
+      }
+     ],
+     "model": "gemini-3.8-flash",
+     "fallbacks": 0,
+     "tokens": {
+      "prompt_tokens": 7768,
+      "thinking_tokens": null,
+      "output_tokens": 205
+     },
+     "score": {
+      "passed": true,
+      "checks": [
+       {
+        "check": "mentions 6063",
+        "ok": true
+       },
+       {
+        "check": "mentions Aluminium | aluminum",
+        "ok": true
+       },
+       {
+        "check": "opens D-027",
+        "ok": true
+       },
+       {
+        "check": "opens 3D D-027",
+        "ok": true
+       }
+      ],
+      "opened": [
+       "D-027"
+      ],
+      "opened_3d": [
+       "D-027"
+      ]
+     }
+    },
+    {
+     "reply": "According to the evidence for the cylinder clamp ring:\n\n- **Drawing [D-027 p1 title block]**: Specifies the material as **6063-T6** (with a note stating *\"Brug gerne EN AW-6000, AW-2000 / eller AW-7000 serie aluminium\"*).\n- **BOM [BOM row 50]**: Records the material more generically as **Aluminium**.\n\nBoth sources agree on the material class, with the drawing providing the specific alloy and temper grade.",
+     "mode": "online",
+     "latency_ms": 7967,
+     "attachments": [
+      {
+       "type": "drawing",
+       "document_id": "D-027",
+       "title": "Cylinder Spænd Ring",
+       "url": "/api/documents/D-027/file",
+       "distribution": "clean"
+      },
+      {
+       "type": "model3d",
+       "document_id": "D-027",
+       "title": "Cylinder Spænd Ring",
+       "url": "/files/models/D-027.glb",
+       "label": "Reconstruction from 2D drawing evidence - not native CAD"
+      }
+     ],
+     "model": "gemini-3.8-flash",
+     "fallbacks": 0,
+     "tokens": {
+      "prompt_tokens": 7768,
+      "thinking_tokens": null,
+      "output_tokens": 160
+     },
+     "score": {
+      "passed": true,
+      "checks": [
+       {
+        "check": "mentions 6063",
+        "ok": true
+       },
+       {
+        "check": "mentions Aluminium | aluminum",
+        "ok": true
+       },
+       {
+        "check": "opens D-027",
+        "ok": true
+       },
+       {
+        "check": "opens 3D D-027",
+        "ok": true
+       }
+      ],
+      "opened": [
+       "D-027"
+      ],
+      "opened_3d": [
+       "D-027"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "supplier-cost",
+   "category": "supplier-cost",
+   "turns": [
+    "Who supplied the laser source, what was its recorded cost, and can I still buy it at that price?"
+   ],
+   "all_of": [
+    [
+     "Max Photonics"
+    ],
+    [
+     "45000",
+     "45,000",
+     "45.000"
+    ],
+    [
+     "MFSC-300W",
+     "300W",
+     "300 W"
+    ],
+    [
+     "snapshot",
+     "recorded",
+     "pinned",
+     "may have changed",
+     "not current",
+     "cannot confirm",
+     "not guaranteed"
+    ]
+   ],
+   "runs": [
+    {
+     "reply": "According to the pinned BOM snapshot:\n\n- **Supplier:** Max Photonics [BOM row 84]\n- **Recorded Cost:** 45,000.00 DKK [BOM row 84]\n\nRegarding whether you can still buy it at that price: The recorded cost reflects a historical pinned snapshot from the project's BOM, not current market availability or active pricing. Current pricing and availability must be verified directly with the supplier.",
+     "mode": "online",
+     "latency_ms": 3083,
+     "attachments": [],
+     "model": "gemini-3.8-flash",
+     "fallbacks": 0,
+     "tokens": {
+      "prompt_tokens": 6909,
+      "thinking_tokens": null,
+      "output_tokens": 122
+     },
+     "score": {
+      "passed": false,
+      "checks": [
+       {
+        "check": "mentions Max Photonics",
+        "ok": true
+       },
+       {
+        "check": "mentions 45000 | 45,000 | 45.000",
+        "ok": true
+       },
+       {
+        "check": "mentions MFSC-300W | 300W | 300 W",
+        "ok": false
+       },
+       {
+        "check": "mentions snapshot | recorded | pinned | may have changed | not current | cannot confirm | not guaranteed",
+        "ok": true
+       }
+      ],
+      "opened": [],
+      "opened_3d": []
+     }
+    },
+    {
+     "reply": "According to the pinned BOM snapshot:\n\n- **Supplier:** Max Photonics [BOM row 84]\n- **Recorded Cost:** 45,000.00 DKK [BOM row 84]\n\nRegarding purchasing it today: the cost and supplier information reflect a historical, pinned BOM snapshot. Meridian cannot confirm current commercial availability or real-time pricing.",
+     "mode": "online",
+     "latency_ms": 7925,
+     "attachments": [],
+     "model": "gemini-3.8-flash",
+     "fallbacks": 0,
+     "tokens": {
+      "prompt_tokens": 6909,
+      "thinking_tokens": null,
+      "output_tokens": 106
+     },
+     "score": {
+      "passed": false,
+      "checks": [
+       {
+        "check": "mentions Max Photonics",
+        "ok": true
+       },
+       {
+        "check": "mentions 45000 | 45,000 | 45.000",
+        "ok": true
+       },
+       {
+        "check": "mentions MFSC-300W | 300W | 300 W",
+        "ok": false
+       },
+       {
+        "check": "mentions snapshot | recorded | pinned | may have changed | not current | cannot confirm | not guaranteed",
+        "ok": true
+       }
+      ],
+      "opened": [],
+      "opened_3d": []
+     }
+    }
+   ]
+  },
+  {
+   "id": "supplier-order",
+   "category": "supplier-cost",
+   "turns": [
+    "What is the supplier order number for the silicone gun?"
+   ],
+   "all_of": [
+    [
+     "174-791"
+    ],
+    [
+     "RS components",
+     "RS Components"
+    ]
+   ],
+   "runs": [
+    {
+     "reply": "According to the BOM, the supplier order number for the silicone gun (supplier: RS components) is **174-791** [BOM row 2].",
+     "mode": "online",
+     "latency_ms": 4233,
+     "attachments": [],
+     "model": "gemini-3.8-flash",
+     "fallbacks": 0,
+     "tokens": {
+      "prompt_tokens": 7115,
+      "thinking_tokens": null,
+      "output_tokens": 60
+     },
+     "score": {
+      "passed": true,
+      "checks": [
+       {
+        "check": "mentions 174-791",
+        "ok": true
+       },
+       {
+        "check": "mentions RS components | RS Components",
+        "ok": true
+       }
+      ],
+      "opened": [],
+      "opened_3d": []
+     }
+    },
+    {
+     "reply": "According to the pinned BOM snapshot, the supplier order number for the silicone gun (supplier: RS components) is **174-791** [BOM row 2].",
+     "mode": "online",
+     "latency_ms": 5085,
+     "attachments": [],
+     "model": "gemini-3.8-flash",
+     "fallbacks": 0,
+     "tokens": {
+      "prompt_tokens": 7115,
+      "thinking_tokens": null,
+      "output_tokens": 62
+     },
+     "score": {
+      "passed": true,
+      "checks": [
+       {
+        "check": "mentions 174-791",
+        "ok": true
+       },
+       {
+        "check": "mentions RS components | RS Components",
+        "ok": true
+       }
+      ],
+      "opened": [],
+      "opened_3d": []
+     }
+    }
+   ]
+  },
+  {
+   "id": "noisy-empty",
+   "category": "clean-vs-noisy",
+   "turns": [
+    "What weight does the door drawing D-001 give?"
+   ],
+   "all_of": [
+    [
+     "empty",
+     "not stated",
+     "no weight",
+     "blank",
+     "not given",
+     "not provided",
+     "does not"
+    ]
+   ],
+   "none_of": [
+    "re:\\b\\d{3,4}(\\.\\d)? ?g\\b"
+   ],
+   "open": [
+    "D-001"
+   ],
+   "runs": [
+    {
+     "reply": "The drawing D-001 does not provide a weight; the weight box in the title block is present but EMPTY on the sheet [D-001 p1 title block].",
+     "mode": "online",
+     "latency_ms": 2775,
+     "attachments": [
+      {
+       "type": "drawing",
+       "document_id": "D-001",
+       "title": "Door x2",
+       "url": "/api/documents/D-001/file",
+       "distribution": "degraded-only"
+      }
+     ],
+     "model": "gemini-3.8-flash",
+     "fallbacks": 0,
+     "tokens": {
+      "prompt_tokens": 8545,
+      "thinking_tokens": null,
+      "output_tokens": 74
+     },
+     "score": {
+      "passed": true,
+      "checks": [
+       {
+        "check": "mentions empty | not stated | no weight | blank | not given | not provided | does not",
+        "ok": true
+       },
+       {
+        "check": "does not mention re:\\b\\d{3,4}(\\.\\d)? ?g\\b",
+        "ok": true
+       },
+       {
+        "check": "opens D-001",
+        "ok": true
+       }
+      ],
+      "opened": [
+       "D-001"
+      ],
+      "opened_3d": []
+     }
+    },
+    {
+     "reply": "Drawing D-001 does not specify a weight. The weight box in the title block is present but **empty** on the sheet [D-001 p1 title block].",
+     "mode": "online",
+     "latency_ms": 3033,
+     "attachments": [
+      {
+       "type": "drawing",
+       "document_id": "D-001",
+       "title": "Door x2",
+       "url": "/api/documents/D-001/file",
+       "distribution": "degraded-only"
+      }
+     ],
+     "model": "gemini-3.8-flash",
+     "fallbacks": 0,
+     "tokens": {
+      "prompt_tokens": 8545,
+      "thinking_tokens": null,
+      "output_tokens": 75
+     },
+     "score": {
+      "passed": true,
+      "checks": [
+       {
+        "check": "mentions empty | not stated | no weight | blank | not given | not provided | does not",
+        "ok": true
+       },
+       {
+        "check": "does not mention re:\\b\\d{3,4}(\\.\\d)? ?g\\b",
+        "ok": true
+       },
+       {
+        "check": "opens D-001",
+        "ok": true
+       }
+      ],
+      "opened": [
+       "D-001"
+      ],
+      "opened_3d": []
+     }
+    }
+   ]
+  },
+  {
+   "id": "noisy-partial",
+   "category": "clean-vs-noisy",
+   "turns": [
+    "What material does the Z-axis motor plate drawing's title block give?"
+   ],
+   "all_of": [
+    [
+     "empty",
+     "blank",
+     "not stated",
+     "no material"
+    ],
+    [
+     "Aluminium",
+     "aluminum"
+    ],
+    [
+     "partial",
+     "uncertain",
+     "disagree",
+     "note"
+    ]
+   ],
+   "open": [
+    "D-030"
+   ],
+   "runs": [
+    {
+     "reply": "On drawing **D-030** (Z-axis Motor Plate):\n\n- The dedicated **MATERIAL** box in the title block is present but **EMPTY on the sheet** [D-030 p1 title block].\n- However, the **NOTE** box within the title block states: `NOTE: Z-axis MotorPlate Aluminium` (noted with partial legibility / minor reading variations on this degraded scan) [D-030 p1 title block].\n\nFor comparison, the BOM records the material as **Aluminium** [BOM row 49], which agrees with the title block note.",
+     "mode": "online",
+     "latency_ms": 33477,
+     "attachments": [
+      {
+       "type": "drawing",
+       "document_id": "D-030",
+       "title": "Z-axis Motor Plate",
+       "url": "/api/documents/D-030/file",
+       "distribution": "degraded-only"
+      }
+     ],
+     "model": "gemini-3.8-flash",
+     "fallbacks": 0,
+     "tokens": {
+      "prompt_tokens": 7731,
+      "thinking_tokens": null,
+      "output_tokens": 171
+     },
+     "score": {
+      "passed": true,
+      "checks": [
+       {
+        "check": "mentions empty | blank | not stated | no material",
+        "ok": true
+       },
+       {
+        "check": "mentions Aluminium | aluminum",
+        "ok": true
+       },
+       {
+        "check": "mentions partial | uncertain | disagree | note",
+        "ok": true
+       },
+       {
+        "check": "opens D-030",
+        "ok": true
+       }
+      ],
+      "opened": [
+       "D-030"
+      ],
+      "opened_3d": []
+     }
+    },
+    {
+     "reply": "On drawing **D-030** (Z-axis Motor Plate):\n\n- The dedicated **MATERIAL** box in the title block is present but **EMPTY** on the sheet [D-030 p1 title block].\n- However, the title block's **NOTE** box records: `NOTE: Z-axis MotorPlate Aluminium` (noting that the note field had partial legibility and minor disagreement between readings on the degraded scan) [D-030 p1 title block].\n\nFor comparison, the BOM records the material for the probably linked part (row 49, \"Motor plate\") as **Aluminium** [BOM row 49], which agrees with the drawing's note.",
+     "mode": "online",
+     "latency_ms": 13349,
+     "attachments": [
+      {
+       "type": "drawing",
+       "document_id": "D-030",
+       "title": "Z-axis Motor Plate",
+       "url": "/api/documents/D-030/file",
+       "distribution": "degraded-only"
+      }
+     ],
+     "model": "gemini-3.8-flash",
+     "fallbacks": 0,
+     "tokens": {
+      "prompt_tokens": 7731,
+      "thinking_tokens": null,
+      "output_tokens": 192
+     },
+     "score": {
+      "passed": true,
+      "checks": [
+       {
+        "check": "mentions empty | blank | not stated | no material",
+        "ok": true
+       },
+       {
+        "check": "mentions Aluminium | aluminum",
+        "ok": true
+       },
+       {
+        "check": "mentions partial | uncertain | disagree | note",
+        "ok": true
+       },
+       {
+        "check": "opens D-030",
+        "ok": true
+       }
+      ],
+      "opened": [
+       "D-030"
+      ],
+      "opened_3d": []
+     }
+    }
+   ]
+  },
+  {
+   "id": "conflict-list",
+   "category": "uncertainty",
+   "turns": [
+    "Where do the drawings and the BOM disagree?"
+   ],
+   "all_of": [
+    [
+     "D-018"
+    ],
+    [
+     "D-026"
+    ],
+    [
+     "quantity",
+     "amount"
+    ]
+   ],
+   "runs": [
+    {
+     "reply": "Based on the machine-wide drawing vs BOM consistency checks across reviewed links, the following discrepancies and conflicts are recorded:\n\n### Quantity Conflicts\n* **Galvo Mount Side (D-018 vs BOM row 81):** The drawing indicates a quantity of `2` [D-018 title / note], whereas the BOM records an amount of `1` [BOM row 81].\n* **Build Plate (D-026 vs BOM row 48):** The drawing indicates a quantity of `1-3` [D-026 title / note], whereas the BOM records an amount of `10` [BOM row 48].\n\n### Material Gaps & Omissions\n* **Inlet Box (D-022 vs BOM row 62):** The drawing specifies `Stainless` in its notes [D-022 p1 title block (NOTE box; MATERIAL box empty)], but the BOM records no material (`-`) [BOM row 62].\n* **Print Platform (D-003 vs BOM row 13):** The drawing does not state a material [D-003], whereas the BOM records `Aluminium` [BOM row 13].\n* **Blower Outlet / Gas flow end duct (D-021 vs BOM row 61):** The drawing does not state a material [D-021], whereas the BOM records `Polymer` [BOM row 61].\n\n*(Note: There are also 12 checked pairs where the material is consistent but the drawing provides a more specific grade than the general material listed in the BOM).* ",
+     "mode": "online",
+     "latency_ms": 7360,
+     "attachments": [
+      {
+       "type": "drawing",
+       "document_id": "D-018",
+       "title": "Galvo Mount Side x2",
+       "url": "/api/documents/D-018/file",
+       "distribution": "clean"
+      },
+      {
+       "type": "drawing",
+       "document_id": "D-026",
+       "title": "Bygge Plade",
+       "url": "/api/documents/D-026/file",
+       "distribution": "clean"
+      },
+      {
+       "type": "drawing",
+       "document_id": "D-022",
+       "title": "Inlet Box",
+       "url": "/api/documents/D-022/file",
+       "distribution": "degraded-only"
+      },
+      {
+       "type": "drawing",
+       "document_id": "D-003",
+       "title": "Main Platform Loop2",
+       "url": "/api/documents/D-003/file",
+       "distribution": "degraded-only"
+      },
+      {
+       "type": "drawing",
+       "document_id": "D-021",
+       "title": "Blower Outlet",
+       "url": "/api/documents/D-021/file",
+       "distribution": "clean"
+      }
+     ],
+     "model": "gemini-3.8-flash",
+     "fallbacks": 0,
+     "tokens": {
+      "prompt_tokens": 6613,
+      "thinking_tokens": null,
+      "output_tokens": 439
+     },
+     "score": {
+      "passed": true,
+      "checks": [
+       {
+        "check": "mentions D-018",
+        "ok": true
+       },
+       {
+        "check": "mentions D-026",
+        "ok": true
+       },
+       {
+        "check": "mentions quantity | amount",
+        "ok": true
+       }
+      ],
+      "opened": [
+       "D-003",
+       "D-018",
+       "D-021",
+       "D-022",
+       "D-026"
+      ],
+      "opened_3d": []
+     }
+    },
+    {
+     "reply": "Based on the machine-wide drawing vs. BOM consistency review, the following disagreements and mismatches have been identified:\n\n### Quantity Conflicts\n* **Galvo Mount Side x2**:\n  * Drawing: indicates a quantity of `2` [D-018 title / note].\n  * BOM: records a quantity of `1` [BOM row 81].\n* **Build Plate**:\n  * Drawing: specifies a quantity of `1-3` [D-026 title / note].\n  * BOM: records a quantity of `10` [BOM row 48].\n\n### Material Omissions / Asymmetries\n* **Inlet Box**:\n  * Drawing: notes 'Stainless' (in note box; material box empty) [D-022 p1 title block].\n  * BOM: no material recorded [BOM row 62].\n* **Main Platform Loop2 / Print Platform**:\n  * Drawing: material is not stated [D-003].\n  * BOM: records `Aluminium` [BOM row 13].\n* **Blower Outlet / Gas flow end duct**:\n  * Drawing: material is not stated [D-021].\n  * BOM: records `Polymer` [BOM row 61].\n\n*(Note: There are also 12 checked pairs where the drawing specifies an alloy or standard that is more specific than the BOM's generic material description, e.g., drawing `3.3315 (EN-AW 5005)` vs. BOM `Aluminium`.)*",
+     "mode": "online",
+     "latency_ms": 5304,
+     "attachments": [
+      {
+       "type": "drawing",
+       "document_id": "D-018",
+       "title": "Galvo Mount Side x2",
+       "url": "/api/documents/D-018/file",
+       "distribution": "clean"
+      },
+      {
+       "type": "drawing",
+       "document_id": "D-026",
+       "title": "Bygge Plade",
+       "url": "/api/documents/D-026/file",
+       "distribution": "clean"
+      },
+      {
+       "type": "drawing",
+       "document_id": "D-022",
+       "title": "Inlet Box",
+       "url": "/api/documents/D-022/file",
+       "distribution": "degraded-only"
+      },
+      {
+       "type": "drawing",
+       "document_id": "D-003",
+       "title": "Main Platform Loop2",
+       "url": "/api/documents/D-003/file",
+       "distribution": "degraded-only"
+      },
+      {
+       "type": "drawing",
+       "document_id": "D-021",
+       "title": "Blower Outlet",
+       "url": "/api/documents/D-021/file",
+       "distribution": "clean"
+      }
+     ],
+     "model": "gemini-3.8-flash",
+     "fallbacks": 0,
+     "tokens": {
+      "prompt_tokens": 6613,
+      "thinking_tokens": null,
+      "output_tokens": 439
+     },
+     "score": {
+      "passed": true,
+      "checks": [
+       {
+        "check": "mentions D-018",
+        "ok": true
+       },
+       {
+        "check": "mentions D-026",
+        "ok": true
+       },
+       {
+        "check": "mentions quantity | amount",
+        "ok": true
+       }
+      ],
+      "opened": [
+       "D-003",
+       "D-018",
+       "D-021",
+       "D-022",
+       "D-026"
+      ],
+      "opened_3d": []
+     }
+    }
+   ]
+  },
+  {
+   "id": "conflict-qty",
+   "category": "uncertainty",
+   "turns": [
+    "How many build plates does the BOM record, and does the drawing agree?"
+   ],
+   "all_of": [
+    [
+     "10"
+    ],
+    [
+     "1-3",
+     "1–3",
+     "1 to 3"
+    ],
+    [
+     "conflict",
+     "disagree",
+     "does not agree",
+     "differ",
+     "mismatch",
+     "inconsistent"
+    ]
+   ],
+   "open": [
+    "D-026"
+   ],
+   "runs": [
+    {
+     "reply": "No, the BOM and drawing do not agree on the quantity:\n\n* **BOM record:** The BOM records an amount of **10** for the Build Plate [BOM row 48].\n* **Drawing note:** Drawing D-026 (confirmed linked to BOM row 48) notes in the title block: *\"Byggeplade, rustfri og alu. / 1-3 stk af hver\"* (**1–3** of each) [D-026 p1 title block].\n\nThis is flagged as a machine-wide **quantity CONFLICT** between drawing D-026 ('1-3') and BOM row 48 ('10') [D-026, BOM row 48].",
+     "mode": "online",
+     "latency_ms": 3864,
+     "attachments": [
+      {
+       "type": "drawing",
+       "document_id": "D-026",
+       "title": "Bygge Plade",
+       "url": "/api/documents/D-026/file",
+       "distribution": "clean"
+      }
+     ],
+     "model": "gemini-3.8-flash",
+     "fallbacks": 0,
+     "tokens": {
+      "prompt_tokens": 9446,
+      "thinking_tokens": null,
+      "output_tokens": 203
+     },
+     "score": {
+      "passed": true,
+      "checks": [
+       {
+        "check": "mentions 10",
+        "ok": true
+       },
+       {
+        "check": "mentions 1-3 | 1–3 | 1 to 3",
+        "ok": true
+       },
+       {
+        "check": "mentions conflict | disagree | does not agree | differ | mismatch | inconsistent",
+        "ok": true
+       },
+       {
+        "check": "opens D-026",
+        "ok": true
+       }
+      ],
+      "opened": [
+       "D-026"
+      ],
+      "opened_3d": []
+     }
+    },
+    {
+     "reply": "No, the BOM and drawing conflict on the quantity:\n\n* **BOM record:** The BOM records an amount of **10** build plates [BOM row 48].\n* **Drawing record:** Drawing D-026 (title note) states **'1-3'** (\"1-3 stk af hver\") [D-026 p1 title block].\n\nThis constitutes a recorded quantity conflict between the two sources [BOM row 48, D-026 p1 title block].",
+     "mode": "online",
+     "latency_ms": 3276,
+     "attachments": [
+      {
+       "type": "drawing",
+       "document_id": "D-026",
+       "title": "Bygge Plade",
+       "url": "/api/documents/D-026/file",
+       "distribution": "clean"
+      }
+     ],
+     "model": "gemini-3.8-flash",
+     "fallbacks": 0,
+     "tokens": {
+      "prompt_tokens": 9446,
+      "thinking_tokens": null,
+      "output_tokens": 152
+     },
+     "score": {
+      "passed": true,
+      "checks": [
+       {
+        "check": "mentions 10",
+        "ok": true
+       },
+       {
+        "check": "mentions 1-3 | 1–3 | 1 to 3",
+        "ok": true
+       },
+       {
+        "check": "mentions conflict | disagree | does not agree | differ | mismatch | inconsistent",
+        "ok": true
+       },
+       {
+        "check": "opens D-026",
+        "ok": true
+       }
+      ],
+      "opened": [
+       "D-026"
+      ],
+      "opened_3d": []
+     }
+    }
+   ]
+  },
+  {
+   "id": "ambiguous-dim",
+   "category": "uncertainty",
+   "turns": [
+    "What is the thickness of the build base ring?"
+   ],
+   "all_of": [
+    [
+     "re:\\b3[,.]0\\b|\\b3 ?mm"
+    ],
+    [
+     "re:\\b2[,.]0\\b|\\b2 ?mm"
+    ]
+   ],
+   "open": [
+    "D-025"
+   ],
+   "open_3d": [
+    "D-025"
+   ],
+   "runs": [
+    {
+     "reply": "According to the drawing for the **Bygge Base Ring** (Build Base Ring), the thickness is recorded as **3.0 mm** (with a secondary dimension notation of `3,0 2,0`) [D-025 p1].\n\n*Note:* The BOM does not contain a row describing the base ring (reviewed link status: NONE) [D-025 BOM link]. The 3D model shown for this part is a reconstruction from 2D drawing evidence, not native CAD [D-025].",
+     "mode": "online",
+     "latency_ms": 3472,
+     "attachments": [
+      {
+       "type": "drawing",
+       "document_id": "D-025",
+       "title": "Bygge Base Ring Version2",
+       "url": "/api/documents/D-025/file",
+       "distribution": "clean"
+      },
+      {
+       "type": "model3d",
+       "document_id": "D-025",
+       "title": "Bygge Base Ring Version2",
+       "url": "/files/models/D-025.glb",
+       "label": "Reconstruction from 2D drawing evidence - not native CAD"
+      }
+     ],
+     "model": "gemini-3.8-flash",
+     "fallbacks": 0,
+     "tokens": {
+      "prompt_tokens": 8766,
+      "thinking_tokens": null,
+      "output_tokens": 152
+     },
+     "score": {
+      "passed": true,
+      "checks": [
+       {
+        "check": "mentions re:\\b3[,.]0\\b|\\b3 ?mm",
+        "ok": true
+       },
+       {
+        "check": "mentions re:\\b2[,.]0\\b|\\b2 ?mm",
+        "ok": true
+       },
+       {
+        "check": "opens D-025",
+        "ok": true
+       },
+       {
+        "check": "opens 3D D-025",
+        "ok": true
+       }
+      ],
+      "opened": [
+       "D-025"
+      ],
+      "opened_3d": [
+       "D-025"
+      ]
+     }
+    },
+    {
+     "reply": "According to drawing D-025 for the *Bygge Base Ring* (build base ring), the thickness is recorded as **3,0 mm** (with a secondary dimension notation of `3,0 2,0`) [D-025 p1].\n\n*(Note: Drawing D-025 currently has no confirmed link to any BOM row, as no BOM item describes the base ring [D-025 link]).*",
+     "mode": "online",
+     "latency_ms": 2999,
+     "attachments": [
+      {
+       "type": "drawing",
+       "document_id": "D-025",
+       "title": "Bygge Base Ring Version2",
+       "url": "/api/documents/D-025/file",
+       "distribution": "clean"
+      },
+      {
+       "type": "model3d",
+       "document_id": "D-025",
+       "title": "Bygge Base Ring Version2",
+       "url": "/files/models/D-025.glb",
+       "label": "Reconstruction from 2D drawing evidence - not native CAD"
+      }
+     ],
+     "model": "gemini-3.8-flash",
+     "fallbacks": 0,
+     "tokens": {
+      "prompt_tokens": 8766,
+      "thinking_tokens": null,
+      "output_tokens": 132
+     },
+     "score": {
+      "passed": true,
+      "checks": [
+       {
+        "check": "mentions re:\\b3[,.]0\\b|\\b3 ?mm",
+        "ok": true
+       },
+       {
+        "check": "mentions re:\\b2[,.]0\\b|\\b2 ?mm",
+        "ok": true
+       },
+       {
+        "check": "opens D-025",
+        "ok": true
+       },
+       {
+        "check": "opens 3D D-025",
+        "ok": true
+       }
+      ],
+      "opened": [
+       "D-025"
+      ],
+      "opened_3d": [
+       "D-025"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "unsupported",
+   "category": "uncertainty",
+   "turns": [
+    "What is the machine's maximum build rate in cm3 per hour?"
+   ],
+   "all_of": [
+    [
+     "not",
+     "no information",
+     "does not",
+     "isn't",
+     "cannot",
+     "unable"
+    ]
+   ],
+   "none_of": [
+    "re:\\b\\d+ ?cm3/h",
+    "re:\\b\\d+ ?cm³/h"
+   ],
+   "open_none": true,
+   "runs": [
+    {
+     "reply": "The provided drawings and BOM evidence do not contain specifications or data regarding the machine's maximum build rate (cm³/h). Therefore, I must abstain from providing a figure.",
+     "mode": "online",
+     "latency_ms": 3327,
+     "attachments": [],
+     "model": "gemini-3.8-flash",
+     "fallbacks": 0,
+     "tokens": {
+      "prompt_tokens": 8119,
+      "thinking_tokens": null,
+      "output_tokens": 58
+     },
+     "score": {
+      "passed": true,
+      "checks": [
+       {
+        "check": "mentions not | no information | does not | isn't | cannot | unable",
+        "ok": true
+       },
+       {
+        "check": "does not mention re:\\b\\d+ ?cm3/h",
+        "ok": true
+       },
+       {
+        "check": "does not mention re:\\b\\d+ ?cm³/h",
+        "ok": true
+       },
+       {
+        "check": "opens no drawing",
+        "ok": true
+       }
+      ],
+      "opened": [],
+      "opened_3d": []
+     }
+    },
+    {
+     "reply": "The provided evidence (BOM snapshot and technical drawings) does not record the machine's maximum build rate in cm³/hour. Because this process parameter is missing from the available records, I must abstain from providing a figure.",
+     "mode": "online",
+     "latency_ms": 2719,
+     "attachments": [],
+     "model": "gemini-3.8-flash",
+     "fallbacks": 0,
+     "tokens": {
+      "prompt_tokens": 8119,
+      "thinking_tokens": null,
+      "output_tokens": 68
+     },
+     "score": {
+      "passed": true,
+      "checks": [
+       {
+        "check": "mentions not | no information | does not | isn't | cannot | unable",
+        "ok": true
+       },
+       {
+        "check": "does not mention re:\\b\\d+ ?cm3/h",
+        "ok": true
+       },
+       {
+        "check": "does not mention re:\\b\\d+ ?cm³/h",
+        "ok": true
+       },
+       {
+        "check": "opens no drawing",
+        "ok": true
+       }
+      ],
+      "opened": [],
+      "opened_3d": []
+     }
+    }
+   ]
+  },
+  {
+   "id": "open-3d-block",
+   "category": "visual",
+   "turns": [
+    "Show me the recoater mount block."
+   ],
+   "all_of": [
+    [
+     "D-012"
+    ],
+    [
+     "reconstruction"
+    ]
+   ],
+   "open": [
+    "D-012"
+   ],
+   "open_3d": [
+    "D-012"
+   ],
+   "runs": [
+    {
+     "reply": "### Recoater Mount Block Overview\n\n- **Drawing**: [D-012 p1] titled *Recoater Mount Block* (clean upstream PDF, DTU MPP, dated 24/11/2021).\n- **3D Model**: Available (note: reconstructed from 2D drawing evidence, not native CAD).\n- **BOM Link**: Confirmed link to [BOM row 32] (*Recoater mount block*).\n\n#### Key Details & Consistency\n- **Material**:\n  - Drawing specifies **3.3315 (EN-AW 5005)** [D-012 p1 title block].\n  - BOM records **Aluminium** [BOM row 32] (the drawing provides the specific grade).\n- **Weight**: 117.3 g [D-012 p1 title block].\n- **Key Dimensions**:\n  - Overall height: 120.0 mm [D-012 p1]\n  - Width: 25.0 +0.1/-0.5 mm [D-012 p1]\n  - Thickness: 15.0 ±1.0 mm [D-012 p1]\n  - Callouts include tapped holes `2 x ⌀ 5,0 THRU ALL M6 - 6H THRU ALL` [D-012 p1].\n- **BOM Snapshot Metadata**:\n  - Quantity: 1 [BOM row 32]\n  - Type: Custom [BOM row 32]\n  - Supplier: DTU [BOM row 32]\n  - Cost: 0.00 DKK [BOM row 32]\n  - Design Intent: *Threaded block that connect stage plate and arm* [BOM row 32]\n  - V&V State: Good [BOM row 32]\n  - Interfaces: None recorded in the BOM.",
+     "mode": "online",
+     "latency_ms": 6034,
+     "attachments": [
+      {
+       "type": "drawing",
+       "document_id": "D-012",
+       "title": "Recoater Mount Block",
+       "url": "/api/documents/D-012/file",
+       "distribution": "clean"
+      },
+      {
+       "type": "model3d",
+       "document_id": "D-012",
+       "title": "Recoater Mount Block",
+       "url": "/files/models/D-012.glb",
+       "label": "Reconstruction from 2D drawing evidence - not native CAD"
+      }
+     ],
+     "model": "gemini-3.8-flash",
+     "fallbacks": 0,
+     "tokens": {
+      "prompt_tokens": 7716,
+      "thinking_tokens": null,
+      "output_tokens": 482
+     },
+     "score": {
+      "passed": false,
+      "checks": [
+       {
+        "check": "mentions D-012",
+        "ok": true
+       },
+       {
+        "check": "mentions reconstruction",
+        "ok": false
+       },
+       {
+        "check": "opens D-012",
+        "ok": true
+       },
+       {
+        "check": "opens 3D D-012",
+        "ok": true
+       }
+      ],
+      "opened": [
+       "D-012"
+      ],
+      "opened_3d": [
+       "D-012"
+      ]
+     }
+    },
+    {
+     "reply": "### Recoater Mount Block Overview\n\n- **Drawing**: [D-012 p1] titled *Recoater Mount Block* (clean upstream PDF; a 3D reconstruction from 2D drawing evidence is available).\n- **BOM Link**: Confirmed link to **BOM row 32** (*Recoater mount block*) [BOM row 32].\n- **Design Intent**: \"Threaded block that connect stage plate and arm\" [BOM row 32]. Note on the drawing states: *\"Alu. Montage klods til linæer føring\"* [D-012 p1 title block].\n\n#### Specifications & Consistency\n- **Material**: \n  - Drawing: `3.3315 (EN-AW 5005)` [D-012 p1 title block].\n  - BOM: `Aluminium` [BOM row 32].\n  - *Consistency*: Agree (the drawing is more specific, defining the grade).\n- **Weight**: 117.3 g [D-012 p1 title block].\n- **General Tolerance**: DIN ISO 2768-1 m [D-012 p1 title block].\n- **Surface Finish**: Box present but empty on the sheet [D-012 p1 title block].\n- **Key Dimensions**: 120.0 mm height, 25.0 +0.1/-0.5 mm width, and 15.0 ±1.0 mm thickness [D-012 p1].\n- **Features / Callouts**: Threaded holes indicated by callouts such as `2 x ⌀ 5,0 THRU ALL M6 - 6H THRU ALL` [D-012 p1].\n\n#### BOM Snapshot Data [BOM row 32]\n- **Part Type / Supplier**: Custom / DTU\n- **Quantity**: 1\n- **Order / Design State**: Received / Done\n- **V&V State**: Good\n- **Total Cost**: 0.00 DKK",
+     "mode": "online",
+     "latency_ms": 6208,
+     "attachments": [
+      {
+       "type": "drawing",
+       "document_id": "D-012",
+       "title": "Recoater Mount Block",
+       "url": "/api/documents/D-012/file",
+       "distribution": "clean"
+      },
+      {
+       "type": "model3d",
+       "document_id": "D-012",
+       "title": "Recoater Mount Block",
+       "url": "/files/models/D-012.glb",
+       "label": "Reconstruction from 2D drawing evidence - not native CAD"
+      }
+     ],
+     "model": "gemini-3.8-flash",
+     "fallbacks": 0,
+     "tokens": {
+      "prompt_tokens": 7716,
+      "thinking_tokens": null,
+      "output_tokens": 513
+     },
+     "score": {
+      "passed": true,
+      "checks": [
+       {
+        "check": "mentions D-012",
+        "ok": true
+       },
+       {
+        "check": "mentions reconstruction",
+        "ok": true
+       },
+       {
+        "check": "opens D-012",
+        "ok": true
+       },
+       {
+        "check": "opens 3D D-012",
+        "ok": true
+       }
+      ],
+      "opened": [
+       "D-012"
+      ],
+      "opened_3d": [
+       "D-012"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "open-danish",
+   "category": "visual",
+   "turns": [
+    "Show me the heating element plate."
+   ],
+   "all_of": [
+    [
+     "D-028"
+    ]
+   ],
+   "open": [
+    "D-028"
+   ],
+   "runs": [
+    {
+     "reply": "Here are the details for the heating element plate:\n\n### Drawing & Part Summary\n- **Drawing:** D-028 (*Varme Element Plade*, Z-axis subsystem) [D-028 p1 title block]\n- **BOM Link:** Confirmed link to BOM row 51 (*Heating element plate*) [BOM row 51]\n- **3D Model:** None available (2D upstream PDF only) [D-028]\n\n### Specifications\n- **Material:** \n  - Drawing specifies **3.3315 (EN-AW 5005)** [D-028 p1 title block].\n  - BOM records **Aluminium** [BOM row 51] (the drawing is more specific, but they agree on the general material class).\n- **Quantity:** 3 parts (stated as '3 styk' on sheet note [D-028 p1 title block] and quantity 3 in BOM [BOM row 51]).\n- **Weight:** 1.2 g [D-028 p1 title block].\n- **Supplier / Fabrication:** Custom part by DTU [BOM row 51].\n- **V&V Status:** Good [BOM row 51].\n- **Key Features / Dimensions:** \n  - Thickness: 3,0 / 2,0 mm [D-028 p1]\n  - Height: 11,0 mm [D-028 p1]\n  - Center-to-center distance: 19,0 mm [D-028 p1]\n  - Corner radius: R5,5 [D-028 p1]\n  - Holes: `2 x ∅ 4,5 THRU ALL` and `∅ 8,0 ±0,15 THRU` [D-028 p1]",
+     "mode": "online",
+     "latency_ms": 6341,
+     "attachments": [
+      {
+       "type": "drawing",
+       "document_id": "D-028",
+       "title": "Varme Element Plade",
+       "url": "/api/documents/D-028/file",
+       "distribution": "clean"
+      }
+     ],
+     "model": "gemini-3.8-flash",
+     "fallbacks": 0,
+     "tokens": {
+      "prompt_tokens": 8017,
+      "thinking_tokens": null,
+      "output_tokens": 463
+     },
+     "score": {
+      "passed": true,
+      "checks": [
+       {
+        "check": "mentions D-028",
+        "ok": true
+       },
+       {
+        "check": "opens D-028",
+        "ok": true
+       }
+      ],
+      "opened": [
+       "D-028"
+      ],
+      "opened_3d": []
+     }
+    },
+    {
+     "reply": "### Heating Element Plate Overview\n\n- **Drawing**: **D-028** (*Varme Element Plade* / title block: *Varmeelement Plade*) [D-028 p1 title block]\n- **BOM Link**: Confirmed link to **BOM row 51** (*Heating element plate*) [BOM row 51]\n- **3D Model**: None reconstructed (2D drawing only) [D-028]\n\n#### Key Details & Specifications\n- **Material**:\n  - Drawing specifies **3.3315 (EN-AW 5005)** [D-028 p1 title block].\n  - BOM records **Aluminium** [BOM row 51] (the drawing is more specific, both agree on aluminium).\n- **Quantity**: 3 pieces recorded on both the drawing note (\"3 styk\") and BOM (\"amount: 3\") [D-028 p1 title block, BOM row 51].\n- **Weight**: 1.2 g [D-028 p1 title block].\n- **Key Features / Dimensions** [D-028 p1]:\n  - Hole callouts: `2 x ∅ 4,5 THRU ALL` and `∅ 8,0 ±0,15 THRU`.\n  - Dimensions: Thickness `3,0` / `2,0`, overall height `11,0`, center-to-center `19,0`, corner radius `R5,5`.\n- **BOM Snapshot Metadata** [BOM row 51]:\n  - Supplier: DTU (Custom part)\n  - Part Family: Build-plate\n  - V&V State: Good\n  - Total Cost: 0.00 DKK",
+     "mode": "online",
+     "latency_ms": 6082,
+     "attachments": [
+      {
+       "type": "drawing",
+       "document_id": "D-028",
+       "title": "Varme Element Plade",
+       "url": "/api/documents/D-028/file",
+       "distribution": "clean"
+      }
+     ],
+     "model": "gemini-3.8-flash",
+     "fallbacks": 0,
+     "tokens": {
+      "prompt_tokens": 8017,
+      "thinking_tokens": null,
+      "output_tokens": 444
+     },
+     "score": {
+      "passed": true,
+      "checks": [
+       {
+        "check": "mentions D-028",
+        "ok": true
+       },
+       {
+        "check": "opens D-028",
+        "ok": true
+       }
+      ],
+      "opened": [
+       "D-028"
+      ],
+      "opened_3d": []
+     }
+    }
+   ]
+  },
+  {
+   "id": "dims",
+   "category": "drawing-fields",
+   "turns": [
+    "What are the main dimensions on the cylinder clamp ring drawing?"
+   ],
+   "all_of": [
+    [
+     "330"
+    ],
+    [
+     "264"
+    ],
+    [
+     "re:\\b15([,.]0)?\\b"
+    ],
+    [
+     "148,5",
+     "148.5"
+    ]
+   ],
+   "open": [
+    "D-027"
+   ],
+   "runs": [
+    {
+     "reply": "According to the drawing for the Cylinder Spænd Ring (Build cylinder clamp ring) [D-027 p1, BOM row 50], the main dimensions and callouts recorded on the sheet are:\n\n### Overall Dimensions & Features\n- **Outer Diameter:** ∅ 330,0 mm [D-027 p1]\n- **Inner Diameter:** ∅ 264,0 H8 (+0,081 / 0,000) mm [D-027 p1]\n- **Thickness:** 15,0 mm [D-027 p1]\n- **Bolt Circle Radius:** R148,5 mm [D-027 p1]\n- **Angles / Patterning:** 120° and 60° [D-027 p1]\n\n### Hole Callouts\n- **Countersunk holes:** 3 x ∅ 11,0 THRU ALL / ⌵ ∅ 24,4 X 90° / *Obs. Ekstra undersænkning* [D-027 p1]\n- **Through holes:** 6 x ∅ 9,0 THRU ALL [D-027 p1]\n- **Counterbored features:** 3 x ⌴ ∅ 20,0 H7 (+0,021 / 0,000) ↧ 4,0 ±0,05 [D-027 p1]\n\n*(Note: Any 3D model shown is a reconstruction from 2D drawing evidence, not native CAD).* ",
+     "mode": "online",
+     "latency_ms": 4403,
+     "attachments": [
+      {
+       "type": "drawing",
+       "document_id": "D-027",
+       "title": "Cylinder Spænd Ring",
+       "url": "/api/documents/D-027/file",
+       "distribution": "clean"
+      },
+      {
+       "type": "model3d",
+       "document_id": "D-027",
+       "title": "Cylinder Spænd Ring",
+       "url": "/files/models/D-027.glb",
+       "label": "Reconstruction from 2D drawing evidence - not native CAD"
+      }
+     ],
+     "model": "gemini-3.8-flash",
+     "fallbacks": 0,
+     "tokens": {
+      "prompt_tokens": 7764,
+      "thinking_tokens": null,
+      "output_tokens": 398
+     },
+     "score": {
+      "passed": true,
+      "checks": [
+       {
+        "check": "mentions 330",
+        "ok": true
+       },
+       {
+        "check": "mentions 264",
+        "ok": true
+       },
+       {
+        "check": "mentions re:\\b15([,.]0)?\\b",
+        "ok": true
+       },
+       {
+        "check": "mentions 148,5 | 148.5",
+        "ok": true
+       },
+       {
+        "check": "opens D-027",
+        "ok": true
+       }
+      ],
+      "opened": [
+       "D-027"
+      ],
+      "opened_3d": [
+       "D-027"
+      ]
+     }
+    },
+    {
+     "reply": "According to the drawing for the Cylinder Spænd Ring (Build cylinder clamp ring) [D-027 p1, BOM row 50], the main dimensions are:\n\n- **Outer Diameter:** ∅ 330,0 mm [D-027 p1]\n- **Inner Diameter:** ∅ 264,0 H8 (+0,081 / 0,000) mm [D-027 p1]\n- **Thickness:** 15,0 mm [D-027 p1]\n- **Bolt Circle Radius:** R148,5 mm [D-027 p1]\n- **Angles / Patterns:** 120° and 60° [D-027 p1]\n\nAssociated hole feature callouts include [D-027 p1]:\n- `6 x ∅ 9,0 THRU ALL`\n- `3 x ∅ 11,0 THRU ALL / ⌵ ∅ 24,4 X 90° / Obs. Ekstra undersænkning`\n- `3 x ⌴ ∅ 20,0 H7 (+0,021 / 0,000) ↧ 4,0 ±0,05`\n\n*(Note: 3D models shown for this part are reconstructions from 2D drawing evidence, not native CAD).* ",
+     "mode": "online",
+     "latency_ms": 13428,
+     "attachments": [
+      {
+       "type": "drawing",
+       "document_id": "D-027",
+       "title": "Cylinder Spænd Ring",
+       "url": "/api/documents/D-027/file",
+       "distribution": "clean"
+      },
+      {
+       "type": "model3d",
+       "document_id": "D-027",
+       "title": "Cylinder Spænd Ring",
+       "url": "/files/models/D-027.glb",
+       "label": "Reconstruction from 2D drawing evidence - not native CAD"
+      }
+     ],
+     "model": "gemini-3.8-flash",
+     "fallbacks": 0,
+     "tokens": {
+      "prompt_tokens": 7764,
+      "thinking_tokens": null,
+      "output_tokens": 357
+     },
+     "score": {
+      "passed": true,
+      "checks": [
+       {
+        "check": "mentions 330",
+        "ok": true
+       },
+       {
+        "check": "mentions 264",
+        "ok": true
+       },
+       {
+        "check": "mentions re:\\b15([,.]0)?\\b",
+        "ok": true
+       },
+       {
+        "check": "mentions 148,5 | 148.5",
+        "ok": true
+       },
+       {
+        "check": "opens D-027",
+        "ok": true
+       }
+      ],
+      "opened": [
+       "D-027"
+      ],
+      "opened_3d": [
+       "D-027"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "followup",
+   "category": "multi-turn",
+   "turns": [
+    "Show me the build cylinder drawing.",
+    "What material is it made of?"
+   ],
+   "all_of": [
+    [
+     "6082"
+    ]
+   ],
+   "open": [
+    "D-023"
+   ],
+   "runs": [
+    {
+     "reply": "According to drawing **D-023**, the build cylinder is made of **EN AW-6082** [D-023 p1 title block]. The drawing's title-block note further specifies that it is based on an **EN AW-6082 T6** tube from Alumeco [D-023 p1 title block].\n\nIn comparison, the BOM broadly records the material as **Aluminium** [BOM row 46]. The drawing and the BOM agree, with the drawing providing the specific alloy and temper grade.",
+     "mode": "online",
+     "latency_ms": 4559,
+     "attachments": [
+      {
+       "type": "drawing",
+       "document_id": "D-023",
+       "title": "Build Cylinder v2",
+       "url": "/api/documents/D-023/file",
+       "distribution": "degraded-only"
+      }
+     ],
+     "model": "gemini-3.8-flash",
+     "fallbacks": 0,
+     "tokens": {
+      "prompt_tokens": 8383,
+      "thinking_tokens": null,
+      "output_tokens": 158
+     },
+     "score": {
+      "passed": true,
+      "checks": [
+       {
+        "check": "mentions 6082",
+        "ok": true
+       },
+       {
+        "check": "opens D-023",
+        "ok": true
+       }
+      ],
+      "opened": [
+       "D-023"
+      ],
+      "opened_3d": []
+     }
+    },
+    {
+     "reply": "The material for the build cylinder is recorded as follows:\n\n- **Drawing specification**: **EN AW-6082** [D-023 p1 title block]. The title block notes further clarify that it is based on an **EN AW-6082 T6** tube from Alumeco [D-023 p1 title block].\n- **BOM record**: **Aluminium** [BOM row 46].\n\nThe drawing and BOM agree on the material class, with the drawing providing the specific grade.",
+     "mode": "online",
+     "latency_ms": 3135,
+     "attachments": [
+      {
+       "type": "drawing",
+       "document_id": "D-023",
+       "title": "Build Cylinder v2",
+       "url": "/api/documents/D-023/file",
+       "distribution": "degraded-only"
+      }
+     ],
+     "model": "gemini-3.8-flash",
+     "fallbacks": 0,
+     "tokens": {
+      "prompt_tokens": 8357,
+      "thinking_tokens": null,
+      "output_tokens": 154
+     },
+     "score": {
+      "passed": true,
+      "checks": [
+       {
+        "check": "mentions 6082",
+        "ok": true
+       },
+       {
+        "check": "opens D-023",
+        "ok": true
+       }
+      ],
+      "opened": [
+       "D-023"
+      ],
+      "opened_3d": []
+     }
+    }
+   ]
+  }
+ ],
+ "correction_demo": {
+  "before": {
+   "reply": "The BOM records an amount of **1** for BOM row 81 (Galvo box bracket) [BOM row 81].\n\nNote that there is a documented quantity conflict between the BOM and drawing D-018 (*Galvo Mount Side x2*, linked as PROBABLE): drawing D-018 specifies **2** (\"2 stk.\" in note and title) [D-018 p1 title block], whereas the BOM records 1 [BOM row 81].",
+   "latency_ms": 2601,
+   "mode": "online"
+  },
+  "consistency_before": [
+   {
+    "id": 21,
+    "document_id": "D-018",
+    "row_index": 81,
+    "field": "material",
+    "drawing_value": "7075-T6, Plate (SS)",
+    "drawing_ref": "D-018 p1 title block (MATERIAL box)",
+    "bom_value": "Aluminium",
+    "bom_ref": "BOM row 81",
+    "verdict": "drawing_more_specific",
+    "detail": "same class (aluminium); drawing gives the grade"
+   },
+   {
+    "id": 22,
+    "document_id": "D-018",
+    "row_index": 81,
+    "field": "quantity",
+    "drawing_value": "2",
+    "drawing_ref": "D-018 title / note",
+    "bom_value": "1",
+    "bom_ref": "BOM row 81",
+    "verdict": "conflict",
+    "detail": "sheet states 2; BOM amount = 1"
+   }
+  ],
+  "proposal": {
+   "reply": "The BOM records an amount of 1 for row 81 (\"Galvo box bracket\") [BOM row 81], whereas drawing D-018 indicates a quantity of 2 via its title \"Galvo Mount Side x2\" and note \"2 stk. / Alu.\" [D-018 p1 title block]. Note that the link between D-018 and BOM row 81 is reviewed as PROBABLE (based on title, material, and optical subsystem).\n\nA correction has been submitted to update the amount for BOM row 81 to 2. It is pending human review in the Review tab, and answers will not change until it is accepted.\n\n_Filed as correction #1 (pending review)._",
+   "latency_ms": 3988,
+   "mode": "online"
+  },
+  "correction": {
+   "id": 1,
+   "created_at": "2026-11-24 16:41:33",
+   "proposed_via": "chat",
+   "subject_type": "bom_row",
+   "subject_id": "81",
+   "predicate": "amount",
+   "old_value": "1 (BOM row 81)",
+   "new_value": "2",
+   "rationale": "Drawing D-018 indicates 'x2' in the title and '2 stk. / Alu.' in the title-block note, whereas BOM row 81 records amount 1.",
+   "check_report": {
+    "checks": [
+     {
+      "name": "subject exists",
+      "ok": true,
+      "detail": "BOM row 81: Galvo box bracket"
+     },
+     {
+      "name": "changes something",
+      "ok": true,
+      "detail": "new value differs from all active values"
+     },
+     {
+      "name": "independent sources",
+      "ok": true,
+      "detail": "active values come from ['bom']"
+     },
+     {
+      "name": "drawing evidence",
+      "ok": true,
+      "detail": "D-018 states 2 pieces -> consistent"
+     }
+    ],
+    "current_facts": [
+     {
+      "id": 880,
+      "value": "1",
+      "source_type": "bom",
+      "source_ref": "BOM row 81"
+     }
+    ],
+    "drawing_evidence": [
+     {
+      "document_id": "D-018",
+      "drawing_value": [
+       2,
+       2
+      ],
+      "consistent": true
+     }
+    ]
+   },
+   "status": "pending",
+   "reviewed_at": null,
+   "reviewer_note": null,
+   "new_fact_id": null
+  },
+  "review": {
+   "id": 1,
+   "created_at": "2026-11-24 16:41:33",
+   "proposed_via": "chat",
+   "subject_type": "bom_row",
+   "subject_id": "81",
+   "predicate": "amount",
+   "old_value": "1 (BOM row 81)",
+   "new_value": "2",
+   "rationale": "Drawing D-018 indicates 'x2' in the title and '2 stk. / Alu.' in the title-block note, whereas BOM row 81 records amount 1.",
+   "check_report": {
+    "checks": [
+     {
+      "name": "subject exists",
+      "ok": true,
+      "detail": "BOM row 81: Galvo box bracket"
+     },
+     {
+      "name": "changes something",
+      "ok": true,
+      "detail": "new value differs from all active values"
+     },
+     {
+      "name": "independent sources",
+      "ok": true,
+      "detail": "active values come from ['bom']"
+     },
+     {
+      "name": "drawing evidence",
+      "ok": true,
+      "detail": "D-018 states 2 pieces -> consistent"
+     }
+    ],
+    "current_facts": [
+     {
+      "id": 880,
+      "value": "1",
+      "source_type": "bom",
+      "source_ref": "BOM row 81"
+     }
+    ],
+    "drawing_evidence": [
+     {
+      "document_id": "D-018",
+      "drawing_value": [
+       2,
+       2
+      ],
+      "consistent": true
+     }
+    ]
+   },
+   "status": "accepted",
+   "reviewed_at": "2026-11-24 16:41:33",
+   "reviewer_note": "Checked against D-018 (x2).",
+   "new_fact_id": 2274
+  },
+  "after": {
+   "reply": "According to the pinned BOM snapshot, the active quantity recorded for **BOM row 81** (Galvo box bracket) is **2** [correction 1].\n\n*Note on history:* The BOM originally recorded an amount of **1** [BOM row 81], which was superseded by accepted correction 1 updating the amount to 2, agreeing with drawing D-018 which notes \"2 stk.\" [D-018 p1 title block].",
+   "latency_ms": 2954,
+   "mode": "online"
+  },
+  "consistency_after": [
+   {
+    "id": 55,
+    "document_id": "D-018",
+    "row_index": 81,
+    "field": "material",
+    "drawing_value": "7075-T6, Plate (SS)",
+    "drawing_ref": "D-018 p1 title block (MATERIAL box)",
+    "bom_value": "Aluminium",
+    "bom_ref": "BOM row 81",
+    "verdict": "drawing_more_specific",
+    "detail": "same class (aluminium); drawing gives the grade"
+   },
+   {
+    "id": 56,
+    "document_id": "D-018",
+    "row_index": 81,
+    "field": "quantity",
+    "drawing_value": "2",
+    "drawing_ref": "D-018 title / note",
+    "bom_value": "2",
+    "bom_ref": "correction 1",
+    "verdict": "agree",
+    "detail": "sheet states 2; BOM amount = 2"
+   }
+  ],
+  "facts_after": [
+   {
+    "id": 880,
+    "subject_type": "bom_row",
+    "subject_id": "81",
+    "predicate": "amount",
+    "value": "1",
+    "source_type": "bom",
+    "source_ref": "BOM row 81",
+    "confidence": 1.0,
+    "status": "superseded",
+    "superseded_by": 2274,
+    "evidence": null,
+    "created_at": "2026-11-24 16:36:45"
+   },
+   {
+    "id": 2274,
+    "subject_type": "bom_row",
+    "subject_id": "81",
+    "predicate": "amount",
+    "value": "2",
+    "source_type": "correction",
+    "source_ref": "correction 1",
+    "confidence": 1.0,
+    "status": "active",
+    "superseded_by": null,
+    "evidence": null,
+    "created_at": "2026-11-24 16:41:33"
+   }
+  ],
+  "audit": [
+   {
+    "id": 2,
+    "ts": "2026-11-24 16:41:33",
+    "action": "accepted",
+    "entity": "correction",
+    "entity_id": "1",
+    "detail": {
+     "note": "Checked against D-018 (x2).",
+     "new_fact_id": 2274
+    }
+   },
+   {
+    "id": 1,
+    "ts": "2026-11-24 16:41:33",
+    "action": "proposed",
+    "entity": "correction",
+    "entity_id": "1",
+    "detail": {
+     "predicate": "amount",
+     "new_value": "2"
+    }
+   }
+  ],
+  "verdict": {
+   "correction_filed": true,
+   "drawing_check_ran": true,
+   "answer_changed": true,
+   "original_kept": true,
+   "quantity_conflict_resolved": true
+  }
+ }
+}

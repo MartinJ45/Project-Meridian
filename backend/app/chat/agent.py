@@ -14,10 +14,10 @@ import time
 from concurrent.futures import ThreadPoolExecutor
 from concurrent.futures import TimeoutError as FutureTimeout
 
-from .. import config
+from .. import config, graph
 from .. import knowledge as kb
 from .context import TurnContext
-from .retrieve import build_evidence
+from .retrieve import SUPPLIER_Q, build_evidence
 
 SYSTEM_PROMPT = """You are Meridian, an assistant for engineers exploring the design evidence of the
 OpenLPBF v2 metal laser powder-bed-fusion machine (subsystems: Box, Powder, Recoater, Optical,
@@ -30,7 +30,10 @@ Rules:
 - Supplier, order number, cost and status values come from a pinned BOM snapshot; present them as
   recorded, not as current availability or price.
 - 3D models are reconstructions from 2D drawing evidence, not native CAD. Say so when one is shown.
-- Drawing-to-BOM links are fuzzy filename candidates; mention the score and treat low scores as uncertain.
+- Drawing-to-BOM links have a reviewed status: CONFIRMED (title names the part), PROBABLE (judgement; say
+  so and give the reason), or NONE (no BOM row describes the part). Unreviewed fuzzy candidates are not links.
+- Use the "drawing vs BOM consistency" results for agreement/conflict questions; quote both values and refs.
+- Interfaces come from the BOM's 'Interface with' column (few rows fill it in); say when none are recorded.
 - Drawing fields were read from the sheet by a vision pass, each with legibility and an independent check
   (PDF text layer, or a second reading for degraded scans). Distinguish "the box is EMPTY on the sheet"
   from "ILLEGIBLE". Treat partial legibility, disagreeing readings or missing checks as uncertain and say so.
@@ -41,10 +44,20 @@ Rules:
   relevant mention the change and the original value with its source.
 - open_documents: list the drawing ids (e.g. "D-012") for the part(s) the user is asking about, so the
   app opens the sheet (and its 3D, if any). Empty for questions not about a specific part. Never paste URLs.
+- Potential suppliers: use the "supplier profile" evidence. Separate (1) the supplier the BOM records (pinned
+  snapshot), (2) other BOM suppliers of the same material, and (3) web-search leads with their retrieval date.
+  Give the basis for each match (material/process) and say leads are unverified and may be out of date. If no
+  search has been run, say the user can run one in the drawing's Suppliers tab; never invent company names.
+- open_graph: set (e.g. "D-018", "row 10", "aluminium", "Box") when the question is about relationships -
+  interfaces, what connects to what, which parts share a material/supplier/subsystem - or the user asks for
+  the graph. Otherwise null.
 - correction: only when the user asserts a recorded value is wrong. Fill subject_type "bom_row"
   (subject_id = row number) or "document" (subject_id = "D-0xx"), predicate (e.g. material, supplier,
-  cost_dkk, vv_state), new_value and rationale. In the reply, say it is pending human review in the
+  cost_dkk, vv_state, amount), new_value and rationale. In the reply, say it is pending human review in the
   Review tab and answers will not change until it is accepted. Otherwise set correction to null.
+  Link corrections: when the user says a drawing belongs to a different BOM row (or none), or confirms a
+  probable link, use subject_type "document", subject_id the drawing id, predicate "bom_link" and
+  new_value the BOM row number(s) comma-separated, or "none".
 - Be concise. Use short markdown lists or tables where helpful."""
 
 RESPONSE_SCHEMA = {
@@ -52,6 +65,8 @@ RESPONSE_SCHEMA = {
     "properties": {
         "reply": {"type": "string"},
         "open_documents": {"type": "array", "items": {"type": "string"}},
+        "open_graph": {"type": "string", "nullable": True,
+                       "description": "drawing id, 'row N', material class or subsystem to show in the knowledge graph"},
         "correction": {
             "type": "object",
             "nullable": True,
@@ -115,13 +130,15 @@ def run_turn(con, messages: list[dict]) -> dict:
                      + _offline_turn(ctx, messages[-1]["content"], header=False))
             mode = "offline-fallback"
         else:
-            reply = _apply(ctx, result, hits)
+            reply = _apply(ctx, result, hits, messages[-1]["content"])
     return {
         "reply": reply,
         "attachments": ctx.attachments,
         "trace": ctx.trace,
         "mode": mode,
         "latency_ms": round((time.time() - t0) * 1000),
+        # For evaluation/logging only; removed from HTTP responses (it names the provider/model).
+        "_internal": {"attempts": attempts},
     }
 
 
@@ -160,7 +177,7 @@ def _ask_gemini(messages: list[dict], evidence: str, model: str) -> tuple[dict, 
         return {"reply": resp.text or "(no text returned)", "open_documents": []}, usage
 
 
-def _apply(ctx: TurnContext, result: dict, hits: list[dict]) -> str:
+def _apply(ctx: TurnContext, result: dict, hits: list[dict], question: str = "") -> str:
     """Act on the model's structured answer: open drawings, file a correction for review."""
     valid = {r["id"] for r in ctx.con.execute("SELECT id FROM documents")}
     requested = [d.strip().upper() for d in result.get("open_documents") or []]
@@ -170,9 +187,19 @@ def _apply(ctx: TurnContext, result: dict, hits: list[dict]) -> str:
     ctx.log("open_documents", {"requested": requested}, [a["document_id"] for a in ctx.attachments])
     # Safety net for "chat must open the drawing": a near-exact drawing name match opens even if
     # the model forgot to list it.
+    if SUPPLIER_Q.search(question or "") and any(a["type"] == "drawing" for a in ctx.attachments):
+        for a in ctx.attachments:
+            if a["type"] == "drawing":
+                a["tab"] = "suppliers"  # open the Suppliers tab for this drawing
+                break
     if not ctx.attachments and hits and hits[0]["kind"] == "drawing" and hits[0]["score"] >= 90:
         ctx.attach_document(hits[0]["id"])
         ctx.log("auto_open", {"document_id": hits[0]["id"], "score": hits[0]["score"]}, "opened")
+
+    focus = graph.resolve(ctx.con, result.get("open_graph"))
+    if focus:
+        ctx.attachments.append({"type": "graph", "focus": focus, "label": result["open_graph"]})
+        ctx.log("open_graph", {"ref": result["open_graph"]}, focus)
 
     reply = result.get("reply") or "(empty reply)"
     c = result.get("correction")
@@ -180,9 +207,13 @@ def _apply(ctx: TurnContext, result: dict, hits: list[dict]) -> str:
         subject_id = str(c["subject_id"]).strip().upper() if c["subject_type"] == "document" else str(c["subject_id"]).strip()
         proposal = kb.propose_correction(ctx.con, c["subject_type"], subject_id, c.get("predicate", "").strip(),
                                          c["new_value"], c.get("rationale", ""), "chat")
-        ctx.log("propose_correction", c, f"correction {proposal['id']} pending review")
+        ctx.log("propose_correction", c, f"correction {proposal['id']} pending review"
+                + (" (already proposed)" if proposal.get("duplicate") else ""))
         failed = [k["name"] for k in proposal["check_report"]["checks"] if not k["ok"]]
-        reply += f"\n\n_Filed as correction #{proposal['id']} (pending review)"
+        if proposal.get("duplicate"):
+            reply += f"\n\n_This change is already pending review as correction #{proposal['id']}; no new request was filed"
+        else:
+            reply += f"\n\n_Filed as correction #{proposal['id']} (pending review)"
         reply += f"; automated checks flagged: {', '.join(failed)}._" if failed else "._"
     return reply
 

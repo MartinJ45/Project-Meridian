@@ -28,8 +28,10 @@ def one_row(cur) -> dict | None:
     return dict(r) if r else None
 
 
-def audit(con: sqlite3.Connection, action: str, entity: str, entity_id, detail: dict | None = None) -> None:
+def audit(con: sqlite3.Connection, action: str, entity: str, entity_id, detail: dict | None = None,
+          at: str | None = None) -> None:
+    """at: original UTC time ('YYYY-MM-DD HH:MM:SS') when replaying history; default now."""
     con.execute(
-        "INSERT INTO audit_log(action, entity, entity_id, detail) VALUES (?,?,?,?)",
-        (action, entity, str(entity_id) if entity_id is not None else None, json.dumps(detail or {})),
+        "INSERT INTO audit_log(ts, action, entity, entity_id, detail) VALUES (COALESCE(?, datetime('now')),?,?,?,?)",
+        (at, action, entity, str(entity_id) if entity_id is not None else None, json.dumps(detail or {})),
     )

@@ -1,0 +1,153 @@
+{
+ "document_id": "D-027",
+ "retrieved_at": "2026-11-24T17:02:07+00:00",
+ "region": "Denmark or nearby EU countries",
+ "queries": [
+  "Kvisgaard precision machining Denmark",
+  "\"MSSP Group\" address Denmark website",
+  "CNC drejning CNC fræsning prototype enkelte emner Danmark 400 mm",
+  "\"prototech.dk\" kontakt adresse",
+  "\"Ringsted Maskinfabrik\" address website",
+  "precision CNC turning milling prototype Denmark aluminum 350mm"
+ ],
+ "profile_used": {
+  "material": "6063-T6",
+  "processes": "CNC turning, CNC milling, drilling, countersinking, counterboring, precision machining (fits/tolerances)",
+  "quantity": "1"
+ },
+ "suggestions": [
+  {
+   "name": "Prototech ApS",
+   "website": "https://prototech.dk",
+   "location": "Odense, Denmark",
+   "matches": [
+    "3-axis and 5-axis CNC milling",
+    "CNC turning up to Ø 650 mm diameter and 2,000 mm length",
+    "drilling",
+    "precision machining",
+    "Aluminium 6063",
+    "6061-T6",
+    "7075-T6",
+    "rapid prototyping",
+    "on-demand single-part / low-volume production"
+   ],
+   "basis": "Prototech explicitly stocks and machines 6063-grade aluminum and features lathe swing capacities up to Ø 650 mm, easily handling your 330 mm diameter requirement for a 1-off prototype.",
+   "in_search_results": true
+  },
+  {
+   "name": "MSSP Group (Maskinfabrikken Silkeborg Spåntagning A/S)",
+   "website": "https://mssp.group",
+   "location": "Silkeborg, Denmark",
+   "matches": [
+    "CNC turning",
+    "CNC milling",
+    "drilling",
+    "precision machining with tight tolerances",
+    "turning envelopes up to Ø 500 mm in diameter and 1,000 mm in length",
+    "handle aluminum",
+    "single prototypes (1 piece) to serial runs"
+   ],
+   "basis": "MSSP Group’s Ø 500 mm turning capacity easily accommodates a 330 mm diameter ring, and their active prototype-to-production service is built to machine individual high-precision parts to tight drawing tolerances.",
+   "in_search_results": true
+  },
+  {
+   "name": "Kvisgaards Maskinfabrik A/S (Kvisgaard)",
+   "website": "https://kvisgaard.dk",
+   "location": "Havdrup / Brøndby, Denmark",
+   "matches": [
+    "CNC turning",
+    "CNC milling",
+    "drilling",
+    "close-tolerance precision machining",
+    "metrological inspection",
+    "aluminum machining",
+    "single pieces (lot size 1 to a few hundred)"
+   ],
+   "basis": "Kvisgaard specializes in high-precision, tight-tolerance aluminum machining for batch sizes starting from just 1 unit, making them well-suited for critical machine subsystems like LPBF Z-axis components.",
+   "in_search_results": true
+  },
+  {
+   "name": "Ringsted Maskinfabrik ApS",
+   "website": "https://ringstedmaskinfabrik.dk",
+   "location": "Ringsted, Denmark",
+   "matches": [
+    "CNC turning",
+    "CNC milling",
+    "precision machining to tight tolerances",
+    "drilling",
+    "counterboring/threading from CAD/CAM models",
+    "aluminum",
+    "tool steels",
+    "specialty alloys",
+    "single-piece prototype orders (\"from 1 pc\")"
+   ],
+   "basis": "Ringsted Maskinfabrik is set up for custom, drawing-based subcontracting in aluminum with express capability for single-unit (1 pc) runs requiring tight geometric tolerances and fine mechanical finishing.",
+   "in_search_results": true
+  }
+ ],
+ "sources": [
+  {
+   "title": "prototech.dk",
+   "uri": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHdBqmT0RD9Vk1aVOFyLJ3fYHN0Dn15kxD9wvjAAa2ATSSj__HqAbgv7-4k8OiQgBDXBZkBBBBabqnXwrUNzGPj1yxRjNKoAZBl3CIbhJIHeFA="
+  },
+  {
+   "title": "prototech.dk",
+   "uri": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQF8tesbWbuBdpzAqo8gEfXf8xtEI2BpEkNWhj_dxXuq8bhNJX8Br59M29dFOJm66HXoylJYGyiifXGtqnh4v9fRMKekyKIDFWLRzZDPfTMB1jAj5Ws="
+  },
+  {
+   "title": "mssp.group",
+   "uri": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGqEQg-itk0isLIkazKwp1to-2OcRQu3TL5Ja0OWApqVwdg7FOW2WI0IbuGG02aRjk7_qCKOtl60x8OfVEDyyGZKvXgdZyBh0H8KVW1B1Ew_uhN_pDvuM7-"
+  },
+  {
+   "title": "mssp.group",
+   "uri": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFKV6iPj5nQgObLvoO0G4zO00YysG33kGrWWzv2X5N1-b2n67nyqjmFlVINONv8uhKbgqX3AEpQKyAEeOsZJI_7vC8p9KJIZchW"
+  },
+  {
+   "title": "mssp.group",
+   "uri": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHjzHM_zI3EWWlhEO-ohNi7JgJo8ZC9W5BBgqvuZ57bH2t4IV2IMBFymK8n4x2cAeoBSdkNhPSW4mcmPH1GTUcBZMIjm8yaxzf9YEq8FfPFnbvApjqq0BkrmOcE8mf8hLUI2VgoTWVHGEzowA=="
+  },
+  {
+   "title": "hiindustryexpo.com",
+   "uri": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFBub_BC00TmJJQ2lCR0IKbp5xUa-US0FLoCt-yNjI4cp-KbMpThJwAuN_fuMGINC2uP-7G_o9Y4n9wr4tTZhcr5AEuqwXsMj79ztSLlhQakUu84Bvn9K7DWwVFxqndq6q7ymil2zk9IvpGc0Cho7h6yOg="
+  },
+  {
+   "title": "mssp.group",
+   "uri": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHVzvbwwPi-L1NVTosalpIM_bZZpInDIiolBvlg8NrzaTn3tKpMRNME9T7l6FpoAbXvWfk7EKD74wtNmLwNU5NQ-ehExqP6W9KxbqjY3-ZncObHbjNJV76caRZXrxXQlSEZiR6xaN2EALpVXLQ="
+  },
+  {
+   "title": "kvisgaard.dk",
+   "uri": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQF91b3kidIjE03wGK0M6IF3EGgLddaoEnf6nSQ9Zr5lsk9oLnVIbOocVwqjnpYRvW9xgClPJytmSbRtpxO7CI-IQseqwHlJO_ES7jbGEA=="
+  },
+  {
+   "title": "distillintelligence.com",
+   "uri": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQG4aP6yd_umW-P4PjBFqkmFE2ayYjlCe_WpswucFzcNIyKPhIREpLy2xLFcZTo0-PnW2kUlUEtbiOIwJEGDe6n9Tyjf8fpskoqeaYAqvLjLiJds3OjSmsBUdEte_GJ-hpTYk7YsM2-4wH1dT4NnEmBpmhJTCwk="
+  },
+  {
+   "title": "kvisgaard.dk",
+   "uri": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGNfH60gD5lBfGHitilHXHT8D5wGVLAUo--m5rpdN6zhUQxMETELzMlQfRF4DrH0EQgTrMrt3RigJJwmhxTpGLpGcN4Dx-R6IGG09kmAjQBp2UpI9WpwBBYTJNhgAt0L_Ls9B9ag6kI"
+  },
+  {
+   "title": "kvisgaard.dk",
+   "uri": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEwg3NM0kEjWWmXzZne_vIgSV0w7rHbsGks9L5l8_ghxtbME2U29rACcIYBV2qYCJdMtix1DMwcK-bHB9jIEGMClkgkYO1amwQAyutVeDrPY6JSktA84Effj7oA_JjbxrdRWoI="
+  },
+  {
+   "title": "kvisgaard.dk",
+   "uri": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFZ7Bjy6RNsCCG5GRyNoowMG-EU2vVYHNCnfBxb1tkrLMe1offuyNDlaMGGOTnWDOq3chdbzkdobA7U_R4_LxUNkVBOffCRGUbg5SPJgd_A6P65201JeyHTIgAff_5EFtI6FrLFhr-KWZUYGGZqTddS-xtx6PfnH_deBugxvw=="
+  },
+  {
+   "title": "ringstedmaskinfabrik.dk",
+   "uri": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGDJIFl7tDO8qeAGZNZDCILYoHlr3H_vusM6dZJ7dvHSxxcnbO-GykUJi2JsVi0Z55SYcc6l7YX-NJ3wMoj6jP2UQQOZZwLzisGOEd9-2ckG4IotWvj4wbLew=="
+  },
+  {
+   "title": "ringstedmaskinfabrik.dk",
+   "uri": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQELDqgslTlPcV2n4nBbSJmDQkA9ZLqNkZCAq0mw8kwrYNTsUtsPIuwFPTB5ybrcyT6r7cRFID7KD1pdOCsM8reY4Wqz94zMMiEW8HpDmpCYQ2JZTrxV7NYiVwoKtyFW9ZHRPJBK78m_"
+  },
+  {
+   "title": "ringstedmaskinfabrik.dk",
+   "uri": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGXnZl0su9hfJtRPc9g3QpS0vliPLhXioUeA5s6SiCVPGX7U-TNnDtuM97o0SJ72AWYt28H4a6YMdQDpFg5kQdWLLq7XV1urCTyLCi55MQNO115bKFujBHmHTJ9diVsiWWfpg8soAhCQizpWV-BYJ392Kw="
+  }
+ ],
+ "caveat": "Search results are leads, not verified capabilities, quotes or availability. They reflect the web on the retrieval date; contact the company to confirm. Recorded BOM suppliers are a pinned snapshot.",
+ "searched": true,
+ "note": null
+}

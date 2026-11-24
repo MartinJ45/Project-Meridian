@@ -75,9 +75,40 @@ CREATE TABLE IF NOT EXISTS doc_bom_links (
     document_id  TEXT NOT NULL REFERENCES documents(id),
     row_index    INTEGER NOT NULL REFERENCES bom_rows(row_index),
     score        REAL,
-    method       TEXT,                       -- e.g. filename-fuzzy, title-block, reviewed
-    status       TEXT NOT NULL DEFAULT 'candidate',  -- candidate | confirmed | rejected
+    method       TEXT,                       -- curated | filename-fuzzy
+    status       TEXT NOT NULL DEFAULT 'candidate',  -- confirmed | probable | candidate | rejected
+    rationale    TEXT,
     PRIMARY KEY (document_id, row_index, method)
+);
+
+-- One reviewed linking decision per drawing (data/links_curated.json), including "no BOM row".
+CREATE TABLE IF NOT EXISTS link_decisions (
+    document_id  TEXT PRIMARY KEY REFERENCES documents(id),
+    status       TEXT NOT NULL,              -- confirmed | probable | none
+    rationale    TEXT
+);
+
+-- Drawing vs BOM consistency for each linked pair: agree / drawing more specific / conflict / missing.
+CREATE TABLE IF NOT EXISTS consistency_checks (
+    id           INTEGER PRIMARY KEY AUTOINCREMENT,
+    document_id  TEXT NOT NULL REFERENCES documents(id),
+    row_index    INTEGER NOT NULL REFERENCES bom_rows(row_index),
+    field        TEXT NOT NULL,              -- material | quantity
+    drawing_value TEXT,
+    drawing_ref  TEXT,
+    bom_value    TEXT,
+    bom_ref      TEXT,
+    verdict      TEXT NOT NULL,              -- agree | drawing_more_specific | conflict | missing_on_drawing | missing_in_bom
+    detail       TEXT
+);
+
+-- "Interface with" text parsed into followable edges between BOM rows.
+CREATE TABLE IF NOT EXISTS interfaces (
+    from_row     INTEGER NOT NULL REFERENCES bom_rows(row_index),
+    to_row       INTEGER REFERENCES bom_rows(row_index),   -- NULL when the name matches no row
+    to_name      TEXT NOT NULL,              -- as written in the BOM
+    match_score  REAL,
+    PRIMARY KEY (from_row, to_name)
 );
 
 -- One claim about one subject, with its source. Exactly one active fact per
