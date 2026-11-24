@@ -9,6 +9,26 @@ Evaluation results: [data/eval/REPORT.md](data/eval/REPORT.md).
 - Optional: a Gemini API key. Without it, chat runs in **offline mode** (best matches and the
   drawing/3D still open, but no generated answer).
 
+## Gemini API key (optional)
+
+Chat answers, supplier web searches and the vision pass need a Gemini API key. Without one, the app runs in
+offline mode.
+
+1. Create a key at [Google AI Studio](https://aistudio.google.com/apikey) (sign in with a Google account →
+   **Create API key**).
+2. Run the start script once (see below). It creates `.env` in the repo root from `.env.example`. You can also
+   copy the file yourself.
+3. Open `.env` and paste the key after `GEMINI_API_KEY=`, with no quotes or spaces:
+   ```
+   GEMINI_API_KEY=your-key-here
+   ```
+4. Restart the app (stop it with Ctrl+C, then run the start script again). The footer under the chat box
+   shows **Meridian · Online** when the server is reachable, and chat answers are written out instead of the
+   offline "closest matches" list.
+
+`.env` is gitignored, so the key stays on your machine. The other settings in `.env` (model, fallback models,
+timeouts, thinking level) work as they are.
+
 ## Start
 
 Windows (cmd, PowerShell, or double-click in Explorer):
