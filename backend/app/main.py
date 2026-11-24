@@ -6,14 +6,16 @@ mimetypes.add_type("text/javascript", ".js")
 mimetypes.add_type("text/javascript", ".mjs")
 mimetypes.add_type("model/gltf-binary", ".glb")
 
+import json
+
 from fastapi import Depends, FastAPI, File, Form, HTTPException, UploadFile
-from fastapi.responses import FileResponse
+from fastapi.responses import FileResponse, StreamingResponse
 from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel
 
 from . import chats, config, graph, metrics, suppliers, uploads
 from . import knowledge as kb
-from .chat.agent import run_turn
+from .chat.agent import run_turn, run_turn_events
 from .db import connect
 
 app = FastAPI(title="Project Meridian")
@@ -95,6 +97,48 @@ def chat(req: ChatRequest, con=Depends(get_con), ccon=Depends(get_chats_con)):
     chats.add_message(ccon, chat_id, "assistant", result["reply"],
                       {k: result[k] for k in ("attachments", "trace", "mode", "latency_ms")})
     return {"chat_id": chat_id, **result}
+
+
+@app.post("/api/chat/stream")
+def chat_stream(req: ChatRequest):
+    """Same as /api/chat, but streams newline-delimited JSON events while the reply is written:
+    start {chat_id}, delta {text}, reset (discard streamed text), done {chat_id, reply, attachments, ...},
+    error {message}."""
+    message = req.message.strip()
+    if not message:
+        raise HTTPException(400, "message is empty")
+    if not config.DB_PATH.exists():
+        raise HTTPException(503, "Database not built. Run: python -m app.ingest.run")
+    ccon = chats.open_db()
+    if req.chat_id and not chats.get_chat(ccon, req.chat_id):
+        ccon.close()
+        _404(req.chat_id)
+    chat_id = req.chat_id or chats.create_chat(ccon, message)["id"]
+    msgs = chats.history(ccon, chat_id) + [{"role": "user", "content": message}]
+    chats.add_message(ccon, chat_id, "user", message)  # saved first, so a failed turn still shows the question
+
+    def events():
+        con = connect()
+        line = lambda e: json.dumps(e, ensure_ascii=False) + "\n"
+        try:
+            yield line({"type": "start", "chat_id": chat_id})
+            for ev in run_turn_events(con, msgs):
+                if ev["type"] != "done":
+                    yield line(ev)
+                    continue
+                result = ev["result"]
+                result.pop("_internal", None)  # provider/model details stay server-side
+                chats.add_message(ccon, chat_id, "assistant", result["reply"],
+                                  {k: result[k] for k in ("attachments", "trace", "mode", "latency_ms")})
+                yield line({"type": "done", "chat_id": chat_id, **result})
+        except Exception as e:  # noqa: BLE001
+            yield line({"type": "error", "message": f"{type(e).__name__}: {e}"})
+        finally:
+            con.close()
+            ccon.close()
+
+    return StreamingResponse(events(), media_type="application/x-ndjson",
+                             headers={"Cache-Control": "no-cache", "X-Accel-Buffering": "no"})
 
 
 @app.post("/api/documents/upload")

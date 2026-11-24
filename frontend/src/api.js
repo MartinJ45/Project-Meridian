@@ -21,7 +21,51 @@ async function request(path, options = {}) {
   return res.json()
 }
 
+// Streams a chat turn: calls onEvent for each event (start, delta, reset) and resolves with the final
+// "done" event (same fields as /api/chat).
+async function chatStream(message, chatId, onEvent) {
+  const res = await fetch('/api/chat/stream', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ message, chat_id: chatId || null }),
+  })
+  if (res.status === 404 || res.status === 405) {
+    // Server started before streaming existed: answer in one piece instead.
+    const whole = await request('/api/chat', { method: 'POST', body: JSON.stringify({ message, chat_id: chatId || null }) })
+    return { type: 'done', ...whole }
+  }
+  if (!res.ok) {
+    const body = await res.json().catch(() => ({}))
+    throw new Error(errorText(body.detail) || `${res.status} ${res.statusText}`)
+  }
+  const reader = res.body.getReader()
+  const decoder = new TextDecoder()
+  let buffer = ''
+  let done = null
+  const handle = (line) => {
+    if (!line.trim()) return
+    const event = JSON.parse(line)
+    if (event.type === 'error') throw new Error(event.message)
+    if (event.type === 'done') done = event
+    else onEvent?.(event)
+  }
+  for (;;) {
+    const { value, done: finished } = await reader.read()
+    if (finished) break
+    buffer += decoder.decode(value, { stream: true })
+    let nl
+    while ((nl = buffer.indexOf('\n')) >= 0) {
+      handle(buffer.slice(0, nl))
+      buffer = buffer.slice(nl + 1)
+    }
+  }
+  handle(buffer + decoder.decode())
+  if (!done) throw new Error('The answer was cut off. Please try again.')
+  return done
+}
+
 export const api = {
+  chatStream,
   health: () => request('/api/health'),
   documents: () => request('/api/documents'),
   document: (id) => request(`/api/documents/${id}`),

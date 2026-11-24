@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'react'
 import { marked } from 'marked'
 import { api } from '../api.js'
+import { trimPartialMarkdown } from '../lib/partialMarkdown.js'
 
 const logo = '/avathon-logo.png' // from the repo-level assets/ folder (Vite publicDir)
 import PartPanel from './PartPanel.jsx'
@@ -55,9 +56,65 @@ export default function ChatView({
   const [busy, setBusy] = useState(false)
   const [loading, setLoading] = useState(!!chatId)
   const [progress, setProgress] = useState('')
+  const [draft, setDraft] = useState(null) // reply text streamed so far
   const [active, setActive] = useState(null) // { document_id, tab }
   const endRef = useRef(null)
   const chatIdRef = useRef(chatId)
+
+  // Typing effect: the model sends text in bursts; reveal it word by word at a steady, gentle pace so
+  // the answer appears to be written. The pace is time-based (same on any screen) and eases up only
+  // gradually when a lot of text is waiting, so it never falls far behind.
+  const typing = useRef({ target: '', final: false, shown: 0, cut: 0, raf: 0, last: 0, waiters: [] })
+  const pump = (now) => {
+    const t = typing.current
+    const dt = t.last ? Math.min(0.5, (now - t.last) / 1000) : 1 / 60 // real elapsed time, even if frames drop
+    t.last = now
+    const backlog = t.target.length - t.shown
+    if (backlog > 0) {
+      const perSecond = Math.min(450, 70 + backlog * 1.2) // pace, in characters per second
+      t.shown = Math.min(t.target.length, t.shown + perSecond * dt)
+    }
+    // Show whole words only: cut after the last space/newline reached so far. The final word appears
+    // once the answer is complete (mid-stream, the text may end halfway through a word).
+    let cut = Math.floor(t.shown)
+    if (!(cut >= t.target.length && t.final)) {
+      const text = t.target.slice(0, cut + 1)
+      const ws = Math.max(text.lastIndexOf(' '), text.lastIndexOf('\n'))
+      cut = ws >= 0 ? ws + 1 : 0
+    }
+    if (cut !== t.cut) {
+      t.cut = cut
+      setDraft(t.target.slice(0, cut))
+    }
+    if (t.shown < t.target.length) {
+      t.raf = requestAnimationFrame(pump)
+    } else {
+      t.raf = 0
+      t.last = 0
+      t.waiters.splice(0).forEach((resolve) => resolve())
+    }
+  }
+  const typeTo = (text, final = false) => {
+    const t = typing.current
+    t.target = text
+    t.final = final
+    if (!t.raf) t.raf = requestAnimationFrame(pump)
+  }
+  // Resolves once everything queued is on screen (or after a moment, e.g. if the tab is hidden).
+  const typedOut = () => new Promise((resolve) => {
+    const t = typing.current
+    if (t.shown >= t.target.length) return resolve()
+    t.waiters.push(resolve)
+    setTimeout(resolve, 15000)
+  })
+  const stopTyping = () => {
+    const t = typing.current
+    cancelAnimationFrame(t.raf)
+    t.waiters.splice(0).forEach((resolve) => resolve())
+    typing.current = { target: '', final: false, shown: 0, cut: 0, raf: 0, last: 0, waiters: [] }
+    setDraft(null)
+  }
+  useEffect(() => () => cancelAnimationFrame(typing.current.raf), [])
 
   // Reopen a stored chat (after a refresh or from Past chats), including its last drawing panel.
   useEffect(() => {
@@ -78,6 +135,8 @@ export default function ChatView({
 
   // Braces matter: newer browsers return a Promise from scrollIntoView, which React would treat as a cleanup.
   useEffect(() => { endRef.current?.scrollIntoView({ behavior: 'smooth' }) }, [messages, progress])
+  // While the reply streams in, keep its end in view (instant, so it doesn't lag behind the text).
+  useEffect(() => { if (draft) endRef.current?.scrollIntoView({ block: 'end' }) }, [draft])
 
   // A question asked from another view (e.g. "Ask in chat" in the graph) is sent here.
   useEffect(() => {
@@ -102,19 +161,37 @@ export default function ChatView({
       i = Math.min(i + 1, steps.length - 1)
       setProgress(steps[i])
     }, 2500)
+    let streamed = ''
     try {
       // The server keeps the history; we send only the new message and the chat id.
-      const res = await api.chat(q, chatIdRef.current)
-      if (!chatIdRef.current) {
-        chatIdRef.current = res.chat_id
-        onChatCreated?.(res.chat_id)
+      // The reply streams in as it is written; the final event carries attachments and the trace.
+      const res = await api.chatStream(q, chatIdRef.current, (ev) => {
+        if (ev.type === 'start' && !chatIdRef.current) {
+          chatIdRef.current = ev.chat_id
+          onChatCreated?.(ev.chat_id)
+        } else if (ev.type === 'delta') {
+          streamed += ev.text
+          typeTo(streamed)
+        } else if (ev.type === 'reset') {
+          streamed = ''
+          stopTyping()
+        }
+      })
+      // Finish typing; the final reply may add a line (e.g. a filed correction), or arrive whole
+      // when the server can't stream, so type that too before showing the finished message.
+      if (!streamed || res.reply.startsWith(streamed)) {
+        typeTo(res.reply, true)
+        await typedOut()
       }
+      stopTyping()
       setMessages([...next, { role: 'assistant', content: res.reply, meta: res }])
       // Chat drives the visual: open the first attached drawing, preferring 3D when present.
       const panel = panelFor(res.attachments)
       if (panel) setActive(panel)
     } catch (e) {
-      setMessages([...next, { role: 'assistant', content: `Something went wrong: ${e.message}`, error: true }])
+      stopTyping()
+      setMessages([...next, ...(streamed ? [{ role: 'assistant', content: streamed }] : []),
+        { role: 'assistant', content: `Something went wrong: ${e.message}`, error: true }])
     } finally {
       clearInterval(timer)
       setBusy(false)
@@ -192,10 +269,14 @@ export default function ChatView({
               <div className="msg assistant">
                 <Avatar />
                 <div className="msg-body">
-                  <div className="bubble thinking" aria-live="polite">
-                    <span className="pulse" />
-                    {progress}
-                  </div>
+                  {draft ? (
+                    <div className="bubble streaming" dangerouslySetInnerHTML={renderMd(trimPartialMarkdown(draft))} />
+                  ) : (
+                    <div className="bubble thinking" aria-live="polite">
+                      <span className="pulse" />
+                      {progress}
+                    </div>
+                  )}
                 </div>
               </div>
             )}

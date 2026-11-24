@@ -10,9 +10,10 @@ matches and still opens the drawing.
 """
 import json
 import logging
+import queue
+import threading
 import time
 from concurrent.futures import ThreadPoolExecutor
-from concurrent.futures import TimeoutError as FutureTimeout
 
 from .. import config, graph
 from .. import knowledge as kb
@@ -81,6 +82,8 @@ RESPONSE_SCHEMA = {
         },
     },
     "required": ["reply", "open_documents"],
+    # reply first, so its text can be streamed to the user while the rest of the JSON is generated
+    "property_ordering": ["reply", "open_documents", "open_graph", "correction"],
 }
 
 log = logging.getLogger("uvicorn.error")
@@ -92,6 +95,19 @@ RETRYABLE = ("503", "429", "500", "UNAVAILABLE", "RESOURCE_EXHAUSTED", "DEADLINE
 
 
 def run_turn(con, messages: list[dict]) -> dict:
+    """Whole turn at once (evaluation, non-streaming endpoint)."""
+    for event in run_turn_events(con, messages):
+        if event["type"] == "done":
+            return event["result"]
+    raise RuntimeError("turn ended without a result")
+
+
+def run_turn_events(con, messages: list[dict]):
+    """One chat turn as a stream of events:
+      {"type": "delta", "text": ...}    more of the reply text, as the model writes it
+      {"type": "reset"}                 discard streamed text (a model failed mid-answer; trying the next)
+      {"type": "done", "result": {...}} the final reply (incl. correction notes), attachments, trace
+    """
     ctx = TurnContext(con=con)
     t0 = time.time()
     attempts: list[dict] = []
@@ -109,17 +125,45 @@ def run_turn(con, messages: list[dict]) -> dict:
                 break
             t = time.time()
             remaining = max(5.0, config.GEMINI_TURN_BUDGET_S - (t - t0))
-            try:
-                # Hard wall-clock cap; on timeout the worker thread is abandoned and its result ignored.
-                result, usage = _POOL.submit(_ask_gemini, messages, evidence, model).result(timeout=remaining)
+            # The request runs in a worker thread and hands back text as it arrives. The time budget covers
+            # waiting for the first words; once the answer is streaming it may take up to one more budget.
+            q: queue.Queue = queue.Queue()
+            stop = threading.Event()
+
+            def work(model=model, q=q, stop=stop):
+                try:
+                    q.put(("ok", _ask_gemini(messages, evidence, model, on_delta=lambda d: q.put(("delta", d)), stop=stop)))
+                except Exception as e:  # noqa: BLE001
+                    q.put(("err", e))
+
+            _POOL.submit(work)
+            deadline, streamed, error = t + remaining, False, None
+            while True:
+                try:
+                    kind, value = q.get(timeout=max(0.0, deadline - time.time()))
+                except queue.Empty:
+                    stop.set()  # abandon the request; the worker stops at its next chunk
+                    error = f"Timeout: no answer within {deadline - t:.0f}s"
+                    break
+                if kind == "delta":
+                    if not streamed:
+                        streamed, deadline = True, time.time() + config.GEMINI_TURN_BUDGET_S
+                    yield {"type": "delta", "text": value}
+                elif kind == "ok":
+                    result, usage = value
+                    break
+                else:
+                    error = f"{type(value).__name__}: {value}"
+                    break
+            if result is not None:
                 mode = "online"
                 attempts.append({"model": model, "ok": True, "seconds": round(time.time() - t, 1), **usage})
                 break
-            except Exception as e:  # noqa: BLE001 - surfaced to the UI below
-                msg = f"Timeout: no answer within {remaining:.0f}s" if isinstance(e, FutureTimeout) else f"{type(e).__name__}: {e}"
-                attempts.append({"model": model, "ok": False, "seconds": round(time.time() - t, 1), "error": msg[:300]})
-                if not any(s in msg for s in RETRYABLE):
-                    break  # e.g. 404 model not found, 400 bad key: another model will not help
+            attempts.append({"model": model, "ok": False, "seconds": round(time.time() - t, 1), "error": error[:300]})
+            if streamed:
+                yield {"type": "reset"}
+            if not any(s in error for s in RETRYABLE):
+                break  # e.g. 404 model not found, 400 bad key: another model will not help
         # Provider/model details go to the server log only; the UI just sees online/offline.
         for a in attempts:
             log.info("llm attempt %s", a)
@@ -131,7 +175,7 @@ def run_turn(con, messages: list[dict]) -> dict:
             mode = "offline-fallback"
         else:
             reply = _apply(ctx, result, hits, messages[-1]["content"])
-    return {
+    yield {"type": "done", "result": {
         "reply": reply,
         "attachments": ctx.attachments,
         "trace": ctx.trace,
@@ -139,10 +183,10 @@ def run_turn(con, messages: list[dict]) -> dict:
         "latency_ms": round((time.time() - t0) * 1000),
         # For evaluation/logging only; removed from HTTP responses (it names the provider/model).
         "_internal": {"attempts": attempts},
-    }
+    }}
 
 
-def _ask_gemini(messages: list[dict], evidence: str, model: str) -> tuple[dict, dict]:
+def _ask_gemini(messages: list[dict], evidence: str, model: str, on_delta=None, stop=None) -> tuple[dict, dict]:
     from google import genai
     from google.genai import types
 
@@ -165,16 +209,75 @@ def _ask_gemini(messages: list[dict], evidence: str, model: str) -> tuple[dict, 
     )
     if config.GEMINI_THINKING:
         gen_config["thinking_config"] = types.ThinkingConfig(thinking_level=config.GEMINI_THINKING.upper())
-    resp = client.models.generate_content(model=model, contents=contents,
-                                          config=types.GenerateContentConfig(**gen_config))
-    u = resp.usage_metadata
+    text, u, reply = "", None, ReplyStream()
+    for chunk in client.models.generate_content_stream(model=model, contents=contents,
+                                                       config=types.GenerateContentConfig(**gen_config)):
+        if stop is not None and stop.is_set():
+            raise TimeoutError("abandoned after the time budget")
+        u = chunk.usage_metadata or u
+        if chunk.text:
+            text += chunk.text
+            new = reply.feed(text)
+            if new and on_delta:
+                on_delta(new)
     usage = {"prompt_tokens": getattr(u, "prompt_token_count", None),
              "thinking_tokens": getattr(u, "thoughts_token_count", None),
              "output_tokens": getattr(u, "candidates_token_count", None)} if u else {}
     try:
-        return json.loads(resp.text or "{}"), usage
+        return json.loads(text or "{}"), usage
     except json.JSONDecodeError:
-        return {"reply": resp.text or "(no text returned)", "open_documents": []}, usage
+        return {"reply": text or "(no text returned)", "open_documents": []}, usage
+
+
+class ReplyStream:
+    """Pulls the "reply" string out of a JSON object that is still being generated, so it can be shown
+    as it is written. feed() takes the whole text so far and returns the newly decoded reply text."""
+
+    _KEY = '"reply"'
+
+    def __init__(self):
+        self.pos = None  # index in the raw text where the reply string's content continues
+        self.done = False
+
+    def feed(self, raw: str) -> str:
+        if self.done:
+            return ""
+        if self.pos is None:
+            k = raw.find(self._KEY)
+            if k < 0:
+                return ""
+            i = k + len(self._KEY)
+            while i < len(raw) and raw[i] in " \t\r\n:":
+                i += 1
+            if i >= len(raw) or raw[i] != '"':
+                return ""
+            self.pos = i + 1
+        out, i = [], self.pos
+        while i < len(raw):
+            c = raw[i]
+            if c == '"':
+                self.done = True
+                i += 1
+                break
+            if c != "\\":
+                out.append(c)
+                i += 1
+                continue
+            if i + 1 >= len(raw):
+                break  # escape not complete yet
+            if raw[i + 1] != "u":
+                out.append(json.loads('"' + raw[i:i + 2] + '"'))
+                i += 2
+                continue
+            n = 6
+            if i + 6 <= len(raw) and 0xD800 <= int(raw[i + 2:i + 6], 16) <= 0xDBFF:
+                n = 12  # surrogate pair: wait for the second half
+            if i + n > len(raw):
+                break
+            out.append(json.loads('"' + raw[i:i + n] + '"'))
+            i += n
+        self.pos = i
+        return "".join(out)
 
 
 def _apply(ctx: TurnContext, result: dict, hits: list[dict], question: str = "") -> str:
