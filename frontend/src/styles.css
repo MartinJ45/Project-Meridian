@@ -155,7 +155,9 @@ pre { white-space: pre-wrap; word-break: break-word; }
 
 .model { display: flex; flex-direction: column; height: 100%; }
 .recon-banner { background: #ede9fe; color: #5b21b6; padding: 6px 12px; font-size: 13px; font-weight: 500; }
-.model-canvas { flex: 1; min-height: 320px; }
+.model-canvas { flex: 1; min-height: 320px; position: relative; overflow: hidden; }
+/* The canvas never affects layout (its pixel size can round past a fractional panel width). */
+.model-canvas canvas { position: absolute; top: 0; left: 0; }
 .model-meta { padding: 8px 12px; background: #fff; border-top: 1px solid var(--line); display: flex; flex-direction: column; gap: 4px; max-height: 40%; overflow-y: auto; }
 .model-meta .check.ok { color: var(--ok); }
 .model-meta .check.fail { color: var(--bad); }

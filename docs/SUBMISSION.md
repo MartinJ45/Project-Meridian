@@ -20,9 +20,10 @@ dataset/ ──► ingest (Python, local) ────────────�
              3D specs → .glb reconstructions                       models3d
                                    │
 browser (React) ◄── FastAPI ◄──────┤
-  chat · drawings · past chats ·   │  chat turn: retrieve evidence in Python → ONE Gemini call (JSON:
-  review                           │  reply, drawings to open, proposed correction) → open drawing/3D,
-                                   │  file correction for review
+  chat · drawings · past chats ·   │  chat turn: retrieve evidence in Python → ONE streamed Gemini call
+  graph · review                   │  (JSON: reply first, streamed to the browser as it is written; then
+                                   │  drawings to open, graph focus, proposed correction) → open
+                                   │  drawing/3D/graph, file correction for review
                                    └─ data/chats.db (chat history), data/corrections.jsonl (review journal)
 ```
 
@@ -49,7 +50,11 @@ lifecycle, `consistency.py` compares drawing and BOM claims, `recon/` builds 3D 
    drawings and BOM rows, full detail for the parts the question matches, discrepancies, corrections) and the
    model returns structured JSON: the answer, which drawings to open, and any proposed correction. The model
    only sees retrieved evidence, so answers stay grounded; the app (not the model) opens drawings and files
-   corrections.
+   corrections. The JSON is streamed with the reply field first: the backend extracts the reply text as it
+   arrives and sends it to the browser (`/api/chat/stream`, newline-delimited JSON), which shows it word by
+   word and holds back unfinished markdown (an open `**`, a half-received table row). On a long answer the first
+   words appeared after 3.0 s instead of 7.8 s for the whole reply. Drawings, 3D, graph and corrections are acted
+   on once the answer is complete; the evaluation uses the same code path without streaming.
 
 4. **Drawing↔BOM links are reviewed decisions, not fuzzy matches.** File names are often Danish and generic
    ("Door x2" fuzzy-matched "Back Door", "hinge" and "latch"). `data/links_curated.json` holds one decision per
@@ -110,6 +115,8 @@ Three layers, kept separate in the UI and in chat answers:
 - **Ingest of a new drawing:** upload a PDF in the Drawings view (+). The server stores it, extracts the text
   layer, runs the vision pass, translates Danish titles, and — if a BOM row matches well — files a link proposal
   for review (proposed via "ingest"), with the same checks. Uploads survive rebuilds; duplicates are rejected.
+- **No duplicate requests:** proposing a change that is already pending (from chat, the Evidence tab or an
+  upload) returns the pending one instead of filing a second; "91,93" and "93, 91" count as the same link.
   Tested: re-uploading the heating-element plate sheet proposed row 51 with all checks passing; a galvo plate with
   no matching row proposed nothing (matching the reviewed "no BOM row" decision).
 - **Measurements that show change:** the Review page's *Knowledge health* shows confirmed/probable links, open
@@ -153,14 +160,17 @@ answers in [data/eval/REPORT.md](../data/eval/REPORT.md). Good ones to try:
 
 | | |
 |---|---|
-| Chat opens the drawing and its 3D reconstruction | ![](screenshots/01-chat-opens-3d.jpg) |
-| A cited title-block field highlighted on the 2D sheet | ![](screenshots/02-2d-drawing-field-highlight.jpg) |
-| Evidence tab: reviewed BOM link and a drawing/BOM quantity conflict | ![](screenshots/03-evidence-link-and-conflict.jpg) |
-| Review page: an accepted correction with its checks and audit log | ![](screenshots/04-review-correction.jpg) |
-| Knowledge graph focused on a drawing; red edge = drawing/BOM conflict | ![](screenshots/05-knowledge-graph-focus.jpg) |
-| Supplier question in chat; Suppliers tab with the part profile and grounded leads | ![](screenshots/06-supplier-suggestions.jpg) |
-| Interfaces question in chat → graph opened around the part | ![](screenshots/07-graph-from-chat-interfaces.jpg) |
-| Review page: knowledge health and evaluation history | ![](screenshots/08-review-knowledge-health.jpg) |
+| Chat opens the drawing and its 3D reconstruction (D-027) | ![](screenshots/01-chat-opens-3d.png) |
+| A cited title-block field (Material) highlighted on the 2D sheet (D-012) | ![](screenshots/02-2d-drawing-field-highlight.png) |
+| Evidence tab: reviewed BOM link and a drawing/BOM quantity conflict (D-026) | ![](screenshots/03-evidence-link-and-conflict.png) |
+| Knowledge graph around a drawing; red edge = drawing/BOM conflict, explained in the side panel (D-026) | ![](screenshots/04-knowledge-graph-focus.png) |
+| Supplier question in chat; Suppliers tab with the part profile, recorded supplier and grounded leads | ![](screenshots/05-supplier-suggestions.png) |
+| Interfaces question in chat: cited answer, drawing opened, and a button into the knowledge graph | ![](screenshots/06-chat-interfaces-graph-link.png) |
+| Review page: knowledge health, history after each reviewed change, evaluation runs | ![](screenshots/07-review-knowledge-health.png) |
+| 3D reconstruction of D-025 with its mass check against the title block | ![](screenshots/08-d025-3d.png) |
+| 3D reconstruction of D-027 with its mass check against the title block | ![](screenshots/09-d027-3d.png) |
+
+The third reconstruction (D-012) is reachable the same way (*Show me the recoater mount block.*).
 
 The correction before/after transcript is in the last section of [REPORT.md](../data/eval/REPORT.md).
 
@@ -260,13 +270,15 @@ search is two extra calls (~30–40 s) and is cached per part. All runs are list
 
 **Chat**
 - Part matching is fuzzy plus verbatim names and a small Danish glossary; unusual phrasings can still miss.
-- The BOM index sent with every question has name, family, type, material, supplier and V&V, but not cost or
-  order numbers; those are only available for parts the question names, so aggregate questions ("most
-  expensive part") are not well supported.
+- The BOM index sent with every question has name, family, type, material, supplier, V&V and recorded cost,
+  but not order numbers or links; those are only available for parts the question matches. (Cost was added
+  after a review found "How much did the galvo scanner cost?" answered "not recorded": the weak name match
+  left the row out of the detailed evidence, and the index had no cost column.)
 - Answers depend on an external LLM; with no API key or during an outage the app falls back to search results
   and still opens drawings, but writes no prose answer.
 
 **3D** — three parts, built as extruded profiles with boolean features; threads and fillets are not modelled.
 
 **Privacy note** — vision output excludes the drafter's name, email and phone, but these appear in the
-upstream PDFs themselves and therefore in the committed raw text-layer dumps (`data/extracted/D-0xx.json`).
+upstream PDFs themselves and therefore in the committed raw text-layer dumps (`data/extracted/D-0xx.json`)
+and in screenshots of drawing sheets (e.g. the title block in screenshot 02).
